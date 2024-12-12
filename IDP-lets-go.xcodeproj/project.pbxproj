@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31F074AD2D026F8000D0AA23 /* MeditationStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F074AA2D026F8000D0AA23 /* MeditationStartView.swift */; };
+		31F074AE2D026F8000D0AA23 /* MeditationAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F074A92D026F8000D0AA23 /* MeditationAudioView.swift */; };
+		31F074AF2D026F8000D0AA23 /* AudioPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F074A82D026F8000D0AA23 /* AudioPlayerViewModel.swift */; };
+		31F074B22D02758C00D0AA23 /* MeditationEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F074B12D02758C00D0AA23 /* MeditationEndView.swift */; };
+		31F074B42D03190400D0AA23 /* meditation_audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 31F074B32D03190400D0AA23 /* meditation_audio.mp3 */; };
 		8DD8CD162CFD0B010058CF4B /* IDP_lets_goApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD152CFD0B010058CF4B /* IDP_lets_goApp.swift */; };
 		8DD8CD182CFD0B010058CF4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD172CFD0B010058CF4B /* ContentView.swift */; };
 		8DD8CD1A2CFD0B030058CF4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DD8CD192CFD0B030058CF4B /* Assets.xcassets */; };
@@ -14,6 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31F074A82D026F8000D0AA23 /* AudioPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewModel.swift; sourceTree = "<group>"; };
+		31F074A92D026F8000D0AA23 /* MeditationAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationAudioView.swift; sourceTree = "<group>"; };
+		31F074AA2D026F8000D0AA23 /* MeditationStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationStartView.swift; sourceTree = "<group>"; };
+		31F074B12D02758C00D0AA23 /* MeditationEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationEndView.swift; sourceTree = "<group>"; };
+		31F074B32D03190400D0AA23 /* meditation_audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meditation_audio.mp3; sourceTree = "<group>"; };
 		8DD8CD122CFD0B010058CF4B /* IDP-lets-go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IDP-lets-go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD8CD152CFD0B010058CF4B /* IDP_lets_goApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDP_lets_goApp.swift; sourceTree = "<group>"; };
 		8DD8CD172CFD0B010058CF4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +42,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31F074AB2D026F8000D0AA23 /* Meditation */ = {
+			isa = PBXGroup;
+			children = (
+				31F074A82D026F8000D0AA23 /* AudioPlayerViewModel.swift */,
+				31F074A92D026F8000D0AA23 /* MeditationAudioView.swift */,
+				31F074AA2D026F8000D0AA23 /* MeditationStartView.swift */,
+				31F074B12D02758C00D0AA23 /* MeditationEndView.swift */,
+				31F074B32D03190400D0AA23 /* meditation_audio.mp3 */,
+			);
+			path = Meditation;
+			sourceTree = "<group>";
+		};
 		8DD8CD092CFD0B010058CF4B = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +73,7 @@
 		8DD8CD142CFD0B010058CF4B /* IDP-lets-go */ = {
 			isa = PBXGroup;
 			children = (
+				31F074AB2D026F8000D0AA23 /* Meditation */,
 				8DD8CD152CFD0B010058CF4B /* IDP_lets_goApp.swift */,
 				8DD8CD172CFD0B010058CF4B /* ContentView.swift */,
 				8DD8CD192CFD0B030058CF4B /* Assets.xcassets */,
@@ -126,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD8CD1D2CFD0B030058CF4B /* Preview Assets.xcassets in Resources */,
+				31F074B42D03190400D0AA23 /* meditation_audio.mp3 in Resources */,
 				8DD8CD1A2CFD0B030058CF4B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +161,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31F074AD2D026F8000D0AA23 /* MeditationStartView.swift in Sources */,
+				31F074AE2D026F8000D0AA23 /* MeditationAudioView.swift in Sources */,
+				31F074AF2D026F8000D0AA23 /* AudioPlayerViewModel.swift in Sources */,
 				8DD8CD182CFD0B010058CF4B /* ContentView.swift in Sources */,
+				31F074B22D02758C00D0AA23 /* MeditationEndView.swift in Sources */,
 				8DD8CD162CFD0B010058CF4B /* IDP_lets_goApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

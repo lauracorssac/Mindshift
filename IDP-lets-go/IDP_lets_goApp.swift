@@ -11,7 +11,7 @@ import SwiftUI
 struct IDP_lets_goApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MeditationStartView()
         }
     }
 }
