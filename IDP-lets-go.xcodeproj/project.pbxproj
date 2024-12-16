@@ -20,6 +20,11 @@
 		8DD8CD2A2D101B9D0058CF4B /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD292D101B9D0058CF4B /* Fonts.swift */; };
 		8DD8CD2D2D101D300058CF4B /* RoundedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD2C2D101D300058CF4B /* RoundedButtonStyle.swift */; };
 		8DD8CD2F2D101DD30058CF4B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD2E2D101DD30058CF4B /* Colors.swift */; };
+		8DD8CD322D1023030058CF4B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD312D1023030058CF4B /* Coordinator.swift */; };
+		8DD8CD372D1026210058CF4B /* NameQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD362D1026210058CF4B /* NameQuestionView.swift */; };
+		8DD8CD392D1027910058CF4B /* BirthdateQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD382D1027910058CF4B /* BirthdateQuestionView.swift */; };
+		8DD8CD3B2D102FE70058CF4B /* GenderQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD3A2D102FE70058CF4B /* GenderQuestionView.swift */; };
+		8DD8CD3D2D1033540058CF4B /* EducationBackgroundQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD3C2D1033540058CF4B /* EducationBackgroundQuestionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,11 @@
 		8DD8CD292D101B9D0058CF4B /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		8DD8CD2C2D101D300058CF4B /* RoundedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonStyle.swift; sourceTree = "<group>"; };
 		8DD8CD2E2D101DD30058CF4B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		8DD8CD312D1023030058CF4B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		8DD8CD362D1026210058CF4B /* NameQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameQuestionView.swift; sourceTree = "<group>"; };
+		8DD8CD382D1027910058CF4B /* BirthdateQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdateQuestionView.swift; sourceTree = "<group>"; };
+		8DD8CD3A2D102FE70058CF4B /* GenderQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderQuestionView.swift; sourceTree = "<group>"; };
+		8DD8CD3C2D1033540058CF4B /* EducationBackgroundQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationBackgroundQuestionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +113,11 @@
 		8DD8CD232D10192A0058CF4B /* Demographics */ = {
 			isa = PBXGroup;
 			children = (
-				8DD8CD242D1019C40058CF4B /* DemographicQuestionView.swift */,
+				8DD8CD332D1025E90058CF4B /* Common */,
+				8DD8CD362D1026210058CF4B /* NameQuestionView.swift */,
+				8DD8CD382D1027910058CF4B /* BirthdateQuestionView.swift */,
+				8DD8CD3A2D102FE70058CF4B /* GenderQuestionView.swift */,
+				8DD8CD3C2D1033540058CF4B /* EducationBackgroundQuestionView.swift */,
 			);
 			path = Demographics;
 			sourceTree = "<group>";
@@ -111,6 +125,7 @@
 		8DD8CD262D101B7F0058CF4B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8DD8CD302D1022F50058CF4B /* Classes */,
 				8DD8CD2B2D101D030058CF4B /* Views */,
 				8DD8CD282D101B920058CF4B /* Extensions */,
 			);
@@ -132,6 +147,22 @@
 				8DD8CD2C2D101D300058CF4B /* RoundedButtonStyle.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8DD8CD302D1022F50058CF4B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8DD8CD312D1023030058CF4B /* Coordinator.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8DD8CD332D1025E90058CF4B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8DD8CD242D1019C40058CF4B /* DemographicQuestionView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,9 +241,14 @@
 				31F074AD2D026F8000D0AA23 /* MeditationStartView.swift in Sources */,
 				31F074AE2D026F8000D0AA23 /* MeditationAudioView.swift in Sources */,
 				8DD8CD252D1019C40058CF4B /* DemographicQuestionView.swift in Sources */,
+				8DD8CD372D1026210058CF4B /* NameQuestionView.swift in Sources */,
 				31F074AF2D026F8000D0AA23 /* AudioPlayerViewModel.swift in Sources */,
+				8DD8CD3B2D102FE70058CF4B /* GenderQuestionView.swift in Sources */,
+				8DD8CD322D1023030058CF4B /* Coordinator.swift in Sources */,
+				8DD8CD392D1027910058CF4B /* BirthdateQuestionView.swift in Sources */,
 				8DD8CD2D2D101D300058CF4B /* RoundedButtonStyle.swift in Sources */,
 				8DD8CD182CFD0B010058CF4B /* ContentView.swift in Sources */,
+				8DD8CD3D2D1033540058CF4B /* EducationBackgroundQuestionView.swift in Sources */,
 				31F074B22D02758C00D0AA23 /* MeditationEndView.swift in Sources */,
 				8DD8CD162CFD0B010058CF4B /* IDP_lets_goApp.swift in Sources */,
 			);

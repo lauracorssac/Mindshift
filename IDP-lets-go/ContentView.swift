@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var coordinator = AppCoordinator()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello")
+        NavigationStack(path: $coordinator.path) {
+            coordinator.build(.name)
+                .navigationDestination(for: Screen.self) { screen in
+                    coordinator.build(screen)
+                }
         }
-        .padding()
+        .environmentObject(coordinator)
     }
 }
 
