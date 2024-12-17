@@ -37,7 +37,7 @@ struct DemographicQuestionView<Content: View>: View {
     
     var body: some View {
         
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 20) {
             Text(demographicQuestion.title)
                 .font(Font.system24)
                 .multilineTextAlignment(.center)

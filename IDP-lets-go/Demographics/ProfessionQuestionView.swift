@@ -19,7 +19,7 @@ struct ProfessionQuestionView: View {
                 coordinator.pushNext(to: .profession)
             }
         ) {
-            TextField("", text: $profesison)
+            TextField("Your profession", text: $profesison)
         }
     }
 }

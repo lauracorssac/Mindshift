@@ -8,29 +8,29 @@
 import SwiftUI
 
 struct MeditationStartView: View {
+    
+    @EnvironmentObject private var coordinator: AppCoordinator
+    
     var body: some View {
-        NavigationStack {
-            VStack {
-                Spacer()
-                Text("You’ve completed the diagnostic phase and are now ready to begin the mindfulness exercises.")
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 25)
-                    .padding(.vertical, 20)
-                
-                NavigationLink(destination: MeditationAudioView()) {
-                    Text("Begin Exercise")
-                        .padding(12)
-                        .background(.blue)
-                        .foregroundStyle(.white)
-                        .cornerRadius(100)
-                }
-                
-                Spacer()
-            }
+        
+        VStack {
+            Spacer()
+            Text("You’ve completed the diagnostic phase and are now ready to begin the mindfulness exercises.")
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 25)
+                .padding(.vertical, 20)
+            
+            Button("Begin Exercise") {
+                coordinator.pushNext(to: .meditationStart)
+            }.buttonStyle(RoundedButtonStyle())
+            
+            Spacer()
         }
+        
     }
 }
 
 #Preview {
     MeditationStartView()
+        .environmentObject(AppCoordinator())
 }
