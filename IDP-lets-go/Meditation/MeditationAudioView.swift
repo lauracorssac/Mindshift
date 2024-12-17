@@ -41,12 +41,6 @@ struct MeditationAudioView: View {
             }
             .padding(.horizontal, 25)
             
-            if Constants.DEBUG {
-                Button("skip this shit") {
-                    coordinator.pushNext(to: .meditation)
-                }
-            }
-            
         }
         .navigationTitle("Guided Meditation")
         .onChange(of: viewModel.audioFinished) { _, isFinished in
