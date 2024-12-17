@@ -7,15 +7,17 @@
 
 import SwiftUI
 
-struct NameQuestionView<T: Coordinator>: View {
+struct NameQuestionView: View {
     
-    @EnvironmentObject private var coordinator: T
+    @EnvironmentObject private var coordinator: AppCoordinator
     @State private var name: String = ""
     
     var body: some View {
         DemographicQuestionView(
             demographicQuestion: .name,
-            buttonPressed: { }
+            buttonPressed: {
+                coordinator.pushNext(to: .name)
+            }
         ) {
             TextField("Your name", text: $name)
         }
@@ -23,6 +25,6 @@ struct NameQuestionView<T: Coordinator>: View {
 }
 
 #Preview {
-    NameQuestionView<MockCoordinator>()
-        .environmentObject(MockCoordinator())
+    NameQuestionView()
+        .environmentObject(AppCoordinator())
 }

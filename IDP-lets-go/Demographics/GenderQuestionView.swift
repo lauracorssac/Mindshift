@@ -15,14 +15,16 @@ enum Gender: String, CaseIterable, Identifiable {
     case male, female, other, none
 }
 
-struct GenderQuestionView<T: Coordinator>: View {
-    @EnvironmentObject private var coordinator: T
+struct GenderQuestionView: View {
+    @EnvironmentObject private var coordinator: AppCoordinator
     @State private var gender: Gender = .none
     
     var body: some View {
         DemographicQuestionView(
             demographicQuestion: .gender,
-            buttonPressed: { }
+            buttonPressed: { 
+                coordinator.pushNext(to: .gender)
+            }
         ) {
             Picker("Gender", selection: $gender) {
                 ForEach(Gender.allCases) { gender in
@@ -35,5 +37,6 @@ struct GenderQuestionView<T: Coordinator>: View {
 }
 
 #Preview {
-    GenderQuestionView<MockCoordinator>()
+    GenderQuestionView()
+        .environmentObject(AppCoordinator())
 }

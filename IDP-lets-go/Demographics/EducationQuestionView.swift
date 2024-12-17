@@ -19,15 +19,17 @@ enum EducationBackground: String, CaseIterable, Identifiable {
     case none = "None"
 }
 
-struct EducationBackgroundQuestionView<T: Coordinator>: View {
+struct EducationQuestionView: View {
     
-    @EnvironmentObject private var coordinator: T
+    @EnvironmentObject private var coordinator: AppCoordinator
     @State private var education: EducationBackground = .none
     
     var body: some View {
         DemographicQuestionView(
             demographicQuestion: .educationBackground,
-            buttonPressed: { }
+            buttonPressed: {
+                coordinator.pushNext(to: .education)
+            }
         ) {
             Picker("Education", selection: $education) {
                 ForEach(EducationBackground.allCases) { education in
@@ -40,6 +42,6 @@ struct EducationBackgroundQuestionView<T: Coordinator>: View {
 }
 
 #Preview {
-    EducationBackgroundQuestionView<MockCoordinator>()
-        .environmentObject(MockCoordinator())
+    EducationQuestionView()
+        .environmentObject(AppCoordinator())
 }

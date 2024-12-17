@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct BirthdateQuestionView<T : Coordinator>: View {
+struct BirthdateQuestionView: View {
     
-    @EnvironmentObject private var coordinator: T
+    @EnvironmentObject private var coordinator: AppCoordinator
     @State private var birthDate = Date.now
     
     var body: some View {
         DemographicQuestionView(
             demographicQuestion: .birthdate,
             buttonPressed: { 
-                
+                coordinator.pushNext(to: .birthdate)
             }
         ) {
             DatePicker(
@@ -31,6 +31,6 @@ struct BirthdateQuestionView<T : Coordinator>: View {
 }
 
 #Preview {
-    BirthdateQuestionView<MockCoordinator>()
-        .environmentObject(MockCoordinator())
+    BirthdateQuestionView()
+        .environmentObject(AppCoordinator())
 }
