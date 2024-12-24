@@ -8,41 +8,44 @@ import SwiftUI
 
 struct MeditationAudioView: View {
     @StateObject private var viewModel = AudioPlayerViewModel()
+    @EnvironmentObject private var coordinator: AppCoordinator
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                // Play/Pause Button
-                Button(action: {
-                    viewModel.playPause()
-                }) {
-                    Image(systemName: viewModel.isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                        .font(.system(size: 85))
-                        .foregroundColor(.blue)
-                        .padding(.vertical, 20)
-                }
-                
-                // Audio progress bar
-                ProgressView(value: viewModel.progress, total: 1.0)
-                    .progressViewStyle(LinearGaugeProgressStyle())
-                    .frame(height: 15)
-                    .padding(.horizontal, 25)
-                
-                // Current time and total duration
-                HStack {
-                    Text(viewModel.formattedCurrentTime)
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                    Spacer()
-                    Text(viewModel.formattedDuration)
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                }
-                .padding(.horizontal, 25)
+        
+        VStack {
+            
+            Button(action: {
+                viewModel.playPause()
+            }) {
+                Image(systemName: viewModel.isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                    .font(.system(size: 85))
+                    .foregroundColor(.blue)
+                    .padding(.vertical, 20)
             }
-            .navigationTitle("Guided Meditation")
-            .navigationDestination(isPresented: $viewModel.audioFinished) {
-                MeditationEndView()
+            
+            
+            ProgressView(value: viewModel.progress, total: 1.0)
+                .progressViewStyle(LinearGaugeProgressStyle())
+                .frame(height: 15)
+                .padding(.horizontal, 25)
+            
+            
+            HStack {
+                Text(viewModel.formattedCurrentTime)
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                Spacer()
+                Text(viewModel.formattedDuration)
+                    .font(.caption)
+                    .foregroundColor(.gray)
+            }
+            .padding(.horizontal, 25)
+            
+        }
+        .navigationTitle("Guided Meditation")
+        .onChange(of: viewModel.audioFinished) { _, isFinished in
+            if isFinished {
+                coordinator.pushNext(to: .meditation)
             }
         }
         .onAppear {

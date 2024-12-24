@@ -33,7 +33,10 @@ class AudioPlayerViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
     
     func setupPlayer() {
-        guard let url = Bundle.main.url(forResource: "meditation_audio", withExtension: "mp3") else {
+        guard let url = Bundle.main.url(
+            forResource: Constants.DEBUG ? "audio_cut": "meditation_audio",
+            withExtension: Constants.DEBUG ? "m4a" : "mp3"
+        ) else {
             print("Audio file not found.")
             return
         }
