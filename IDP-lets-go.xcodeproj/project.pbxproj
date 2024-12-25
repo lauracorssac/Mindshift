@@ -28,6 +28,9 @@
 		8DD8CD3F2D117D050058CF4B /* ProfessionQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD3E2D117D050058CF4B /* ProfessionQuestionView.swift */; };
 		8DD8CD412D1184230058CF4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD402D1184230058CF4B /* Constants.swift */; };
 		8DD8CD452D1187E70058CF4B /* audio_cut.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 8DD8CD442D1187E70058CF4B /* audio_cut.m4a */; };
+		8DD8CD4A2D1C837F0058CF4B /* OverviewPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD492D1C837F0058CF4B /* OverviewPageView.swift */; };
+		8DD8CD4C2D1C8FF30058CF4B /* OverviewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD4B2D1C8FF30058CF4B /* OverviewCardView.swift */; };
+		8DD8CD4E2D1C91620058CF4B /* OverviewPageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD4D2D1C91620058CF4B /* OverviewPageControlView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,9 @@
 		8DD8CD3E2D117D050058CF4B /* ProfessionQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionQuestionView.swift; sourceTree = "<group>"; };
 		8DD8CD402D1184230058CF4B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8DD8CD442D1187E70058CF4B /* audio_cut.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio_cut.m4a; sourceTree = "<group>"; };
+		8DD8CD492D1C837F0058CF4B /* OverviewPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewPageView.swift; sourceTree = "<group>"; };
+		8DD8CD4B2D1C8FF30058CF4B /* OverviewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCardView.swift; sourceTree = "<group>"; };
+		8DD8CD4D2D1C91620058CF4B /* OverviewPageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewPageControlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,7 @@
 		8DD8CD142CFD0B010058CF4B /* IDP-lets-go */ = {
 			isa = PBXGroup;
 			children = (
+				8DD8CD482D1C836E0058CF4B /* Overview */,
 				8DD8CD262D101B7F0058CF4B /* Common */,
 				8DD8CD232D10192A0058CF4B /* Demographics */,
 				31F074AB2D026F8000D0AA23 /* Meditation */,
@@ -172,6 +179,16 @@
 				8DD8CD242D1019C40058CF4B /* DemographicQuestionView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		8DD8CD482D1C836E0058CF4B /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				8DD8CD492D1C837F0058CF4B /* OverviewPageView.swift */,
+				8DD8CD4B2D1C8FF30058CF4B /* OverviewCardView.swift */,
+				8DD8CD4D2D1C91620058CF4B /* OverviewPageControlView.swift */,
+			);
+			path = Overview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +267,7 @@
 				8DD8CD412D1184230058CF4B /* Constants.swift in Sources */,
 				8DD8CD2F2D101DD30058CF4B /* Colors.swift in Sources */,
 				8DD8CD3F2D117D050058CF4B /* ProfessionQuestionView.swift in Sources */,
+				8DD8CD4E2D1C91620058CF4B /* OverviewPageControlView.swift in Sources */,
 				31F074AD2D026F8000D0AA23 /* MeditationStartView.swift in Sources */,
 				31F074AE2D026F8000D0AA23 /* MeditationAudioView.swift in Sources */,
 				8DD8CD252D1019C40058CF4B /* DemographicQuestionView.swift in Sources */,
@@ -259,8 +277,10 @@
 				8DD8CD322D1023030058CF4B /* Coordinator.swift in Sources */,
 				8DD8CD392D1027910058CF4B /* BirthdateQuestionView.swift in Sources */,
 				8DD8CD2D2D101D300058CF4B /* RoundedButtonStyle.swift in Sources */,
+				8DD8CD4A2D1C837F0058CF4B /* OverviewPageView.swift in Sources */,
 				8DD8CD182CFD0B010058CF4B /* ContentView.swift in Sources */,
 				8DD8CD3D2D1033540058CF4B /* EducationQuestionView.swift in Sources */,
+				8DD8CD4C2D1C8FF30058CF4B /* OverviewCardView.swift in Sources */,
 				31F074B22D02758C00D0AA23 /* MeditationEndView.swift in Sources */,
 				8DD8CD162CFD0B010058CF4B /* IDP_lets_goApp.swift in Sources */,
 			);
