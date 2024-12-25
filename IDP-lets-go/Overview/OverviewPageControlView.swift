@@ -13,17 +13,21 @@ struct OverviewPageControlView: View {
     @Binding var selectedIndex: Int?
     
     var body: some View {
-        HStack {
+        HStack(spacing: 5) {
             ForEach(0..<numberOfCards, id: \.self) { index in
                 Button {
                     withAnimation {
                         selectedIndex = index
                     }
                 } label: {
-                    Image(
-                        systemName: selectedIndex == index ? "circle.fill" : "circle"
-                    )
-                    .foregroundStyle(Color(uiColor: .systemGray3))
+                    
+                    Circle()
+                        .foregroundStyle(selectedIndex == index ? Color.mainBlue : .white)
+                        .overlay(
+                            Circle()
+                                .stroke(Color.mainBlue, lineWidth: 1)
+                        )
+                        .frame(width: 10, height: 10)
                 }
             }
         }

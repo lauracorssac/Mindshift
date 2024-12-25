@@ -13,18 +13,31 @@ struct OverviewCardView: View {
     
     var body: some View {
         
-        Text(card.text)
-            .frame(
-                maxWidth: .infinity,
-                maxHeight: .infinity
-            )
-            .background(.background)
-            .cornerRadius(10)
-            .shadow(radius: 10)
-            .padding()
+        VStack(spacing: 0) {
+            
+            Image(card.imageName)
+            Text(card.title)
+                .padding(.top, 50)
+                .font(Font.system24)
+            Text(card.subtitle)
+                .padding(.top, 15)
+                .font(Font.system18)
+        }
+        .padding(.horizontal, 16)
+        .multilineTextAlignment(.center)
+        .frame(
+            maxWidth: .infinity,
+            maxHeight: .infinity
+        )
+        .background(.background)
+        .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.mainBlue, lineWidth: 3)
+        )
     }
 }
 
 #Preview {
-    OverviewCardView(card: Card(text: "hello"))
+    OverviewCardView(card: Card.mock)
 }

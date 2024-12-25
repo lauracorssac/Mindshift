@@ -10,11 +10,13 @@ import SwiftUI
 struct RoundedButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .padding()
+            .padding(.horizontal, 40)
+            .padding(.vertical)
             .background(
                 Color.mainBlue.opacity(
                     configuration.isPressed ? 0.5 : 1.0
-                ))
+                )
+            )
             .foregroundColor(.white)
             .font(Font.system18Bold)
             .clipShape(RoundedRectangle(cornerRadius: 50))
