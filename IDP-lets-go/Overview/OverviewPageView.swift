@@ -10,7 +10,7 @@ import SwiftUI
 struct OverviewPageView: View {
     
     @State private var selectedIndex: Int? = 0
-    
+    @EnvironmentObject private var coordinator: AppCoordinator
     
     var body: some View {
         VStack(spacing: 0) {
@@ -42,7 +42,7 @@ struct OverviewPageView: View {
             .scrollIndicators(.never)
             
             Button("Start") {
-                
+                coordinator.pushNext(to: .overview)
             }
             .opacity(
                 (selectedIndex == OverviewConstants.allCards.count - 1) ? 1.0 : 0.0
@@ -56,4 +56,5 @@ struct OverviewPageView: View {
 
 #Preview {
     OverviewPageView()
+        .environmentObject(AppCoordinator())
 }

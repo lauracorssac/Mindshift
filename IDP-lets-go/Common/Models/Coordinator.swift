@@ -8,13 +8,15 @@
 import SwiftUI
 
 enum Screen {
-    case name, gender, birthdate, profession, education, 
+    case overview, name, gender, birthdate, profession, education,
          meditationStart, meditation, meditationEnd
     
     func nextScreen() -> Screen? {
         
         switch self {
             
+        case .overview:
+                .name
         case .name:
                 .gender
         case .gender:
@@ -52,7 +54,10 @@ class AppCoordinator: ObservableObject {
     @ViewBuilder
     func build(_ screen: Screen) -> some View {
         switch screen {
-         
+            
+        case .overview:
+            OverviewPageView()
+            
         case .name:
             NameQuestionView()
             
