@@ -33,6 +33,9 @@
 		8DD8CD4E2D1C91620058CF4B /* OverviewPageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD4D2D1C91620058CF4B /* OverviewPageControlView.swift */; };
 		8DD8CD522D1C98F10058CF4B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD512D1C98F10058CF4B /* Card.swift */; };
 		8DD8CD542D1C9A990058CF4B /* OverviewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD532D1C9A990058CF4B /* OverviewConstants.swift */; };
+		8DD8CD572D1D904A0058CF4B /* ConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD562D1D904A0058CF4B /* ConsentView.swift */; };
+		8DD8CD592D1D94450058CF4B /* Consent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD582D1D94450058CF4B /* Consent.swift */; };
+		8DD8CD5B2D1D9A6D0058CF4B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD5A2D1D9A6D0058CF4B /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +66,9 @@
 		8DD8CD4D2D1C91620058CF4B /* OverviewPageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewPageControlView.swift; sourceTree = "<group>"; };
 		8DD8CD512D1C98F10058CF4B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		8DD8CD532D1C9A990058CF4B /* OverviewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewConstants.swift; sourceTree = "<group>"; };
+		8DD8CD562D1D904A0058CF4B /* ConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentView.swift; sourceTree = "<group>"; };
+		8DD8CD582D1D94450058CF4B /* Consent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consent.swift; sourceTree = "<group>"; };
+		8DD8CD5A2D1D9A6D0058CF4B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,7 @@
 		8DD8CD142CFD0B010058CF4B /* IDP-lets-go */ = {
 			isa = PBXGroup;
 			children = (
+				8DD8CD552D1D90030058CF4B /* Consent */,
 				8DD8CD482D1C836E0058CF4B /* Overview */,
 				8DD8CD262D101B7F0058CF4B /* Common */,
 				8DD8CD232D10192A0058CF4B /* Demographics */,
@@ -156,6 +163,7 @@
 			children = (
 				8DD8CD292D101B9D0058CF4B /* Fonts.swift */,
 				8DD8CD2E2D101DD30058CF4B /* Colors.swift */,
+				8DD8CD5A2D1D9A6D0058CF4B /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -203,6 +211,15 @@
 				8DD8CD532D1C9A990058CF4B /* OverviewConstants.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8DD8CD552D1D90030058CF4B /* Consent */ = {
+			isa = PBXGroup;
+			children = (
+				8DD8CD562D1D904A0058CF4B /* ConsentView.swift */,
+				8DD8CD582D1D94450058CF4B /* Consent.swift */,
+			);
+			path = Consent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DD8CD592D1D94450058CF4B /* Consent.swift in Sources */,
 				8DD8CD542D1C9A990058CF4B /* OverviewConstants.swift in Sources */,
 				8DD8CD2A2D101B9D0058CF4B /* Fonts.swift in Sources */,
 				8DD8CD412D1184230058CF4B /* Constants.swift in Sources */,
@@ -285,6 +303,7 @@
 				8DD8CD4E2D1C91620058CF4B /* OverviewPageControlView.swift in Sources */,
 				31F074AD2D026F8000D0AA23 /* MeditationStartView.swift in Sources */,
 				31F074AE2D026F8000D0AA23 /* MeditationAudioView.swift in Sources */,
+				8DD8CD572D1D904A0058CF4B /* ConsentView.swift in Sources */,
 				8DD8CD252D1019C40058CF4B /* DemographicQuestionView.swift in Sources */,
 				8DD8CD372D1026210058CF4B /* NameQuestionView.swift in Sources */,
 				31F074AF2D026F8000D0AA23 /* AudioPlayerViewModel.swift in Sources */,
@@ -292,6 +311,7 @@
 				8DD8CD322D1023030058CF4B /* Coordinator.swift in Sources */,
 				8DD8CD392D1027910058CF4B /* BirthdateQuestionView.swift in Sources */,
 				8DD8CD2D2D101D300058CF4B /* RoundedButtonStyle.swift in Sources */,
+				8DD8CD5B2D1D9A6D0058CF4B /* String.swift in Sources */,
 				8DD8CD4A2D1C837F0058CF4B /* OverviewPageView.swift in Sources */,
 				8DD8CD182CFD0B010058CF4B /* ContentView.swift in Sources */,
 				8DD8CD522D1C98F10058CF4B /* Card.swift in Sources */,

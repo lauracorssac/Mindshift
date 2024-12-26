@@ -9,6 +9,12 @@ import SwiftUI
 
 struct OverviewPageView: View {
     
+    let cards: [Card]
+    
+    private var cardsCount: Int {
+        cards.count
+    }
+    
     @State private var selectedIndex: Int? = 0
     @EnvironmentObject private var coordinator: AppCoordinator
     
@@ -16,16 +22,16 @@ struct OverviewPageView: View {
         VStack(spacing: 0) {
             
             OverviewPageControlView(
-                numberOfCards: OverviewConstants.allCards.count,
+                numberOfCards: cardsCount,
                 selectedIndex: $selectedIndex
             )
             .padding(.top, 20)
             
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(0..<OverviewConstants.allCards.count, id: \.self) { cardIndex in
+                    ForEach(0..<cardsCount, id: \.self) { cardIndex in
                         OverviewCardView(
-                            card: OverviewConstants.allCards[cardIndex]
+                            card: cards[cardIndex]
                         )
                         .padding(.horizontal, 24)
                         .padding(.vertical, 16)
@@ -45,7 +51,7 @@ struct OverviewPageView: View {
                 coordinator.pushNext(to: .overview)
             }
             .opacity(
-                (selectedIndex == OverviewConstants.allCards.count - 1) ? 1.0 : 0.0
+                (selectedIndex == cardsCount - 1) ? 1.0 : 0.0
             )
             .buttonStyle(RoundedButtonStyle())
             
@@ -55,6 +61,6 @@ struct OverviewPageView: View {
 }
 
 #Preview {
-    OverviewPageView()
+    OverviewPageView(cards: Overview().allCards)
         .environmentObject(AppCoordinator())
 }

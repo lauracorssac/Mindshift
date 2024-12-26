@@ -7,9 +7,9 @@
 
 import Foundation
 
-class OverviewConstants {
+class Overview {
     
-    static let allCards = [
+    let allCards = [
         Card(
             title: "Diagnostic phase",
             subtitle: "You will begin by taking an association test to measure your unconscious biases. Detailed information about how the test works will be provided.",
