@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct RoundedButtonStyle: ButtonStyle {
+    
+    var fixedWidth: CGFloat? = nil
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(.horizontal, 40)
             .padding(.vertical)
+            .frame(width: fixedWidth)
             .background(
                 Color.mainBlue.opacity(
                     configuration.isPressed ? 0.5 : 1.0
@@ -35,6 +39,10 @@ struct RoundedButtonStyle: ButtonStyle {
         Button("Hello") {
             
         }.buttonStyle(RoundedButtonStyle())
+        
+        Button("Hello") {
+            
+        }.buttonStyle(RoundedButtonStyle(fixedWidth: 300))
         
         Button("Very very Long Text Button") {
             

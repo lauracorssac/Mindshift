@@ -9,7 +9,7 @@ import SwiftUI
 
 struct JustifiedText: UIViewRepresentable {
     var text: String
-    var font: UIFont = UIFont.systemFont(ofSize: 17)
+    var font: UIFont = UIFont.systemFont(ofSize: 18)
     
     func makeUIView(context: Context) -> UITextView {
         let label = UITextView()
@@ -43,6 +43,7 @@ struct ConsentView: View {
                         .frame(minHeight: proxy.size.height)
                         .padding(.horizontal, 16)
                 }
+                .scrollIndicators(.visible)
             }
             
             Button("I consent") {
@@ -50,14 +51,11 @@ struct ConsentView: View {
             }
             
             Button("I do not consent") {
-               // what to do?
+               // TODO: what to do?
             }
             .padding(.bottom, 30)
-            .frame(maxWidth: .infinity)
-            .padding(.horizontal, 10)
-            
         }
-        .buttonStyle(RoundedButtonStyle())
+        .buttonStyle(RoundedButtonStyle(fixedWidth: 230))
     }
 }
 
