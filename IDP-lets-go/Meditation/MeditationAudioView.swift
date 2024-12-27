@@ -11,7 +11,6 @@ struct MeditationAudioView: View {
     @EnvironmentObject private var coordinator: AppCoordinator
     
     var body: some View {
-        
         VStack {
             
             Button(action: {
@@ -42,7 +41,7 @@ struct MeditationAudioView: View {
             .padding(.horizontal, 25)
             
         }
-        .navigationTitle("Guided Meditation")
+        .navigationTitle(MeditationStrings.MeditationViews.navigationTitle)
         .onChange(of: viewModel.audioFinished) { _, isFinished in
             if isFinished {
                 coordinator.pushNext(to: .meditation)
