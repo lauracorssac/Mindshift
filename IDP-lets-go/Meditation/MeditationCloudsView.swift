@@ -69,23 +69,24 @@ struct MeditationCloudsView: View {
     }
     
     private func animateBreathingCycle() {
+        // Ensure the initial state is consistent
+        currentPhaseText = MeditationStrings.CloudsView.breatheIn
+        rectangleWidth = 80
+        textOpacity = 1.0
+        
         // Breathe In
         withAnimation(.easeInOut(duration: 10)) {
             rectangleWidth = 300
         }
-        changeText(to: MeditationStrings.CloudsView.breatheIn)
         
         // Hold
         DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-            changeText(to: MeditationStrings.CloudsView.hold)
-            withAnimation(.easeInOut(duration: 10)) {
-                rectangleWidth = 300
-            }
+            self.changeText(to: MeditationStrings.CloudsView.hold)
         }
         
         // Breathe Out
         DispatchQueue.main.asyncAfter(deadline: .now() + 20) {
-            changeText(to: MeditationStrings.CloudsView.breatheOut)
+            self.changeText(to: MeditationStrings.CloudsView.breatheOut)
             withAnimation(.easeInOut(duration: 10)) {
                 rectangleWidth = 80
             }
