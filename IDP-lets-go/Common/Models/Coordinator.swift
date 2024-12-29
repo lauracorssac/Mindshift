@@ -8,13 +8,17 @@
 import SwiftUI
 
 enum Screen {
-    case name, gender, birthdate, profession, education, 
+    case overview, consent, name, gender, birthdate, profession, education,
          meditationStart, meditation, meditationEnd
     
     func nextScreen() -> Screen? {
         
         switch self {
             
+        case .overview:
+                .consent
+        case .consent:
+                .name
         case .name:
                 .gender
         case .gender:
@@ -52,7 +56,14 @@ class AppCoordinator: ObservableObject {
     @ViewBuilder
     func build(_ screen: Screen) -> some View {
         switch screen {
-         
+            
+        case .overview:
+            OverviewPageView(cards: Overview().allCards)
+            
+        case .consent:
+            // TODO: change to real text
+            ConsentView(consentText: Consent().text)
+            
         case .name:
             NameQuestionView()
             
@@ -76,6 +87,7 @@ class AppCoordinator: ObservableObject {
         
         case .meditationEnd:
             MeditationEndView()
+        
         }
     }
 }
