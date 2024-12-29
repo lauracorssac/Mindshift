@@ -36,6 +36,9 @@
 		8DD8CD572D1D904A0058CF4B /* ConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD562D1D904A0058CF4B /* ConsentView.swift */; };
 		8DD8CD592D1D94450058CF4B /* Consent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD582D1D94450058CF4B /* Consent.swift */; };
 		8DD8CD5B2D1D9A6D0058CF4B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD5A2D1D9A6D0058CF4B /* String.swift */; };
+		8DD8CD5E2D20D2AC0058CF4B /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD5D2D20D2AC0058CF4B /* StepView.swift */; };
+		8DD8CD602D20D3E40058CF4B /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD5F2D20D3E40058CF4B /* Classes.swift */; };
+		8DD8CD622D21A2DA0058CF4B /* IntroStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD612D21A2DA0058CF4B /* IntroStepView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +72,9 @@
 		8DD8CD562D1D904A0058CF4B /* ConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentView.swift; sourceTree = "<group>"; };
 		8DD8CD582D1D94450058CF4B /* Consent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consent.swift; sourceTree = "<group>"; };
 		8DD8CD5A2D1D9A6D0058CF4B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		8DD8CD5D2D20D2AC0058CF4B /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
+		8DD8CD5F2D20D3E40058CF4B /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
+		8DD8CD612D21A2DA0058CF4B /* IntroStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroStepView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,7 @@
 		8DD8CD142CFD0B010058CF4B /* IDP-lets-go */ = {
 			isa = PBXGroup;
 			children = (
+				8DD8CD5C2D20D2A00058CF4B /* Test */,
 				8DD8CD552D1D90030058CF4B /* Consent */,
 				8DD8CD482D1C836E0058CF4B /* Overview */,
 				8DD8CD262D101B7F0058CF4B /* Common */,
@@ -222,6 +229,16 @@
 			path = Consent;
 			sourceTree = "<group>";
 		};
+		8DD8CD5C2D20D2A00058CF4B /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				8DD8CD5D2D20D2AC0058CF4B /* StepView.swift */,
+				8DD8CD5F2D20D3E40058CF4B /* Classes.swift */,
+				8DD8CD612D21A2DA0058CF4B /* IntroStepView.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -294,6 +311,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DD8CD5E2D20D2AC0058CF4B /* StepView.swift in Sources */,
+				8DD8CD622D21A2DA0058CF4B /* IntroStepView.swift in Sources */,
 				8DD8CD592D1D94450058CF4B /* Consent.swift in Sources */,
 				8DD8CD542D1C9A990058CF4B /* OverviewConstants.swift in Sources */,
 				8DD8CD2A2D101B9D0058CF4B /* Fonts.swift in Sources */,
@@ -301,6 +320,7 @@
 				8DD8CD2F2D101DD30058CF4B /* Colors.swift in Sources */,
 				8DD8CD3F2D117D050058CF4B /* ProfessionQuestionView.swift in Sources */,
 				8DD8CD4E2D1C91620058CF4B /* OverviewPageControlView.swift in Sources */,
+				8DD8CD602D20D3E40058CF4B /* Classes.swift in Sources */,
 				31F074AD2D026F8000D0AA23 /* MeditationStartView.swift in Sources */,
 				31F074AE2D026F8000D0AA23 /* MeditationAudioView.swift in Sources */,
 				8DD8CD572D1D904A0058CF4B /* ConsentView.swift in Sources */,

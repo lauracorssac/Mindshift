@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MeditationEndView: View {
+    
+    @EnvironmentObject private var coordinator: AppCoordinator
+    
     var body: some View {
         VStack {
             Text("Session complete!")
@@ -20,6 +23,11 @@ struct MeditationEndView: View {
             Image(systemName: "checkmark.circle.fill")
                 .font(.system(size: 150))
                 .foregroundColor(.blue)
+            
+            Button("Go to test") {
+                coordinator.pushNext(to: .meditationEnd)
+            }
+            .buttonStyle(RoundedButtonStyle())
         }
     }
 }

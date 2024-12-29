@@ -7,50 +7,93 @@
 
 import SwiftUI
 
-enum Screen {
+enum Screen: Hashable {
+    
     case overview, consent, name, gender, birthdate, profession, education,
-         meditationStart, meditation, meditationEnd
+         meditationStart, meditation, meditationEnd, testStart, testStepIntro(step: Step),
+         testQuestion(step: Step)
     
     func nextScreen() -> Screen? {
         
         switch self {
-            
         case .overview:
-                .consent
+            .consent
         case .consent:
-                .name
+            .name
         case .name:
-                .gender
+            .gender
         case .gender:
-                .birthdate
+            .birthdate
         case .birthdate:
-                .profession
+            .profession
         case .profession:
-                .education
+            .education
         case .education:
-                .meditationStart
+            .meditationStart
         case .meditationStart:
-                .meditation
+            .meditation
         case .meditation:
-                .meditationEnd
+            .meditationEnd
         case .meditationEnd:
+            .testStart
+        case let .testStepIntro(step: step):
+            .testQuestion(step: step)
+        case .testStart, .testQuestion(step: _):
             nil
         }
         
     }
 }
 
+class GameCoordinator {
+    
+    private let steps: [Step] = [Step.mockStep, Step.mockStep]
+    private var currentStep = 0
+    
+    func getInitialScreen() -> Screen {
+        return .testStepIntro(step: steps[currentStep])
+    }
+    
+    func getNextStep() -> Screen? {
+        
+        guard currentStep < steps.count - 1 else { return nil }
+        currentStep += 1
+        return .testStepIntro(step: steps[currentStep])
+    }
+    
+}
+
 class AppCoordinator: ObservableObject {
     @Published var path = NavigationPath()
+    
+    var gameCoordinator: GameCoordinator?
     
     func push(_ screen: Screen) {
         path.append(screen)
     }
     
     func pushNext(to screen: Screen) {
-        if let next = screen.nextScreen() {
-            self.push(next)
+        
+        switch screen {
+        case .testStart:
+            gameCoordinator = GameCoordinator()
+            self.push(gameCoordinator!.getInitialScreen())
+            
+           
+        case .testQuestion(step: _):
+            if let nextStep = gameCoordinator?.getNextStep() {
+                self.push(nextStep)
+            } else {
+                // end test
+            }
+            
+        default:
+            if let next = screen.nextScreen() {
+                self.push(next)
+            }
         }
+        
+        
     }
     
     @ViewBuilder
@@ -88,6 +131,14 @@ class AppCoordinator: ObservableObject {
         case .meditationEnd:
             MeditationEndView()
         
+        case .testStart:
+            TestStartView()
+            
+        case let .testStepIntro(step):
+            IntroStepView(step: step)
+            
+        case let .testQuestion(step):
+            StepQuestionView(stepVM: .init(step: step))
         }
     }
 }
