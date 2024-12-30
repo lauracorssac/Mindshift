@@ -21,7 +21,7 @@ class Overview {
             imageName: "step2"
         ),
         Card(
-            title: "Pos-intervation phase",
+            title: "Pos-intervention phase",
             subtitle: "Finally, you will take the same test as in Step 1 to evaluate how mindfulness influenced the reduction of unconscious biases.",
             imageName: "step1"
         )
