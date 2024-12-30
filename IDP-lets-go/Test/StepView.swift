@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-class StepQuestionViewModel: ObservableObject {
+@Observable
+class StepQuestionViewModel {
     
     let step: Step
-    @Published var presentNextStep = false
+    var presentNextStep = false
     var currentQuestion: Question {
         step.questions[currentQuestionIndex]
     }
-    @Published var currentQuestionIndex: Int = 0
+    var currentQuestionIndex: Int = 0
     
     init(step: Step) {
         self.step = step
@@ -33,7 +34,7 @@ class StepQuestionViewModel: ObservableObject {
 
 struct StepQuestionView: View {
     
-    @ObservedObject var stepVM: StepQuestionViewModel
+    let stepVM: StepQuestionViewModel
     @EnvironmentObject private var coordinator: AppCoordinator
     
     var body: some View {

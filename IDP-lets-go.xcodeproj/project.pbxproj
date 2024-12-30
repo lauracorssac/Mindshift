@@ -39,6 +39,7 @@
 		8DD8CD5E2D20D2AC0058CF4B /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD5D2D20D2AC0058CF4B /* StepView.swift */; };
 		8DD8CD602D20D3E40058CF4B /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD5F2D20D3E40058CF4B /* Classes.swift */; };
 		8DD8CD622D21A2DA0058CF4B /* IntroStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD612D21A2DA0058CF4B /* IntroStepView.swift */; };
+		8DD8CD642D21D3450058CF4B /* FinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD632D21D3450058CF4B /* FinalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		8DD8CD5D2D20D2AC0058CF4B /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
 		8DD8CD5F2D20D3E40058CF4B /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		8DD8CD612D21A2DA0058CF4B /* IntroStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroStepView.swift; sourceTree = "<group>"; };
+		8DD8CD632D21D3450058CF4B /* FinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 				8DD8CD5D2D20D2AC0058CF4B /* StepView.swift */,
 				8DD8CD5F2D20D3E40058CF4B /* Classes.swift */,
 				8DD8CD612D21A2DA0058CF4B /* IntroStepView.swift */,
+				8DD8CD632D21D3450058CF4B /* FinalView.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				8DD8CD622D21A2DA0058CF4B /* IntroStepView.swift in Sources */,
 				8DD8CD592D1D94450058CF4B /* Consent.swift in Sources */,
 				8DD8CD542D1C9A990058CF4B /* OverviewConstants.swift in Sources */,
+				8DD8CD642D21D3450058CF4B /* FinalView.swift in Sources */,
 				8DD8CD2A2D101B9D0058CF4B /* Fonts.swift in Sources */,
 				8DD8CD412D1184230058CF4B /* Constants.swift in Sources */,
 				8DD8CD2F2D101DD30058CF4B /* Colors.swift in Sources */,

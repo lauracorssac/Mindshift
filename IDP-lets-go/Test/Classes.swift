@@ -22,11 +22,13 @@ struct Step: Hashable {
     let rightTitle: String
     let introText: String
     let questions: [Question]
+    var startTime: Date?
+    var endTime: Date?
     
-    static let mockStep: Step = .init(
+    static let mockStep1: Step = .init(
         leftTitle: "carreer",
         rightTitle: "fam",
-        introText: "hello hello",
+        introText: "step 1",
         questions: [
             .init(title: "emilia", answer: .right),
             .init(title: "nino", answer: .left),
@@ -35,6 +37,20 @@ struct Step: Hashable {
             .init(title: "alara", answer: .right),
             .init(title: "krusche", answer: .left),
             .init(title: "belemir", answer: .right),
+        ]
+    )
+    
+    static let mockStep2: Step = .init(
+        leftTitle: "male",
+        rightTitle: "female",
+        introText: "step 2",
+        questions: [
+            .init(title: "harry", answer: .left),
+            .init(title: "rony", answer: .left),
+            .init(title: "hermine", answer: .right),
+            .init(title: "dumbledore", answer: .left),
+            .init(title: "luna", answer: .right),
+            .init(title: "ginny", answer: .right),
         ]
     )
 }
