@@ -9,8 +9,7 @@ import SwiftUI
 
 enum Screen {
     case overview, consent, name, gender, birthdate, profession, education,
-         meditationStart, meditation, meditationEnd
-    
+         meditationStart, clouds, meditation, meditationEnd
     func nextScreen() -> Screen? {
         
         switch self {
@@ -30,6 +29,8 @@ enum Screen {
         case .education:
                 .meditationStart
         case .meditationStart:
+                .clouds
+        case .clouds:
                 .meditation
         case .meditation:
                 .meditationEnd
@@ -81,6 +82,9 @@ class AppCoordinator: ObservableObject {
             
         case .meditationStart:
             MeditationStartView()
+            
+        case .clouds:
+            MeditationCloudsView()
             
         case .meditation:
             MeditationAudioView()
