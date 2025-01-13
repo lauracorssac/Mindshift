@@ -13,10 +13,10 @@ struct MeditationEndView: View {
     
     var body: some View {
         VStack {
-            Text("Session complete!")
+            Text(MeditationStrings.EndView.sessionCompleteTitle)
                 .font(.largeTitle)
                 .padding()
-            Text("You have completed the mindfulness exercise. Keep it up!")
+            Text(MeditationStrings.EndView.sessionCompleteMessage)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 25)
                 .padding(.vertical, 20)

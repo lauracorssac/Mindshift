@@ -11,8 +11,7 @@ enum Screen: Hashable {
     
     case overview, consent, name, gender, birthdate, profession, education,
          meditationStart, meditation, meditationEnd, testStart, testStepIntro(step: Step),
-         testQuestion(step: Step), final
-    
+         testQuestion(step: Step), final, clouds
     func nextScreen() -> Screen? {
         
         switch self {
@@ -31,7 +30,9 @@ enum Screen: Hashable {
         case .education:
             .meditationStart
         case .meditationStart:
-            .meditation
+                .clouds
+        case .clouds:
+                .meditation
         case .meditation:
             .meditationEnd
         case .meditationEnd:
@@ -151,6 +152,9 @@ class AppCoordinator: ObservableObject {
         case .meditationStart:
             MeditationStartView()
             
+        case .clouds:
+            MeditationCloudsView()
+            
         case .meditation:
             MeditationAudioView()
         
@@ -158,16 +162,19 @@ class AppCoordinator: ObservableObject {
             MeditationEndView()
         
         case .testStart:
-            TestStartView()
+            TestInformationView()
             
         case let .testStepIntro(step):
-            IntroStepView(step: step)
+            TestInformationView()
+            //TestPartIndicatorView(step: step)
             
         case let .testQuestion(step):
-            StepQuestionView(stepVM: .init(step: step))
+            TestInformationView()
+           // StepQuestionView(stepVM: .init(step: step))
             
         case .final:
-            FinalView()
+            TestInformationView()
+            //FinalView()
         }
     }
 }
