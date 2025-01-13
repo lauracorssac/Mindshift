@@ -25,7 +25,7 @@ struct TestPartIndicatorView: View {
             case 7:
                 return (TestFields.partSevenCategories[0], TestFields.partSevenCategories[1])
             default:
-                return ("", "") // Fallback for out-of-range parts
+                return ("", "")
             }
         }
         
