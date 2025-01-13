@@ -6,28 +6,15 @@
 //
 
 import SwiftUI
-struct TableView: View {
-    var body: some View {
-        VStack {
-            Text("Category | Items")
-                .bold()
-            Text("Male     | Jeffrey, Ben, Paul")
-            Text("Female   | Rebecca, Michelle")
-            Text("Family   | Relatives")
-            Text("Career   | Salary")
-        }
-        .padding()
-        .border(Color.gray, width: 1)
-    }
-}
+
 
 struct TestTableView: View {
     let categories = [
            ("Category", "Items"),
-           ("Male", "Jeffrey, Ben, Paul"),
-           ("Female", "Rebecca, Michelle"),
-           ("Family", "Relatives"),
-           ("Career", "Salary")
+           ("Male", "Ben, Paul, Daniel, John, Jeffrey "),
+           ("Female", "Rebecca, Michelle, Emily, Julia, Anna"),
+           ("Family", "Wedding, Marriage, Parents, Relatives, Family, Home, Children"),
+           ("Career", "Career, Corporation, Business, Office, Professional, Management, Salary")
        ]
     
     var body: some View {
@@ -41,14 +28,14 @@ struct TestTableView: View {
                         Text(category)
                             .fontWeight(category == "Category" ? .bold : .regular)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.vertical, 4)
+                            .padding(.vertical, 1)
                         
                         Divider()
                         
                         Text(items)
                             .fontWeight(category == "Category" ? .bold : .regular)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.vertical, 4)
+                            .padding(.vertical, 1)
                     }
                     .frame(maxWidth: .infinity)
                 }
