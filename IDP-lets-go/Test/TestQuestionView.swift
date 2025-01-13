@@ -6,33 +6,69 @@
 //
 
 import SwiftUI
+
 struct TestQuestionView: View {
-    let category1: String
-    let category2: String
-    let question: String
+    let selectedCategory1: String
+    let selectedCategory2: String
+    
+    @State var randomCategory: String = ""
+    @State var randomQuestion: String = ""
     
     var body: some View {
         VStack {
-            Text(question)
+            Text(randomQuestion)
                 .font(.title)
                 .padding( .bottom, 75)
             HStack {
-                Button(category1) {
+                Button(selectedCategory1) {
                     
                 }
                 .buttonStyle(RoundedButtonStyle())
                 .padding(.trailing, 15)
-                Button(category2) {
+                Button(selectedCategory2) {
                 }
                 .buttonStyle(RoundedButtonStyle())
-                }
-                
+            }
+            
         }.padding()
+            .onAppear {
+                pickRandomCategoryAndQuestion()
+            }
+    }
+    
+    private func questions(for category: String) -> [String] {
+        var result = [String]()
+        
+        if category.contains("Male") {
+            result.append(contentsOf: TestFields.maleQuestions)
+        }
+        if category.contains("Female") {
+            result.append(contentsOf: TestFields.femaleQuestions)
+        }
+        if category.contains("Career") {
+            result.append(contentsOf: TestFields.careerQuestions)
+        }
+        if category.contains("Family") {
+            result.append(contentsOf: TestFields.familyQuestions)
+        }
+        
+        return result
+    }
+    
+    private func pickRandomCategoryAndQuestion() {
+        if let selectedCategory = [selectedCategory1, selectedCategory2].randomElement() {
+            randomCategory = selectedCategory
+            let matchingQuestions = questions(for: selectedCategory)
+            
+            if let selectedQuestion = matchingQuestions.randomElement() {
+                randomQuestion = selectedQuestion
+            }
+        }
     }
 }
 
 #Preview {
-    TestQuestionView(category1: "Family", category2: "Career", question: "Salary")
+    TestQuestionView(selectedCategory1: "Family", selectedCategory2: "Career")
         .environmentObject(AppCoordinator())
 }
 
