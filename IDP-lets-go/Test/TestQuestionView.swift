@@ -7,68 +7,66 @@
 
 import SwiftUI
 
-struct TestQuestionView: View {
-    let selectedCategory1: String
-    let selectedCategory2: String
-    
-    @State var randomCategory: String = ""
-    @State var randomQuestion: String = ""
-    
-    var body: some View {
-        VStack {
-            Text(randomQuestion)
-                .font(.title)
-                .padding( .bottom, 75)
-            HStack {
-                Button(selectedCategory1) {
-                    
-                }
-                .buttonStyle(RoundedButtonStyle())
-                .padding(.trailing, 15)
-                Button(selectedCategory2) {
-                }
-                .buttonStyle(RoundedButtonStyle())
-            }
-            
-        }.padding()
-            .onAppear {
-                pickRandomCategoryAndQuestion()
-            }
+@Observable
+class TestQuestionViewModel {
+
+    let step: Step
+    var presentNextStep = false
+    var currentQuestion: Question {
+        step.questions[currentQuestionIndex]
     }
-    
-    private func questions(for category: String) -> [String] {
-        var result = [String]()
-        
-        if category.contains("Male") {
-            result.append(contentsOf: TestFields.maleQuestions)
-        }
-        if category.contains("Female") {
-            result.append(contentsOf: TestFields.femaleQuestions)
-        }
-        if category.contains("Career") {
-            result.append(contentsOf: TestFields.careerQuestions)
-        }
-        if category.contains("Family") {
-            result.append(contentsOf: TestFields.familyQuestions)
-        }
-        
-        return result
+    var currentQuestionIndex: Int = 0
+
+    init(step: Step) {
+        self.step = step
     }
-    
-    private func pickRandomCategoryAndQuestion() {
-        if let selectedCategory = [selectedCategory1, selectedCategory2].randomElement() {
-            randomCategory = selectedCategory
-            let matchingQuestions = questions(for: selectedCategory)
-            
-            if let selectedQuestion = matchingQuestions.randomElement() {
-                randomQuestion = selectedQuestion
+
+    func processAnswer(pressedButton: Option) {
+        if currentQuestion.answer == pressedButton {
+            if currentQuestionIndex == step.questions.count - 1 {
+                presentNextStep = true
+            } else {
+                currentQuestionIndex += 1
             }
         }
     }
 }
 
+struct TestQuestionView: View {
+   
+    let stepVM: TestQuestionViewModel
+    @EnvironmentObject private var coordinator: AppCoordinator
+    
+    var body: some View {
+        VStack {
+            Text(stepVM.currentQuestion.title)
+                .font(.title)
+                .padding( .bottom, 75)
+            HStack {
+                Button(stepVM.step.leftTitle) {
+                    stepVM.processAnswer(pressedButton: .left)
+                }
+                .buttonStyle(RoundedButtonStyle())
+                .padding(.trailing, 15)
+                Button(stepVM.step.rightTitle) {
+                    stepVM.processAnswer(pressedButton: .right)
+                }
+                .buttonStyle(RoundedButtonStyle())
+            }
+            
+        }
+        .padding()
+        .onChange(of: stepVM.presentNextStep) { _, newValue in
+            if newValue {
+                coordinator.pushNext(to: .testQuestion(step: stepVM.step))
+            }
+        }
+    }
+
+}
+
 #Preview {
-    TestQuestionView(selectedCategory1: "Family", selectedCategory2: "Career")
+    TestQuestionView(stepVM: .init(step: .mockStep1))
         .environmentObject(AppCoordinator())
 }
 

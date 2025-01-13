@@ -9,6 +9,9 @@ import SwiftUI
 
 
 struct TestTableView: View {
+    
+    @EnvironmentObject private var coordinator: AppCoordinator
+    
     let testTableFields = [
            ("Category", "Items"),
            ("Male", "Ben, Paul, Daniel, John, Jeffrey "),
@@ -51,7 +54,9 @@ struct TestTableView: View {
                 .padding()
                 .bold()
             Button("Continue") {
-                //buttonPressed()
+               
+                coordinator.pushNext(to: .testTableView)
+                
             }.buttonStyle(RoundedButtonStyle())
         }
         .padding()

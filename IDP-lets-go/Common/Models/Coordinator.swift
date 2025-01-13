@@ -11,7 +11,8 @@ enum Screen: Hashable {
     
     case overview, consent, name, gender, birthdate, profession, education,
          meditationStart, meditation, meditationEnd, testStart, testStepIntro(step: Step),
-         testQuestion(step: Step), final, clouds
+         testQuestion(step: Step), final, clouds, testTableView
+    
     func nextScreen() -> Screen? {
         
         switch self {
@@ -37,7 +38,11 @@ enum Screen: Hashable {
             .meditationEnd
         case .meditationEnd:
             .testStart
-        case .final, .testStart, .testQuestion(step: _), .testStepIntro(step: _):
+        
+        case .testStart:
+            .testTableView
+        
+        case .final, .testTableView, .testQuestion(step: _), .testStepIntro(step: _):
             nil
         }
     }
@@ -95,10 +100,9 @@ class AppCoordinator: ObservableObject {
     func pushNext(to screen: Screen) {
         
         switch screen {
-        case .testStart:
+        case .testTableView:
             gameCoordinator = GameCoordinator()
             self.push(gameCoordinator!.getInitialScreen())
-            
            
         case .testQuestion(step: _):
             if let nextStep = gameCoordinator?.getNextStep() {
@@ -112,7 +116,7 @@ class AppCoordinator: ObservableObject {
                // }
             }
             
-        case let .testStepIntro(step: step):
+        case let .testStepIntro(step: _):
             guard let screen = gameCoordinator?.getQuestions() else { return }
             self.push(screen)
             
@@ -164,17 +168,17 @@ class AppCoordinator: ObservableObject {
         case .testStart:
             TestInformationView()
             
+        case .testTableView:
+            TestTableView()
+            
         case let .testStepIntro(step):
-            TestInformationView()
-            //TestPartIndicatorView(step: step)
+            TestPartIndicatorView(step: step)
             
         case let .testQuestion(step):
-            TestInformationView()
-           // StepQuestionView(stepVM: .init(step: step))
+            TestQuestionView(stepVM: .init(step: step))
             
         case .final:
-            TestInformationView()
-            //FinalView()
+            FinalView()
         }
     }
 }

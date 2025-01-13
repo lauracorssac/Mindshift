@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FinalView: View {
-    
+
     var body: some View {
         VStack {
             Text("Thanks")

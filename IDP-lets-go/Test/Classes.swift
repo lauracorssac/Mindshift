@@ -18,6 +18,7 @@ struct Question: Hashable {
 
 struct Step: Hashable {
 
+    let stepNumber: Int
     let leftTitle: String
     let rightTitle: String
     let introText: String
@@ -26,6 +27,7 @@ struct Step: Hashable {
     var endTime: Date?
 
     static let mockStep1: Step = .init(
+        stepNumber: 1,
         leftTitle: "carreer",
         rightTitle: "fam",
         introText: "step 1",
@@ -41,6 +43,7 @@ struct Step: Hashable {
     )
 
     static let mockStep2: Step = .init(
+        stepNumber: 2,
         leftTitle: "male",
         rightTitle: "female",
         introText: "step 2",
