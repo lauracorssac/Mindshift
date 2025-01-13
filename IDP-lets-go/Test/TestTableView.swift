@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct TestTableView: View {
-    let categories = [
+    let testTableFields = [
            ("Category", "Items"),
            ("Male", "Ben, Paul, Daniel, John, Jeffrey "),
            ("Female", "Rebecca, Michelle, Emily, Julia, Anna"),
@@ -23,7 +23,7 @@ struct TestTableView: View {
                 .multilineTextAlignment(.center)
                 .padding()
             VStack{
-                ForEach(categories, id: \.0) { category, items in
+                ForEach(testTableFields, id: \.0) { category, items in
                     HStack {
                         Text(category)
                             .fontWeight(category == "Category" ? .bold : .regular)
