@@ -9,7 +9,7 @@ import SwiftUI
 
 enum Screen: Hashable {
     
-    case overview, consent, name, gender, birthdate, profession, education,
+    case overview, consent, race, gender, birthdate, profession, education,
          meditationStart, meditation, meditationEnd, testStart, testStepIntro(step: Step),
          testQuestion(step: Step), final, clouds, testTableView
     
@@ -19,8 +19,6 @@ enum Screen: Hashable {
         case .overview:
             .consent
         case .consent:
-            .name
-        case .name:
             .gender
         case .gender:
             .birthdate
@@ -29,11 +27,13 @@ enum Screen: Hashable {
         case .profession:
             .education
         case .education:
+            .race
+        case .race:
             .meditationStart
         case .meditationStart:
-                .clouds
+            .clouds
         case .clouds:
-                .meditation
+            .meditation
         case .meditation:
             .meditationEnd
         case .meditationEnd:
@@ -131,7 +131,7 @@ class AppCoordinator: ObservableObject {
                // }
             }
             
-        case let .testStepIntro(step: _):
+        case .testStepIntro(step: _):
             guard let screen = gameCoordinator?.getQuestions() else { return }
             self.push(screen)
             
@@ -153,8 +153,8 @@ class AppCoordinator: ObservableObject {
             // TODO: change to real text
             ConsentView(consentText: Consent().text)
             
-        case .name:
-            NameQuestionView()
+        case .race:
+            RaceQuestionView()
             
         case .gender:
             GenderQuestionView()

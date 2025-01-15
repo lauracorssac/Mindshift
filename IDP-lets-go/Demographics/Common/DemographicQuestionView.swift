@@ -10,8 +10,8 @@ import SwiftUI
 struct DemographicQuestion {
     let title: String
     
-    static let name = DemographicQuestion
-        .init(title: "What's your name?")
+    static let race = DemographicQuestion
+        .init(title: "With which race do you identify yourself?")
     
     static let birthdate = DemographicQuestion
         .init(title: "What's your birthdate?")
