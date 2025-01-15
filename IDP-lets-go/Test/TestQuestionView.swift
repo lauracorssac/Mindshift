@@ -47,12 +47,18 @@ struct TestQuestionView: View {
                     stepVM.processAnswer(pressedButton: .left)
                 }
                 .buttonStyle(RoundedButtonStyle())
-                .padding(.trailing, 15)
+                
+                Spacer()
+                
                 Button(stepVM.step.rightTitle) {
                     stepVM.processAnswer(pressedButton: .right)
                 }
                 .buttonStyle(RoundedButtonStyle())
+            
+                
+                
             }
+            .padding([.horizontal], 12)
             
         }
         .padding()
@@ -66,6 +72,13 @@ struct TestQuestionView: View {
 }
 
 #Preview {
+    TestQuestionView(stepVM: .init(step: .mockStep2))
+        .environmentObject(AppCoordinator())
+    
+}
+
+#Preview {
+    
     TestQuestionView(stepVM: .init(step: .mockStep1))
         .environmentObject(AppCoordinator())
 }

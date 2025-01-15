@@ -50,35 +50,42 @@ enum Screen: Hashable {
 
 class GameCoordinator {
     
-    private var steps: [Step] = [Step.mockStep1, Step.mockStep2]
+    //private var steps: [Step] = [Step.mockStep1, Step.mockStep2]
+    
+    private var model: TestModel
     private var currentStep = 0
     
+    init(model: TestModel, currentStep: Int = 0) {
+        self.model = model
+        self.currentStep = currentStep
+    }
+    
     func getInitialScreen() -> Screen {
-        return .testStepIntro(step: steps[currentStep])
+        return .testStepIntro(step: model.steps[currentStep])
     }
     
     func getNextStep() -> Screen? {
         stopTimer()
-        guard currentStep < steps.count - 1 else { return nil }
+        guard currentStep < model.steps.count - 1 else { return nil }
         currentStep += 1
-        return .testStepIntro(step: steps[currentStep])
+        return .testStepIntro(step: model.steps[currentStep])
     }
     
     func getQuestions() -> Screen {
         startTimer()
-        return .testQuestion(step: steps[currentStep])
+        return .testQuestion(step: model.steps[currentStep])
     }
     
     private func startTimer() {
-        steps[currentStep].startTime = Date()
+        model.steps[currentStep].startTime = Date()
     }
     
     private func stopTimer() {
-        steps[currentStep].endTime = Date()
+        model.steps[currentStep].endTime = Date()
     }
     
     func debugAnalysisPrint() {
-        for (ind, step) in steps.enumerated() {
+        for (ind, step) in model.steps.enumerated() {
             guard let startTime = step.startTime,
                   let endTime = step.endTime else { continue }
             print("step \(ind): ", endTime.timeIntervalSince(startTime))
@@ -92,6 +99,14 @@ class AppCoordinator: ObservableObject {
     
     var gameCoordinator: GameCoordinator?
     var isFirstTest = true
+    let model: TestModel
+    
+    init(path: NavigationPath = NavigationPath(), gameCoordinator: GameCoordinator? = nil, isFirstTest: Bool = true, model: TestModel = SequecedModel()) {
+        self.path = path
+        self.gameCoordinator = gameCoordinator
+        self.isFirstTest = isFirstTest
+        self.model = model
+    }
     
     func push(_ screen: Screen) {
         path.append(screen)
@@ -101,7 +116,7 @@ class AppCoordinator: ObservableObject {
         
         switch screen {
         case .testTableView:
-            gameCoordinator = GameCoordinator()
+            gameCoordinator = GameCoordinator(model: model)
             self.push(gameCoordinator!.getInitialScreen())
            
         case .testQuestion(step: _):

@@ -44,8 +44,8 @@ struct Step: Hashable {
 
     static let mockStep2: Step = .init(
         stepNumber: 2,
-        leftTitle: "male",
-        rightTitle: "female",
+        leftTitle: "male or career",
+        rightTitle: "female or family",
         introText: "step 2",
         questions: [
             .init(title: "harry", answer: .left),

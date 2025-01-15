@@ -11,4 +11,5 @@ import Foundation
 class Constants {
     
     static let DEBUG = true
+    static let model = RandomModel() // SequecedModel()
 }
