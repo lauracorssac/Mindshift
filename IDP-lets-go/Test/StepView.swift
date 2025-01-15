@@ -1,26 +1,26 @@
 //
-//  TestQuestionView.swift
+//  SimpleView.swift
 //  IDP-lets-go
 //
-//  Created by Umay Bozkurt on 08.01.25.
+//  Created by Laura Corssac on 28.12.24.
 //
 
 import SwiftUI
 
 @Observable
-class TestQuestionViewModel {
-
+class StepQuestionViewModel {
+    
     let step: Step
     var presentNextStep = false
     var currentQuestion: Question {
         step.questions[currentQuestionIndex]
     }
     var currentQuestionIndex: Int = 0
-
+    
     init(step: Step) {
         self.step = step
     }
-
+    
     func processAnswer(pressedButton: Option) {
         if currentQuestion.answer == pressedButton {
             if currentQuestionIndex == step.questions.count - 1 {
@@ -32,42 +32,27 @@ class TestQuestionViewModel {
     }
 }
 
-struct TestQuestionView: View {
-   
-    let stepVM: TestQuestionViewModel
+struct StepQuestionView: View {
+    
+    let stepVM: StepQuestionViewModel
     @EnvironmentObject private var coordinator: AppCoordinator
     
     var body: some View {
         VStack {
             Text(stepVM.currentQuestion.title)
-                .font(.title)
-                .padding( .bottom, 75)
             HStack {
                 Button(stepVM.step.leftTitle) {
                     stepVM.processAnswer(pressedButton: .left)
                 }
-                .buttonStyle(RoundedButtonStyle())
-                .padding(.trailing, 15)
                 Button(stepVM.step.rightTitle) {
                     stepVM.processAnswer(pressedButton: .right)
                 }
-                .buttonStyle(RoundedButtonStyle())
             }
             
-        }
-        .padding()
-        .onChange(of: stepVM.presentNextStep) { _, newValue in
+        }.onChange(of: stepVM.presentNextStep) { _, newValue in
             if newValue {
                 coordinator.pushNext(to: .testQuestion(step: stepVM.step))
             }
         }
     }
-
 }
-
-#Preview {
-    TestQuestionView(stepVM: .init(step: .mockStep1))
-        .environmentObject(AppCoordinator())
-}
-
-

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TestInformationView: View {
+    
+    @EnvironmentObject private var coordinator: AppCoordinator
 
     var body: some View {
         VStack {
@@ -15,6 +17,8 @@ struct TestInformationView: View {
                 .multilineTextAlignment(.center)
                 .padding()
             Button("Continue") {
+                
+                coordinator.pushNext(to: .testStart)
             }.buttonStyle(RoundedButtonStyle())
                 .padding()
         }
