@@ -43,22 +43,24 @@ struct TestQuestionView: View {
                 .font(.title)
                 .padding( .bottom, 75)
             HStack {
+                
+                Spacer()
                 Button(stepVM.step.leftTitle) {
                     stepVM.processAnswer(pressedButton: .left)
                 }
-                .buttonStyle(RoundedButtonStyle())
+                .buttonStyle(RoundedButtonStyle(fixedWidth: 150))
                 
                 Spacer()
                 
                 Button(stepVM.step.rightTitle) {
                     stepVM.processAnswer(pressedButton: .right)
                 }
-                .buttonStyle(RoundedButtonStyle())
+                .buttonStyle(RoundedButtonStyle(fixedWidth: 150))
             
-                
+                Spacer()
                 
             }
-            .padding([.horizontal], 12)
+            
             
         }
         .padding()
