@@ -10,19 +10,20 @@ import SwiftUI
 struct RoundedButtonStyle: ButtonStyle {
     
     var fixedWidth: CGFloat? = nil
+    var fixedHeight: CGFloat? = nil
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .padding(.horizontal, 40)
+            .frame(width: fixedWidth, height: fixedHeight)
+            .padding(.horizontal, fixedWidth != nil ? 10 : 20)
             .padding(.vertical)
-            .frame(width: fixedWidth)
             .background(
                 Color.mainBlue.opacity(
                     configuration.isPressed ? 0.5 : 1.0
                 )
             )
             .foregroundColor(.white)
-            .font(Font.system18Bold)
+            .font(Font.system16Bold)
             .clipShape(RoundedRectangle(cornerRadius: 50))
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
             .animation(
@@ -43,6 +44,10 @@ struct RoundedButtonStyle: ButtonStyle {
         Button("Hello") {
             
         }.buttonStyle(RoundedButtonStyle(fixedWidth: 300))
+        
+        Button("Hello") {
+            
+        }.buttonStyle(RoundedButtonStyle(fixedHeight: 100))
         
         Button("Very very Long Text Button") {
             

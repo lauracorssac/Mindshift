@@ -23,7 +23,7 @@
 		8DD8CD2D2D101D300058CF4B /* RoundedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD2C2D101D300058CF4B /* RoundedButtonStyle.swift */; };
 		8DD8CD2F2D101DD30058CF4B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD2E2D101DD30058CF4B /* Colors.swift */; };
 		8DD8CD322D1023030058CF4B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD312D1023030058CF4B /* Coordinator.swift */; };
-		8DD8CD372D1026210058CF4B /* NameQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD362D1026210058CF4B /* NameQuestionView.swift */; };
+		8DD8CD372D1026210058CF4B /* RaceQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD362D1026210058CF4B /* RaceQuestionView.swift */; };
 		8DD8CD392D1027910058CF4B /* BirthdateQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD382D1027910058CF4B /* BirthdateQuestionView.swift */; };
 		8DD8CD3B2D102FE70058CF4B /* GenderQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD3A2D102FE70058CF4B /* GenderQuestionView.swift */; };
 		8DD8CD3D2D1033540058CF4B /* EducationQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD3C2D1033540058CF4B /* EducationQuestionView.swift */; };
@@ -41,6 +41,7 @@
 		8DD8CD7A2D35A16A0058CF4B /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD792D35A16A0058CF4B /* Classes.swift */; };
 		8DD8CD7D2D35A2D60058CF4B /* TestFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD7B2D35A2D60058CF4B /* TestFields.swift */; };
 		8DD8CD7F2D35AB270058CF4B /* FinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD7E2D35AB270058CF4B /* FinalView.swift */; };
+		8DD8CD812D380B480058CF4B /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD802D380B480058CF4B /* TestModel.swift */; };
 		F9A10FB02D2F12AA00962DFF /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FAF2D2F12A600962DFF /* TestView.swift */; };
 		F9A10FB22D2F12D800962DFF /* TestInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB12D2F12D300962DFF /* TestInformationView.swift */; };
 		F9A10FB42D2F12EB00962DFF /* TestQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB32D2F12E600962DFF /* TestQuestionView.swift */; };
@@ -66,7 +67,7 @@
 		8DD8CD2C2D101D300058CF4B /* RoundedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonStyle.swift; sourceTree = "<group>"; };
 		8DD8CD2E2D101DD30058CF4B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8DD8CD312D1023030058CF4B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		8DD8CD362D1026210058CF4B /* NameQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameQuestionView.swift; sourceTree = "<group>"; };
+		8DD8CD362D1026210058CF4B /* RaceQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceQuestionView.swift; sourceTree = "<group>"; };
 		8DD8CD382D1027910058CF4B /* BirthdateQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdateQuestionView.swift; sourceTree = "<group>"; };
 		8DD8CD3A2D102FE70058CF4B /* GenderQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderQuestionView.swift; sourceTree = "<group>"; };
 		8DD8CD3C2D1033540058CF4B /* EducationQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationQuestionView.swift; sourceTree = "<group>"; };
@@ -84,6 +85,7 @@
 		8DD8CD792D35A16A0058CF4B /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		8DD8CD7B2D35A2D60058CF4B /* TestFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFields.swift; sourceTree = "<group>"; };
 		8DD8CD7E2D35AB270058CF4B /* FinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalView.swift; sourceTree = "<group>"; };
+		8DD8CD802D380B480058CF4B /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		F9A10FAF2D2F12A600962DFF /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		F9A10FB12D2F12D300962DFF /* TestInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInformationView.swift; sourceTree = "<group>"; };
 		F9A10FB32D2F12E600962DFF /* TestQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionView.swift; sourceTree = "<group>"; };
@@ -162,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				8DD8CD332D1025E90058CF4B /* Common */,
-				8DD8CD362D1026210058CF4B /* NameQuestionView.swift */,
+				8DD8CD362D1026210058CF4B /* RaceQuestionView.swift */,
 				8DD8CD382D1027910058CF4B /* BirthdateQuestionView.swift */,
 				8DD8CD3A2D102FE70058CF4B /* GenderQuestionView.swift */,
 				8DD8CD3C2D1033540058CF4B /* EducationQuestionView.swift */,
@@ -264,6 +266,7 @@
 				F9A10FAF2D2F12A600962DFF /* TestView.swift */,
 				8DD8CD792D35A16A0058CF4B /* Classes.swift */,
 				8DD8CD7E2D35AB270058CF4B /* FinalView.swift */,
+				8DD8CD802D380B480058CF4B /* TestModel.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				F9A10FB02D2F12AA00962DFF /* TestView.swift in Sources */,
 				8DD8CD592D1D94450058CF4B /* Consent.swift in Sources */,
 				8DD8CD542D1C9A990058CF4B /* OverviewConstants.swift in Sources */,
+				8DD8CD812D380B480058CF4B /* TestModel.swift in Sources */,
 				8DD8CD2A2D101B9D0058CF4B /* Fonts.swift in Sources */,
 				8DD8CD412D1184230058CF4B /* Constants.swift in Sources */,
 				F9A10FB82D2F131A00962DFF /* TestPartIndicatorView.swift in Sources */,
@@ -354,7 +358,7 @@
 				31F074AE2D026F8000D0AA23 /* MeditationAudioView.swift in Sources */,
 				8DD8CD572D1D904A0058CF4B /* ConsentView.swift in Sources */,
 				8DD8CD252D1019C40058CF4B /* DemographicQuestionView.swift in Sources */,
-				8DD8CD372D1026210058CF4B /* NameQuestionView.swift in Sources */,
+				8DD8CD372D1026210058CF4B /* RaceQuestionView.swift in Sources */,
 				31F074AF2D026F8000D0AA23 /* AudioPlayerViewModel.swift in Sources */,
 				8DD8CD7D2D35A2D60058CF4B /* TestFields.swift in Sources */,
 				8DD8CD3B2D102FE70058CF4B /* GenderQuestionView.swift in Sources */,

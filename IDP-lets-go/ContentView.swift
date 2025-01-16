@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @StateObject var coordinator = AppCoordinator()
+   
+    @StateObject var coordinator = AppCoordinator(model: Constants.model)
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {

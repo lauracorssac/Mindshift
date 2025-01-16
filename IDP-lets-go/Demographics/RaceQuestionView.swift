@@ -7,24 +7,24 @@
 
 import SwiftUI
 
-struct NameQuestionView: View {
+struct RaceQuestionView: View {
     
     @EnvironmentObject private var coordinator: AppCoordinator
-    @State private var name: String = ""
+    @State private var race: String = ""
     
     var body: some View {
         DemographicQuestionView(
-            demographicQuestion: .name,
+            demographicQuestion: .race,
             buttonPressed: {
-                coordinator.pushNext(to: .name)
+                coordinator.pushNext(to: .race)
             }
         ) {
-            TextField("Your name", text: $name)
+            TextField("Your race", text: $race)
         }
     }
 }
 
 #Preview {
-    NameQuestionView()
+    RaceQuestionView()
         .environmentObject(AppCoordinator())
 }
