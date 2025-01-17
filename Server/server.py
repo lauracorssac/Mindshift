@@ -24,11 +24,9 @@ def init_db():
 @app.route('/user', methods=['POST'])
 def receive_user():
     try:
-        print("hello 1")
         user_data = request.get_json()
         user = User(**user_data)
 
-        print("hello")
         conn = sqlite3.connect('users.db')
         cursor = conn.cursor()
         cursor.execute('INSERT INTO users (name, birthdate) VALUES (?, ?)', (user.name, user.birthdate))
