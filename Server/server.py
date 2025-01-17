@@ -2,7 +2,7 @@
 from flask import Flask, request, jsonify
 from pydantic import ValidationError
 from models import User
-from DatabaseManager import DatabaseManager
+from databaseManager import DatabaseManager
 
 app = Flask(__name__)
 
