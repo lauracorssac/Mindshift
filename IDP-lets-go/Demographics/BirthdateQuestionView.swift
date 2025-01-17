@@ -16,6 +16,7 @@ struct BirthdateQuestionView: View {
         DemographicQuestionView(
             demographicQuestion: .birthdate,
             buttonPressed: { 
+                UserModel.user.birthdate = birthDate.toString()
                 coordinator.pushNext(to: .birthdate)
             }
         ) {

@@ -16,7 +16,20 @@ struct RaceQuestionView: View {
         DemographicQuestionView(
             demographicQuestion: .race,
             buttonPressed: {
-                coordinator.pushNext(to: .race)
+                UserModel.user.race = race
+                // TODO: move this from view
+                Task {
+                    let result = await Requests.shared.saveUser()
+                    switch result {
+                    case .success:
+                        coordinator.pushNext(to: .race)
+                    case .error:
+                        // TODO: treat
+                        print("error saving data")
+                    }
+                }
+                
+                
             }
         ) {
             TextField("Your race", text: $race)

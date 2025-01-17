@@ -16,6 +16,7 @@ struct ProfessionQuestionView: View {
         DemographicQuestionView(
             demographicQuestion: .profession,
             buttonPressed: {
+                UserModel.user.profession = profesison
                 coordinator.pushNext(to: .profession)
             }
         ) {

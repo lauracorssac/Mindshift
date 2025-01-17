@@ -1,20 +1,45 @@
 import sqlite3
 from flask import Flask, request, jsonify
 from pydantic import BaseModel, ValidationError
+from enum import Enum
+import uuid
 
 app = Flask(__name__)
 
+class EducationBackground(str, Enum):
+    BACHELOR = "bachelor"
+    MASTER = "master"
+    DOCTORATE = "doctorate"
+    NONE = "none"
+    HIGH_SCHOOL = "highschool"
+
+class Gender(str, Enum):
+    FEMALE = "female"
+    MALE = "male"
+    NONE = "none"
+    OTHER = "other"
+
 class User(BaseModel):
-    name: str
-    birthdate: str
+    id: uuid.UUID
+    gender: Gender = Gender.NONE
+    education: EducationBackground | None = None
+    birthdate: str = ""
+    race: str = ""
+    profession: str = ""
 
 def init_db():
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()
     cursor.execute('''
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
+        DROP TABLE IF EXISTS users
+    ''')
+    cursor.execute('''
+        CREATE TABLE users (
+            id TEXT PRIMARY KEY,
+            gender TEXT NOT NULL,
+            education TEXT NOT NULL,
+            race TEXT NOT NULL,
+            profession TEXT NOT NULL,
             birthdate TEXT NOT NULL
         )
     ''')
@@ -27,9 +52,12 @@ def receive_user():
         user_data = request.get_json()
         user = User(**user_data)
 
+        print(str(user.id), user.gender.value, user.education.value, user.race, user.profession, user.birthdate)
+
         conn = sqlite3.connect('users.db')
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO users (name, birthdate) VALUES (?, ?)', (user.name, user.birthdate))
+        cursor.execute('INSERT INTO users (id, gender, education, race, profession, birthdate) VALUES (?, ?, ?, ?, ?, ?)', 
+                       (str(user.id), user.gender.value, user.education.value, user.race, user.profession, user.birthdate))
         conn.commit()
         conn.close()
 
@@ -41,6 +69,7 @@ def receive_user():
         return jsonify({"error": "Invalid user data", "details": e.errors()}), 400
 
     except Exception as e:
+        print(str(e))
         return jsonify({"error": str(e)}), 500
     
 @app.route('/users', methods=['GET'])
@@ -48,12 +77,19 @@ def get_all_users():
     try:
         conn = sqlite3.connect('users.db')
         cursor = conn.cursor()
-        cursor.execute('SELECT name, birthdate FROM users')
+        cursor.execute('SELECT * FROM users')
         rows = cursor.fetchall()
         conn.close()
 
         # Convert the result to a list of dictionaries
-        users = [{"name": row[0], "birthdate": row[1]} for row in rows]
+        users = [{
+            "id": row[0], 
+            "gender": row[1],
+            "education": row[2],
+            "birthdate": row[3],
+            "race": row[4],
+            "profession": row[5],
+            } for row in rows]
 
         # Respond with the list of users
         return jsonify({"users": users}), 200
