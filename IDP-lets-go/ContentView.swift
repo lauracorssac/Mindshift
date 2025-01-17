@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {
-            coordinator.build(.meditationEnd)
+            coordinator.build(.overview)
                 .navigationDestination(for: Screen.self) { screen in
                     coordinator.build(screen)
                 }

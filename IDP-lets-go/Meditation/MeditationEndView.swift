@@ -22,12 +22,21 @@ struct MeditationEndView: View {
                 .padding(.vertical, 20)
             Image(systemName: "checkmark.circle.fill")
                 .font(.system(size: 150))
-                .foregroundColor(.blue)
-            
-            Button("Go to test") {
-                coordinator.pushNext(to: .meditationEnd)
+                .foregroundColor(Color.mainBlue)
+                .padding(.vertical, 50)
+            HStack {
+                Spacer()
+                Button("Proceed to test") {
+                    coordinator.pushNext(to: .meditationEnd)
+                }
+                .buttonStyle(RoundedButtonStyle())
+                Spacer()
+                Button("Restart meditation") {
+                    coordinator.pushNext(to: .clouds)
+                }
+                .buttonStyle(RoundedButtonStyle())
+                Spacer()
             }
-            .buttonStyle(RoundedButtonStyle())
         }
     }
 }
