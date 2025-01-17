@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MeditationEndView: View {
-    
     @EnvironmentObject private var coordinator: AppCoordinator
     
     var body: some View {

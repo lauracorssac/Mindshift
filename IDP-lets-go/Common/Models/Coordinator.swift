@@ -9,7 +9,7 @@ import SwiftUI
 
 enum Screen: Hashable {
     
-    case overview, consent, race, gender, birthdate, profession, education,
+    case overview, consent, onboarding, race, gender, birthdate, profession, education,
          meditationStart, meditation, meditationEnd, testStart, testStepIntro(step: Step),
          testQuestion(step: Step), final, clouds, testTableView
     
@@ -19,7 +19,9 @@ enum Screen: Hashable {
         case .overview:
             .consent
         case .consent:
-            .gender
+                .onboarding
+        case .onboarding:
+                .gender
         case .gender:
             .birthdate
         case .birthdate:
@@ -152,6 +154,9 @@ class AppCoordinator: ObservableObject {
         case .consent:
             // TODO: change to real text
             ConsentView(consentText: Consent().text)
+            
+        case .onboarding:
+            OnboardingView()
             
         case .race:
             RaceQuestionView()
