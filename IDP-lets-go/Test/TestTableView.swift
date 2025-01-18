@@ -30,7 +30,7 @@ struct TestTableView: View {
                     HStack {
                         Text(category)
                             .fontWeight(category == "Category" ? .bold : .regular)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(width: 100, alignment: .leading)
                             .padding(.vertical, 1)
                         
                         Divider()
@@ -39,8 +39,8 @@ struct TestTableView: View {
                             .fontWeight(category == "Category" ? .bold : .regular)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.vertical, 1)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
-                    .frame(maxWidth: .infinity)
                 }
             }
             .padding()
