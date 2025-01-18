@@ -55,7 +55,7 @@ struct MeditationCloudsView: View {
                         .opacity(textOpacity)
                         .animation(.easeInOut(duration: 1.0), value: textOpacity)
                     Rectangle()
-                        .fill(Color.blue)
+                        .fill(Color.mainBlue)
                         .cornerRadius(10)
                         .frame(width: rectangleWidth, height: 30)
                         .onAppear {
@@ -124,7 +124,7 @@ struct Cloud: View {
         Image(systemName: "cloud")
             .resizable()
             .frame(width: width, height: height)
-            .foregroundStyle(.blue)
+            .foregroundStyle(Color.mainBlue)
             .opacity(0.3)
     }
 }

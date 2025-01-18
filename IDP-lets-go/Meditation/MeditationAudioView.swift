@@ -18,7 +18,7 @@ struct MeditationAudioView: View {
             }) {
                 Image(systemName: viewModel.isPlaying ? "pause.circle.fill" : "play.circle.fill")
                     .font(.system(size: 85))
-                    .foregroundColor(.blue)
+                    .foregroundColor(Color.mainBlue)
                     .padding(.vertical, 20)
             }
             
@@ -71,7 +71,7 @@ private struct LinearGaugeProgressStyle: ProgressViewStyle {
                 
                 // Foreground capsule (progress width)
                 Capsule()
-                    .fill(Color.blue)
+                    .fill(Color.mainBlue)
                     .frame(
                         width: max(CGFloat(fractionCompleted) * geometry.size.width, geometry.size.height),
                         height: geometry.size.height
