@@ -18,24 +18,18 @@ struct OnboardingView: View {
                 .padding(.horizontal, 25)
                 .padding(.top, 30)
             
-            Text("Your data will remain confidential and is used solely for research purposes.")
+            Text("Your responses will remain confidential, securely stored, and used only for research purposes.")
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 25)
                 .padding(.top, 10)
-            
+
             Image(systemName: "lock.shield")
                 .font(.system(size: 100))
                 .foregroundColor(Color.mainBlue)
                 .padding(.vertical, 40)
-           
-            Text("All data is anonymized and securely stored for research purposes.")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 25)
-                .padding(.bottom, 40)
+                .padding(.bottom, 50)
       
             Button("Get Started") {
                 coordinator.pushNext(to: .onboarding)

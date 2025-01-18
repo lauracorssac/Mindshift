@@ -28,12 +28,12 @@ struct MeditationEndView: View {
                 Button("Proceed to test") {
                     coordinator.pushNext(to: .meditationEnd)
                 }
-                .buttonStyle(RoundedButtonStyle())
+                .buttonStyle(RoundedButtonStyle(fixedWidth: 170))
                 Spacer()
                 Button("Restart meditation") {
                     coordinator.pushNext(to: .clouds)
                 }
-                .buttonStyle(RoundedButtonStyle())
+                .buttonStyle(RoundedButtonStyle(fixedWidth: 170))
                 Spacer()
             }
         }
