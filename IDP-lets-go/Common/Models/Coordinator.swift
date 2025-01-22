@@ -9,13 +9,15 @@ import SwiftUI
 
 enum Screen: Hashable {
     
-    case overview, consent, onboarding, race, gender, birthdate, profession, education,
+    case welcome, overview, consent, onboarding, race, gender, birthdate, profession, education,
          meditationStart, meditation, meditationEnd, testStart, testStepIntro(step: Step),
          testQuestion(step: Step), final, clouds, testTableView
     
     func nextScreen() -> Screen? {
         
         switch self {
+        case .welcome:
+                .overview
         case .overview:
             .consent
         case .consent:
@@ -147,6 +149,8 @@ class AppCoordinator: ObservableObject {
     @ViewBuilder
     func build(_ screen: Screen) -> some View {
         switch screen {
+        case .welcome:
+            WelcomeView()
             
         case .overview:
             OverviewPageView(cards: Overview().allCards)
@@ -198,7 +202,7 @@ class AppCoordinator: ObservableObject {
             TestQuestionView(stepVM: .init(step: step))
             
         case .final:
-            FinalView()
+            FinalView().navigationBarBackButtonHidden()
         }
     }
 }
