@@ -20,6 +20,8 @@ class Requests {
     
     func saveUser() async -> Result {
         
+        guard Constants.MOCK_SERVER == false else { return .success }
+        
         guard let url = URL(string: "http://127.0.0.1:4001/user") else {
             return .error
         }
@@ -33,7 +35,7 @@ class Requests {
             let jsonData = try JSONEncoder().encode(postData)
             request.httpBody = jsonData
             
-            let (data, response) = try await URLSession.shared.data(for: request)
+            let (_, response) = try await URLSession.shared.data(for: request)
             if let response = response as? HTTPURLResponse, response.statusCode == 200 {
                 return .success
             } else {
