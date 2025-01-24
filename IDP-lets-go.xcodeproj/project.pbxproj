@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3171604C2D3EB26900AA8E0E /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3171604B2D3EB26900AA8E0E /* WelcomeView.swift */; };
+		3196FE352D43D5620039775F /* DemographicsFinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3196FE342D43D5620039775F /* DemographicsFinalView.swift */; };
 		31F074AD2D026F8000D0AA23 /* MeditationStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F074AA2D026F8000D0AA23 /* MeditationStartView.swift */; };
 		31F074AE2D026F8000D0AA23 /* MeditationAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F074A92D026F8000D0AA23 /* MeditationAudioView.swift */; };
 		31F074AF2D026F8000D0AA23 /* AudioPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F074A82D026F8000D0AA23 /* AudioPlayerViewModel.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		3171604B2D3EB26900AA8E0E /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		3196FE342D43D5620039775F /* DemographicsFinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicsFinalView.swift; sourceTree = "<group>"; };
 		31F074A82D026F8000D0AA23 /* AudioPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewModel.swift; sourceTree = "<group>"; };
 		31F074A92D026F8000D0AA23 /* MeditationAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationAudioView.swift; sourceTree = "<group>"; };
 		31F074AA2D026F8000D0AA23 /* MeditationStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationStartView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				8DD8CD3C2D1033540058CF4B /* EducationQuestionView.swift */,
 				8DD8CD3E2D117D050058CF4B /* ProfessionQuestionView.swift */,
 				31FA10E02D3A8BFE00BA9C61 /* OnboardingView.swift */,
+				3196FE342D43D5620039775F /* DemographicsFinalView.swift */,
 			);
 			path = Demographics;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				31F074AD2D026F8000D0AA23 /* MeditationStartView.swift in Sources */,
 				31F074AE2D026F8000D0AA23 /* MeditationAudioView.swift in Sources */,
 				8DD8CD572D1D904A0058CF4B /* ConsentView.swift in Sources */,
+				3196FE352D43D5620039775F /* DemographicsFinalView.swift in Sources */,
 				8DD8CD252D1019C40058CF4B /* DemographicQuestionView.swift in Sources */,
 				8DD8CD372D1026210058CF4B /* RaceQuestionView.swift in Sources */,
 				31F074AF2D026F8000D0AA23 /* AudioPlayerViewModel.swift in Sources */,

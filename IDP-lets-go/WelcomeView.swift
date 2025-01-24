@@ -12,7 +12,7 @@ struct WelcomeView: View {
     
     var body: some View {
         VStack {
-            Text("Welcome!")
+            Text("Welcome to Mindshift!")
                 .font(.largeTitle)
                 .padding(.vertical, 30)
             
@@ -27,7 +27,7 @@ struct WelcomeView: View {
             Button("Start") {
                 coordinator.pushNext(to: .welcome)
             }
-            .buttonStyle(RoundedButtonStyle(fixedWidth: 150))
+            .buttonStyle(RoundedButtonStyle())
             .padding(.vertical, 30)
         }
         .padding()

@@ -9,7 +9,7 @@ import SwiftUI
 
 enum Screen: Hashable {
     
-    case welcome, overview, consent, onboarding, race, gender, birthdate, profession, education,
+    case welcome, onboarding, consent, race, gender, birthdate, profession, education, demographicsFinal, overview,
          meditationStart, meditation, meditationEnd, testStart, testStepIntro(step: Step),
          testQuestion(step: Step), final, clouds, testTableView
     
@@ -17,12 +17,10 @@ enum Screen: Hashable {
         
         switch self {
         case .welcome:
-                .overview
-        case .overview:
-            .consent
-        case .consent:
                 .onboarding
         case .onboarding:
+                .consent
+        case .consent:
                 .gender
         case .gender:
             .birthdate
@@ -33,6 +31,10 @@ enum Screen: Hashable {
         case .education:
             .race
         case .race:
+                .demographicsFinal
+        case .demographicsFinal:
+                .overview
+        case .overview:
             .meditationStart
         case .meditationStart:
             .clouds
@@ -42,7 +44,6 @@ enum Screen: Hashable {
             .meditationEnd
         case .meditationEnd:
             .testStart
-        
         case .testStart:
             .testTableView
         
@@ -151,16 +152,13 @@ class AppCoordinator: ObservableObject {
         switch screen {
         case .welcome:
             WelcomeView()
-            
-        case .overview:
-            OverviewPageView(cards: Overview().allCards)
+        
+        case .onboarding:
+            OnboardingView()
             
         case .consent:
             // TODO: change to real text
             ConsentView(consentText: Consent().text)
-            
-        case .onboarding:
-            OnboardingView()
             
         case .race:
             RaceQuestionView()
@@ -176,6 +174,12 @@ class AppCoordinator: ObservableObject {
         
         case .profession:
             ProfessionQuestionView()
+            
+        case .demographicsFinal:
+            DemographicsFinalView()
+            
+        case .overview:
+            OverviewPageView(cards: Overview().allCards)
             
         case .meditationStart:
             MeditationStartView()
