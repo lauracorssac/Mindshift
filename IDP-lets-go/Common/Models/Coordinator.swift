@@ -9,17 +9,19 @@ import SwiftUI
 
 enum Screen: Hashable {
     
-    case overview, consent, race, gender, birthdate, profession, education,
+    case welcome, onboarding, consent, race, gender, birthdate, profession, education, demographicsFinal, overview,
          meditationStart, meditation, meditationEnd, testStart, testStepIntro(step: Step),
          testQuestion(step: Step), final, clouds, testTableView
     
     func nextScreen() -> Screen? {
         
         switch self {
-        case .overview:
-            .consent
+        case .welcome:
+                .onboarding
+        case .onboarding:
+                .consent
         case .consent:
-            .gender
+                .gender
         case .gender:
             .birthdate
         case .birthdate:
@@ -29,6 +31,10 @@ enum Screen: Hashable {
         case .education:
             .race
         case .race:
+                .demographicsFinal
+        case .demographicsFinal:
+                .overview
+        case .overview:
             .meditationStart
         case .meditationStart:
             .clouds
@@ -38,7 +44,6 @@ enum Screen: Hashable {
             .meditationEnd
         case .meditationEnd:
             .testStart
-        
         case .testStart:
             .testTableView
         
@@ -145,9 +150,11 @@ class AppCoordinator: ObservableObject {
     @ViewBuilder
     func build(_ screen: Screen) -> some View {
         switch screen {
-            
-        case .overview:
-            OverviewPageView(cards: Overview().allCards)
+        case .welcome:
+            WelcomeView()
+        
+        case .onboarding:
+            OnboardingView()
             
         case .consent:
             // TODO: change to real text
@@ -167,6 +174,12 @@ class AppCoordinator: ObservableObject {
         
         case .profession:
             ProfessionQuestionView()
+            
+        case .demographicsFinal:
+            DemographicsFinalView()
+            
+        case .overview:
+            OverviewPageView(cards: Overview().allCards)
             
         case .meditationStart:
             MeditationStartView()
@@ -193,7 +206,7 @@ class AppCoordinator: ObservableObject {
             TestQuestionView(stepVM: .init(step: step))
             
         case .final:
-            FinalView()
+            FinalView().navigationBarBackButtonHidden()
         }
     }
 }

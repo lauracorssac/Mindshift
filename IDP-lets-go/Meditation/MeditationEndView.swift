@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MeditationEndView: View {
-    
     @EnvironmentObject private var coordinator: AppCoordinator
     
     var body: some View {
@@ -22,12 +21,21 @@ struct MeditationEndView: View {
                 .padding(.vertical, 20)
             Image(systemName: "checkmark.circle.fill")
                 .font(.system(size: 150))
-                .foregroundColor(.blue)
-            
-            Button("Go to test") {
-                coordinator.pushNext(to: .meditationEnd)
+                .foregroundColor(Color.mainBlue)
+                .padding(.vertical, 50)
+            HStack {
+                Spacer()
+                Button("Proceed to test") {
+                    coordinator.pushNext(to: .meditationEnd)
+                }
+                .buttonStyle(RoundedButtonStyle(fixedWidth: 170))
+                Spacer()
+                Button("Restart meditation") {
+                    coordinator.pushNext(to: .clouds)
+                }
+                .buttonStyle(RoundedButtonStyle(fixedWidth: 170))
+                Spacer()
             }
-            .buttonStyle(RoundedButtonStyle())
         }
     }
 }
