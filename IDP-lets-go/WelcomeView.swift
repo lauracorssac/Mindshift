@@ -27,7 +27,7 @@ struct WelcomeView: View {
             Button("Start") {
                 coordinator.pushNext(to: .welcome)
             }
-            .buttonStyle(RoundedButtonStyle())
+            .buttonStyle(RoundedButtonStyle(fixedWidth: 100))
             .padding(.vertical, 30)
         }
         .padding()
