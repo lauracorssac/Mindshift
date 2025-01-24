@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3171604C2D3EB26900AA8E0E /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3171604B2D3EB26900AA8E0E /* WelcomeView.swift */; };
+		3196FE352D43D5620039775F /* DemographicsFinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3196FE342D43D5620039775F /* DemographicsFinalView.swift */; };
 		31F074AD2D026F8000D0AA23 /* MeditationStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F074AA2D026F8000D0AA23 /* MeditationStartView.swift */; };
 		31F074AE2D026F8000D0AA23 /* MeditationAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F074A92D026F8000D0AA23 /* MeditationAudioView.swift */; };
 		31F074AF2D026F8000D0AA23 /* AudioPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F074A82D026F8000D0AA23 /* AudioPlayerViewModel.swift */; };
@@ -43,7 +45,6 @@
 		8DD8CD7D2D35A2D60058CF4B /* TestFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD7B2D35A2D60058CF4B /* TestFields.swift */; };
 		8DD8CD7F2D35AB270058CF4B /* FinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD7E2D35AB270058CF4B /* FinalView.swift */; };
 		8DD8CD812D380B480058CF4B /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD802D380B480058CF4B /* TestModel.swift */; };
-		F9A10FB02D2F12AA00962DFF /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FAF2D2F12A600962DFF /* TestView.swift */; };
 		F9A10FB22D2F12D800962DFF /* TestInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB12D2F12D300962DFF /* TestInformationView.swift */; };
 		F9A10FB42D2F12EB00962DFF /* TestQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB32D2F12E600962DFF /* TestQuestionView.swift */; };
 		F9A10FB62D2F12F800962DFF /* TestTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB52D2F12F300962DFF /* TestTableView.swift */; };
@@ -51,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3171604B2D3EB26900AA8E0E /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		3196FE342D43D5620039775F /* DemographicsFinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicsFinalView.swift; sourceTree = "<group>"; };
 		31F074A82D026F8000D0AA23 /* AudioPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewModel.swift; sourceTree = "<group>"; };
 		31F074A92D026F8000D0AA23 /* MeditationAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationAudioView.swift; sourceTree = "<group>"; };
 		31F074AA2D026F8000D0AA23 /* MeditationStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationStartView.swift; sourceTree = "<group>"; };
@@ -88,7 +91,6 @@
 		8DD8CD7B2D35A2D60058CF4B /* TestFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFields.swift; sourceTree = "<group>"; };
 		8DD8CD7E2D35AB270058CF4B /* FinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalView.swift; sourceTree = "<group>"; };
 		8DD8CD802D380B480058CF4B /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
-		F9A10FAF2D2F12A600962DFF /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		F9A10FB12D2F12D300962DFF /* TestInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInformationView.swift; sourceTree = "<group>"; };
 		F9A10FB32D2F12E600962DFF /* TestQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionView.swift; sourceTree = "<group>"; };
 		F9A10FB52D2F12F300962DFF /* TestTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableView.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				31F074AB2D026F8000D0AA23 /* Meditation */,
 				8DD8CD152CFD0B010058CF4B /* IDP_lets_goApp.swift */,
 				8DD8CD172CFD0B010058CF4B /* ContentView.swift */,
+				3171604B2D3EB26900AA8E0E /* WelcomeView.swift */,
 				8DD8CD192CFD0B030058CF4B /* Assets.xcassets */,
 				8DD8CD1B2CFD0B030058CF4B /* Preview Content */,
 			);
@@ -172,6 +175,7 @@
 				8DD8CD3C2D1033540058CF4B /* EducationQuestionView.swift */,
 				8DD8CD3E2D117D050058CF4B /* ProfessionQuestionView.swift */,
 				31FA10E02D3A8BFE00BA9C61 /* OnboardingView.swift */,
+				3196FE342D43D5620039775F /* DemographicsFinalView.swift */,
 			);
 			path = Demographics;
 			sourceTree = "<group>";
@@ -266,7 +270,6 @@
 				F9A10FB52D2F12F300962DFF /* TestTableView.swift */,
 				F9A10FB32D2F12E600962DFF /* TestQuestionView.swift */,
 				F9A10FB12D2F12D300962DFF /* TestInformationView.swift */,
-				F9A10FAF2D2F12A600962DFF /* TestView.swift */,
 				8DD8CD792D35A16A0058CF4B /* Classes.swift */,
 				8DD8CD7E2D35AB270058CF4B /* FinalView.swift */,
 				8DD8CD802D380B480058CF4B /* TestModel.swift */,
@@ -346,7 +349,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9A10FB02D2F12AA00962DFF /* TestView.swift in Sources */,
 				8DD8CD592D1D94450058CF4B /* Consent.swift in Sources */,
 				8DD8CD542D1C9A990058CF4B /* OverviewConstants.swift in Sources */,
 				8DD8CD812D380B480058CF4B /* TestModel.swift in Sources */,
@@ -360,6 +362,7 @@
 				31F074AD2D026F8000D0AA23 /* MeditationStartView.swift in Sources */,
 				31F074AE2D026F8000D0AA23 /* MeditationAudioView.swift in Sources */,
 				8DD8CD572D1D904A0058CF4B /* ConsentView.swift in Sources */,
+				3196FE352D43D5620039775F /* DemographicsFinalView.swift in Sources */,
 				8DD8CD252D1019C40058CF4B /* DemographicQuestionView.swift in Sources */,
 				8DD8CD372D1026210058CF4B /* RaceQuestionView.swift in Sources */,
 				31F074AF2D026F8000D0AA23 /* AudioPlayerViewModel.swift in Sources */,
@@ -383,6 +386,7 @@
 				31F074B22D02758C00D0AA23 /* MeditationEndView.swift in Sources */,
 				8DD8CD162CFD0B010058CF4B /* IDP_lets_goApp.swift in Sources */,
 				31F571C62D10550A005A0579 /* MeditationStrings.swift in Sources */,
+				3171604C2D3EB26900AA8E0E /* WelcomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
