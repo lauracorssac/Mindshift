@@ -10,6 +10,7 @@ import Foundation
 
 class Constants {
     
+    static let MOCK_SERVER = true
     static let DEBUG = true
     static let model = RandomModel() // SequecedModel()
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum Gender: String, CaseIterable, Identifiable {
+enum Gender: String, CaseIterable, Identifiable, Codable {
     var id: String {
         self.rawValue
     }
@@ -23,6 +23,7 @@ struct GenderQuestionView: View {
         DemographicQuestionView(
             demographicQuestion: .gender,
             buttonPressed: { 
+                UserModel.user.gender = gender
                 coordinator.pushNext(to: .gender)
             }
         ) {
