@@ -10,19 +10,22 @@ import SwiftUI
 struct TestInformationView: View {
     
     @EnvironmentObject private var coordinator: AppCoordinator
-
+    
     var body: some View {
-        VStack {
-            Text("In this study you will complete an Implicit Association Test (IAT) in which you will be asked to sort words into groups as fast as you can. In addition to the IAT, there are some questions about your beliefs, attitudes, and opinions, and some standard demographic questions. This study should take about 10 minutes to complete.")
-                .multilineTextAlignment(.center)
-                .padding()
-            Button("Continue") {
-                
-                coordinator.pushNext(to: .testStart)
-            }.buttonStyle(RoundedButtonStyle())
-                .padding()
+        ZStack(alignment: .center){
+            VStack{
+                Text("In this study you will complete an Implicit Association Test (IAT) in which you will be asked to sort words into groups as fast as you can. In addition to the IAT, there are some questions about your beliefs, attitudes, and opinions, and some standard demographic questions. This study should take about 10 minutes to complete.")
+                    .multilineTextAlignment(.center)
+                    .padding()
+                Button("Continue") {
+                    
+                    coordinator.pushNext(to: .testStart)
+                }.buttonStyle(RoundedButtonStyle())
+                    .padding()
+            }
+            .padding(10)
+            GuidanceIcons(highlightedIndex: 0)
         }
-        .padding(10)
     }
 }
 #Preview {
