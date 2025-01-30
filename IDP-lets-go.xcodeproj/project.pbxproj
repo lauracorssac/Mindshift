@@ -48,6 +48,10 @@
 		8DD8CD842D3AB6110058CF4B /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD832D3AB6110058CF4B /* Requests.swift */; };
 		8DD8CD862D3AB9900058CF4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD852D3AB9900058CF4B /* User.swift */; };
 		8DD8CD882D3ABC840058CF4B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD872D3ABC840058CF4B /* Date.swift */; };
+		8DD8CD8D2D4429BE0058CF4B /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD8C2D4429BE0058CF4B /* UserStatus.swift */; };
+		8DD8CD8F2D442A9A0058CF4B /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD8E2D442A9A0058CF4B /* UserDefaultsManager.swift */; };
+		8DD8CD912D442C0E0058CF4B /* UserStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD902D442C0E0058CF4B /* UserStatusManager.swift */; };
+		8DD8CD932D496DF90058CF4B /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD922D496DF90058CF4B /* Screen.swift */; };
 		F9A10FB22D2F12D800962DFF /* TestInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB12D2F12D300962DFF /* TestInformationView.swift */; };
 		F9A10FB42D2F12EB00962DFF /* TestQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB32D2F12E600962DFF /* TestQuestionView.swift */; };
 		F9A10FB62D2F12F800962DFF /* TestTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB52D2F12F300962DFF /* TestTableView.swift */; };
@@ -97,6 +101,10 @@
 		8DD8CD832D3AB6110058CF4B /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		8DD8CD852D3AB9900058CF4B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8DD8CD872D3ABC840058CF4B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		8DD8CD8C2D4429BE0058CF4B /* UserStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatus.swift; sourceTree = "<group>"; };
+		8DD8CD8E2D442A9A0058CF4B /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		8DD8CD902D442C0E0058CF4B /* UserStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatusManager.swift; sourceTree = "<group>"; };
+		8DD8CD922D496DF90058CF4B /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		F9A10FB12D2F12D300962DFF /* TestInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInformationView.swift; sourceTree = "<group>"; };
 		F9A10FB32D2F12E600962DFF /* TestQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionView.swift; sourceTree = "<group>"; };
 		F9A10FB52D2F12F300962DFF /* TestTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableView.swift; sourceTree = "<group>"; };
@@ -222,6 +230,10 @@
 				8DD8CD312D1023030058CF4B /* Coordinator.swift */,
 				8DD8CD402D1184230058CF4B /* Constants.swift */,
 				8DD8CD852D3AB9900058CF4B /* User.swift */,
+				8DD8CD8C2D4429BE0058CF4B /* UserStatus.swift */,
+				8DD8CD8E2D442A9A0058CF4B /* UserDefaultsManager.swift */,
+				8DD8CD902D442C0E0058CF4B /* UserStatusManager.swift */,
+				8DD8CD922D496DF90058CF4B /* Screen.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -370,6 +382,8 @@
 				8DD8CD542D1C9A990058CF4B /* OverviewConstants.swift in Sources */,
 				8DD8CD812D380B480058CF4B /* TestModel.swift in Sources */,
 				8DD8CD2A2D101B9D0058CF4B /* Fonts.swift in Sources */,
+				8DD8CD912D442C0E0058CF4B /* UserStatusManager.swift in Sources */,
+				8DD8CD932D496DF90058CF4B /* Screen.swift in Sources */,
 				8DD8CD412D1184230058CF4B /* Constants.swift in Sources */,
 				F9A10FB82D2F131A00962DFF /* TestPartIndicatorView.swift in Sources */,
 				8DD8CD2F2D101DD30058CF4B /* Colors.swift in Sources */,
@@ -391,9 +405,11 @@
 				8DD8CD392D1027910058CF4B /* BirthdateQuestionView.swift in Sources */,
 				8DD8CD842D3AB6110058CF4B /* Requests.swift in Sources */,
 				8DD8CD7F2D35AB270058CF4B /* FinalView.swift in Sources */,
+				8DD8CD8F2D442A9A0058CF4B /* UserDefaultsManager.swift in Sources */,
 				8DD8CD2D2D101D300058CF4B /* RoundedButtonStyle.swift in Sources */,
 				F9A10FB22D2F12D800962DFF /* TestInformationView.swift in Sources */,
 				8DD8CD5B2D1D9A6D0058CF4B /* String.swift in Sources */,
+				8DD8CD8D2D4429BE0058CF4B /* UserStatus.swift in Sources */,
 				31FA10E12D3A8BFE00BA9C61 /* OnboardingView.swift in Sources */,
 				8DD8CD4A2D1C837F0058CF4B /* OverviewPageView.swift in Sources */,
 				F9A10FB62D2F12F800962DFF /* TestTableView.swift in Sources */,
