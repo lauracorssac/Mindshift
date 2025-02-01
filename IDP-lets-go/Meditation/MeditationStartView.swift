@@ -11,25 +11,21 @@ struct MeditationStartView: View {
     @EnvironmentObject private var coordinator: AppCoordinator
     
     var body: some View {
-        ZStack{
-            VStack {
-                Spacer()
-                Text(MeditationStrings.StartView.startMessage)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 25)
-                    .padding(.vertical, 20)
-                
-                Button(MeditationStrings.StartView.buttonText) {
-                    coordinator.pushNext(to: .meditationStart)
-                }.buttonStyle(RoundedButtonStyle())
-                
-                Spacer()
-            }
-            VStack {
-                Spacer()
-                GuidanceIcons(highlightedIndex: 1)
-                    .padding(.bottom, 30)
-            }
+        
+        VStack {
+            Spacer()
+            Text(MeditationStrings.StartView.startMessage)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 25)
+                .padding(.vertical, 20)
+            
+            Button(MeditationStrings.StartView.buttonText) {
+                coordinator.pushNext(to: .meditationStart)
+            }.buttonStyle(RoundedButtonStyle())
+            
+            Spacer()
+            GuidanceIcons(highlightedIndex: 1)
+                .padding(.bottom, 30)
         }
     }
 }
