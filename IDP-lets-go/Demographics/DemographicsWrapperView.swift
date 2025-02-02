@@ -20,42 +20,27 @@ struct DemographicsWrapperView: View {
     
     var body: some View {
         
-        GeometryReader { geometry in
         VStack(spacing: 0) {
             
-       
-            Rectangle()
-                .fill(Color.black.opacity(0.2))
-                .cornerRadius(10)
-                .frame(width: max(0, geometry.size.width - 32),
-                       height: 30)
-                .animation(.easeInOut, value: currentStep)
-                .overlay(content: {
-                    HStack {
-                        Rectangle()
-                            .fill(Color.mainBlue)
-                            .cornerRadius(10)
-                            .frame(
-                                width: max(
-                                    0, (geometry.size.width - 32) * CGFloat(currentStep + 1) / CGFloat(totalSteps + 1)),
-                                height: 30
-                            )
-                            .animation(.easeInOut, value: currentStep)
-                        Spacer()
-                    }
-                })
-                
+            StepProgressView(
+                currentStep: currentStep,
+                totalSteps: totalSteps
+            )
+            .frame(height: 30)
             .padding(.top, 16)
-                
-                Spacer()
-    
-                buildMiddleView(for: questions[currentStep])
-                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
-                
-            }.padding(.horizontal, 16)
+            
+            Spacer()
+            
+            buildMiddleView(for: questions[currentStep])
+                .transition(.asymmetric(
+                    insertion: .move(edge: .trailing),
+                    removal: .move(edge: .leading)
+                ))
+            
         }
-        
     }
+        
+    
     
     private func buttonPressed() {
         withAnimation(Animation.easeInOut, {
