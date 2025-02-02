@@ -31,7 +31,7 @@ enum EducationBackground: String, CaseIterable, Identifiable, Codable {
 
 struct EducationQuestionView: View {
     
-    @EnvironmentObject private var coordinator: AppCoordinator
+    let buttonPressed: () -> ()
     @State private var education: EducationBackground = .none
     
     var body: some View {
@@ -39,7 +39,7 @@ struct EducationQuestionView: View {
             demographicQuestion: .educationBackground,
             buttonPressed: {
                 UserModel.user.education = education
-                coordinator.pushNext(to: .education)
+                buttonPressed()
             }
         ) {
             Picker("Education", selection: $education) {
@@ -53,6 +53,6 @@ struct EducationQuestionView: View {
 }
 
 #Preview {
-    EducationQuestionView()
+    EducationQuestionView(buttonPressed: {})
         .environmentObject(AppCoordinator())
 }

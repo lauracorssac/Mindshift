@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BirthdateQuestionView: View {
     
-    @EnvironmentObject private var coordinator: AppCoordinator
+    let buttonPressed: () -> ()
     @State private var birthDate = Date.now
     
     var body: some View {
@@ -17,7 +17,7 @@ struct BirthdateQuestionView: View {
             demographicQuestion: .birthdate,
             buttonPressed: { 
                 UserModel.user.birthdate = birthDate.toString()
-                coordinator.pushNext(to: .birthdate)
+                buttonPressed()
             }
         ) {
             DatePicker(
@@ -32,6 +32,6 @@ struct BirthdateQuestionView: View {
 }
 
 #Preview {
-    BirthdateQuestionView()
+    BirthdateQuestionView(buttonPressed: {})
         .environmentObject(AppCoordinator())
 }

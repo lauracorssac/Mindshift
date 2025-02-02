@@ -16,15 +16,16 @@ enum Gender: String, CaseIterable, Identifiable, Codable {
 }
 
 struct GenderQuestionView: View {
-    @EnvironmentObject private var coordinator: AppCoordinator
+   
     @State private var gender: Gender = .none
+    let buttonPressed: () -> ()
     
     var body: some View {
         DemographicQuestionView(
             demographicQuestion: .gender,
             buttonPressed: { 
+                buttonPressed()
                 UserModel.user.gender = gender
-                coordinator.pushNext(to: .gender)
             }
         ) {
             Picker("Gender", selection: $gender) {
@@ -34,10 +35,11 @@ struct GenderQuestionView: View {
                 }
             }
         }
+        
     }
 }
 
 #Preview {
-    GenderQuestionView()
+    GenderQuestionView(buttonPressed: {})
         .environmentObject(AppCoordinator())
 }

@@ -7,26 +7,27 @@
 
 import SwiftUI
 
-struct DemographicQuestion {
-    let title: String
+enum DemographicQuestion {
     
-    static let race = DemographicQuestion
-        .init(title: "With which race do you identify yourself?")
+    case race, birthdate, gender, educationBackground, mmock, profession
     
-    static let birthdate = DemographicQuestion
-        .init(title: "What's your birthdate?")
-    
-    static let gender = DemographicQuestion
-        .init(title: "What's your gender?")
-    
-    static let educationBackground = DemographicQuestion
-        .init(title: "What's your highest education background?")
-    
-    static let profession = DemographicQuestion
-        .init(title: "What's your profession?")
-    
-    static let mock = DemographicQuestion
-        .init(title: "What's your name?")
+    func title() -> String {
+        switch self {
+            
+        case .race:
+            "With which race do you identify yourself?"
+        case .birthdate:
+            "What's your birthdate?"
+        case .gender:
+            "What's your gender?"
+        case .educationBackground:
+            "What's your highest education background?"
+        case .mmock:
+            "What's your name?"
+        case .profession:
+            "What's your profession?"
+        }
+    }
 }
 
 struct DemographicQuestionView<Content: View>: View {
@@ -37,17 +38,22 @@ struct DemographicQuestionView<Content: View>: View {
     
     var body: some View {
         
-        VStack(alignment: .center, spacing: 20) {
-            Text(demographicQuestion.title)
+        VStack(alignment: .center, spacing: 30) {
+            
+            Spacer()
+            Text(demographicQuestion.title())
                 .font(Font.system24)
                 .multilineTextAlignment(.center)
             
             content()
             
+            Spacer()
+            
             Button("Submit") {
                 buttonPressed()
-            }.buttonStyle(RoundedButtonStyle())
+            }.buttonStyle(RoundedButtonStyle(fixedWidth: 100))
         }
+        .padding(.vertical, 14)
         .padding(.horizontal, 16)
     }
 }

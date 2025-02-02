@@ -9,8 +9,9 @@ import SwiftUI
 
 struct RaceQuestionView: View {
     
-    @EnvironmentObject private var coordinator: AppCoordinator
+    
     @State private var race: String = ""
+    let buttonPressed: () -> ()
     
     var body: some View {
         DemographicQuestionView(
@@ -22,7 +23,7 @@ struct RaceQuestionView: View {
                     let result = await Requests.shared.saveUser()
                     switch result {
                     case .success:
-                        coordinator.pushNext(to: .race)
+                        buttonPressed()
                     case .error:
                         // TODO: treat
                         print("error saving data")
@@ -38,6 +39,6 @@ struct RaceQuestionView: View {
 }
 
 #Preview {
-    RaceQuestionView()
+    RaceQuestionView(buttonPressed: {})
         .environmentObject(AppCoordinator())
 }
