@@ -9,16 +9,12 @@ import SwiftUI
 
 struct BirthdateQuestionView: View {
     
-    let buttonPressed: () -> ()
-    @State private var birthDate = Date.now
+    @Binding var birthDate: Date
     
     var body: some View {
         DemographicQuestionView(
             demographicQuestion: .birthdate,
-            buttonPressed: { 
-                UserModel.user.birthdate = birthDate.toString()
-                buttonPressed()
-            }
+            buttonPressed: {}
         ) {
             DatePicker(
                 selection: $birthDate,
@@ -32,6 +28,6 @@ struct BirthdateQuestionView: View {
 }
 
 #Preview {
-    BirthdateQuestionView(buttonPressed: {})
+    BirthdateQuestionView(birthDate: .constant(Date.now))
         .environmentObject(AppCoordinator())
 }

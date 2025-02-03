@@ -31,16 +31,12 @@ enum EducationBackground: String, CaseIterable, Identifiable, Codable {
 
 struct EducationQuestionView: View {
     
-    let buttonPressed: () -> ()
-    @State private var education: EducationBackground = .none
+    @Binding var education: EducationBackground
     
     var body: some View {
         DemographicQuestionView(
             demographicQuestion: .educationBackground,
-            buttonPressed: {
-                UserModel.user.education = education
-                buttonPressed()
-            }
+            buttonPressed: {}
         ) {
             Picker("Education", selection: $education) {
                 ForEach(EducationBackground.allCases) { education in
@@ -53,6 +49,6 @@ struct EducationQuestionView: View {
 }
 
 #Preview {
-    EducationQuestionView(buttonPressed: {})
+    EducationQuestionView(education: .constant(.none))
         .environmentObject(AppCoordinator())
 }

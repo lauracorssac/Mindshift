@@ -9,16 +9,12 @@ import SwiftUI
 
 struct ProfessionQuestionView: View {
    
-    @State private var profesison = ""
-    let buttonPressed: () -> ()
+    @Binding var profesison: String
     
     var body: some View {
         DemographicQuestionView(
             demographicQuestion: .profession,
-            buttonPressed: {
-                UserModel.user.profession = profesison
-                buttonPressed()
-            }
+            buttonPressed: {}
         ) {
             TextField("Your profession", text: $profesison)
         }
@@ -26,5 +22,5 @@ struct ProfessionQuestionView: View {
 }
 
 #Preview {
-    ProfessionQuestionView(buttonPressed: {})
+    ProfessionQuestionView(profesison: .constant(""))
 }

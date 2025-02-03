@@ -49,9 +49,6 @@ struct DemographicQuestionView<Content: View>: View {
             
             Spacer()
             
-            Button("Submit") {
-                buttonPressed()
-            }.buttonStyle(RoundedButtonStyle(fixedWidth: 100))
         }
         .padding(.vertical, 14)
         .padding(.horizontal, 16)
