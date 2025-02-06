@@ -11,6 +11,7 @@ struct MeditationStartView: View {
     @EnvironmentObject private var coordinator: AppCoordinator
     
     var body: some View {
+        
         VStack {
             Spacer()
             Text(MeditationStrings.StartView.startMessage)
@@ -23,8 +24,9 @@ struct MeditationStartView: View {
             }.buttonStyle(RoundedButtonStyle())
             
             Spacer()
+            GuidanceIcons(highlightedIndex: 1)
+                .padding(.bottom, 30)
         }
-        
     }
 }
 
