@@ -13,6 +13,6 @@ struct Card: Hashable {
     static let mock = Card(
         title: "Step 1",
         subtitle: "Step 1 Description Step 1 Description Step 1Description Step 1DescriptionStep 1DescriptionStep 1Description Step 1 Description Step 1 Description",
-        imageName: "step1"
+        imageName: "step3"
     )
 }
