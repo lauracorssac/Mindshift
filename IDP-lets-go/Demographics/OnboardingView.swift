@@ -37,7 +37,6 @@ struct OnboardingView: View {
             .buttonStyle(RoundedButtonStyle())
             .padding(.bottom, 30)
         }
-        .padding(.horizontal)
     }
 }
 

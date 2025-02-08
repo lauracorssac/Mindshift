@@ -13,29 +13,35 @@ struct MeditationEndView: View {
     var body: some View {
         VStack {
             Text(MeditationStrings.EndView.sessionCompleteTitle)
-                .font(.largeTitle)
-                .padding()
-            Text(MeditationStrings.EndView.sessionCompleteMessage)
+                .font(.headline)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 25)
-                .padding(.vertical, 20)
-            Image(systemName: "checkmark.circle.fill")
+                .padding(.top, 30)
+            
+            Text(MeditationStrings.EndView.sessionCompleteMessage)
+                .font(.body)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 25)
+                .padding(.top, 10)
+            
+            Image(systemName: "checkmark.circle")
                 .font(.system(size: 150))
                 .foregroundColor(Color.mainBlue)
-                .padding(.vertical, 50)
+                .padding(.vertical, 40)
+                .padding(.bottom, 30)
+            
             HStack {
-                Spacer()
                 Button("Proceed to test") {
                     coordinator.pushNext(to: .meditationEnd)
                 }
-                .buttonStyle(RoundedButtonStyle(fixedWidth: 170))
-                Spacer()
+                .buttonStyle(RoundedButtonStyle(fixedWidth: 165))
                 Button("Restart meditation") {
                     coordinator.pushNext(to: .clouds)
                 }
-                .buttonStyle(RoundedButtonStyle(fixedWidth: 170))
-                Spacer()
+                .buttonStyle(RoundedButtonStyle(fixedWidth: 165))
             }
+            .padding(.bottom, 30)
         }
     }
 }

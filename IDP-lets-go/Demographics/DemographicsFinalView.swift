@@ -28,7 +28,7 @@ struct DemographicsFinalView: View {
             Image(systemName: "checkmark.shield")
                 .font(.system(size: 150))
                 .foregroundColor(Color.mainBlue)
-                .padding(.vertical, 50)
+                .padding(.vertical, 40)
                 .padding(.bottom, 30)
 
             Button("Continue") {
@@ -37,7 +37,6 @@ struct DemographicsFinalView: View {
             .buttonStyle(RoundedButtonStyle())
             .padding(.bottom, 30)
         }
-        .padding(.horizontal)
     }
 }
 
