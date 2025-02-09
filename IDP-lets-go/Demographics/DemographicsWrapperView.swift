@@ -44,8 +44,15 @@ struct DemographicsWrapperView: View {
             
             Button("Submit") {
                 buttonPressed()
-            }.buttonStyle(RoundedButtonStyle(fixedWidth: 100))
+            }.buttonStyle(
+                RoundedButtonStyle(
+                    fixedWidth: 100,
+                    fixedHeight: nil,
+                    isDisabled: isButtonDisabled(for: questions[currentStep])
+                )
+            )
             .padding(.bottom, 16)
+            .disabled(isButtonDisabled(for: questions[currentStep]))
             
             
         }.toolbar {
@@ -61,6 +68,26 @@ struct DemographicsWrapperView: View {
         }
     }
         
+    
+    private func isButtonDisabled(for step: DemographicQuestion) -> Bool {
+        
+        switch step {
+            
+        case .race:
+            return userState.race.isEmpty
+        case .birthdate:
+            return userState.birthdate.isEmpty
+        case .gender:
+            return userState.gender.isEmpty
+        case .educationBackground:
+            return userState.education.isEmpty
+        case .mmock:
+            return true
+        case .profession:
+            return userState.profession.isEmpty
+        }
+        
+    }
     
     
     private func buttonPressed() {
@@ -103,41 +130,52 @@ struct DemographicsWrapperView: View {
         case .birthdate:
             BirthdateQuestionView(
                 birthDate: .init(
-                    get: { Date.now },
+                    get: { userState.birthdate },
                     set: { birthdate in
-                        userState.birthdate = birthdate.toString()
+                        userState.birthdate = birthdate
                     }))
             
         case .race:
-            RaceQuestionView(
-                race: .init(
+            
+            StringPickerView(
+                value: .init(
                     get: { userState.race },
                     set: { race in
                         userState.race = race
-                    }))
+                    }),
+                demographicQuestion: step
+            )
+            
             
         case .gender:
-            GenderQuestionView(
-                gender: .init(
+            StringPickerView(
+                value: .init(
                     get: { userState.gender },
                     set: { gender in
                         userState.gender = gender
-                    }))
+                    }),
+                demographicQuestion: step
+            )
+            
             
         case .profession:
-            ProfessionQuestionView(
-                profesison: .init(
+            StringPickerView(
+                value: .init(
                     get: { userState.profession },
                     set: { profession in
                         userState.profession = profession
-                    }))
+                    }),
+                demographicQuestion: step
+            )
             
         case .educationBackground:
-            EducationQuestionView(
-                education: .init(
-                    get: { userState.education ?? .none },
+            StringPickerView(
+                value: .init(
+                    get: { userState.education },
                     set: { education in userState.education = education }
-                ))
+                ),
+                demographicQuestion: step
+            )
         case .mmock:
             Text("Mock")
             

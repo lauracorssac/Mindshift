@@ -11,16 +11,21 @@ struct RoundedButtonStyle: ButtonStyle {
     
     var fixedWidth: CGFloat? = nil
     var fixedHeight: CGFloat? = nil
+    var isDisabled: Bool = false
     
     func makeBody(configuration: Configuration) -> some View {
+        
         configuration.label
             .frame(width: fixedWidth, height: fixedHeight)
             .padding(.horizontal, fixedWidth != nil ? 10 : 20)
             .padding(.vertical)
             .background(
+                isDisabled ?
+                Color.black.opacity(0.2) :
                 Color.mainBlue.opacity(
                     configuration.isPressed ? 0.5 : 1.0
                 )
+                
             )
             .foregroundColor(.white)
             .font(Font.system16Bold)
