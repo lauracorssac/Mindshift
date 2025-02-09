@@ -15,9 +15,9 @@ struct WelcomeView: View {
             Text("Welcome to Mindshift!")
                 .font(.largeTitle)
                 .padding(.vertical, 30)
-            
-            //Placeholder for the logo
-            Image(systemName: "app.fill")
+
+            Image("mindshift-new-logo")
+
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 150, height: 150)
