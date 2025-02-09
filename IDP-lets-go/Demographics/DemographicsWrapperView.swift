@@ -9,16 +9,14 @@ import SwiftUI
 
 struct DemographicsWrapperView: View {
     
-    let questions: [DemographicQuestion] = [.gender, .birthdate, .race,.educationBackground, .profession]
-    
     @EnvironmentObject private var coordinator: AppCoordinator
     @State private var currentStep: Int = 0
     @State private var currentProgress: Int = 1
     @State private var ended = false
-    @State private var userState: User = UserModel.user
+    @ObservedObject var viewModel: DemographicsViewModel
     
     var totalSteps: Int {
-        questions.count
+        viewModel.questions.count
     }
     
     var body: some View {
@@ -31,12 +29,12 @@ struct DemographicsWrapperView: View {
             )
             .frame(height: 30)
             .padding(.top, 16)
-            .scaleEffect(ended ? 1.1 : 1.0)
+            .scaleEffect(ended ? 1.2 : 1.0)
             
             
             Spacer()
             
-            buildMiddleView(for: questions[currentStep])
+            buildMiddleView(for: viewModel.questions[currentStep])
                 .transition(.asymmetric(
                     insertion: .move(edge: .trailing),
                     removal: .move(edge: .leading)
@@ -48,11 +46,11 @@ struct DemographicsWrapperView: View {
                 RoundedButtonStyle(
                     fixedWidth: 100,
                     fixedHeight: nil,
-                    isDisabled: isButtonDisabled(for: questions[currentStep])
+                    isDisabled: viewModel.isButtonDisabled(for: currentStep)
                 )
             )
             .padding(.bottom, 16)
-            .disabled(isButtonDisabled(for: questions[currentStep]))
+            .disabled(viewModel.isButtonDisabled(for: currentStep))
             
             
         }.toolbar {
@@ -66,29 +64,12 @@ struct DemographicsWrapperView: View {
                 }).opacity(currentStep == 0 ? 0 : 1)
             })
         }
-    }
-        
-    
-    private func isButtonDisabled(for step: DemographicQuestion) -> Bool {
-        
-        switch step {
-            
-        case .race:
-            return userState.race.isEmpty
-        case .birthdate:
-            return userState.birthdate.isEmpty
-        case .gender:
-            return userState.gender.isEmpty
-        case .educationBackground:
-            return userState.education.isEmpty
-        case .mmock:
-            return true
-        case .profession:
-            return userState.profession.isEmpty
+        .onChange(of: viewModel.shouldPresentNextView) { _, present in
+            if present {
+                coordinator.pushNext(to: .demographics)
+            }
         }
-        
     }
-    
     
     private func buttonPressed() {
         
@@ -103,21 +84,7 @@ struct DemographicsWrapperView: View {
                 ended = true
             })
             
-            withAnimation(Animation.easeIn.delay(1.0).speed(1)) {
-                ended = false
-            }
-            
-            // TODO: move this from view
-            Task {
-                let result = await Requests.shared.saveUser()
-                switch result {
-                case .success:
-                    coordinator.pushNext(to: .demographics)
-                case .error:
-                    // TODO: treat
-                    print("error saving data")
-                }
-            }
+            viewModel.saveData()
         }
     
     }
@@ -128,52 +95,32 @@ struct DemographicsWrapperView: View {
         switch(step) {
             
         case .birthdate:
-            BirthdateQuestionView(
-                birthDate: .init(
-                    get: { userState.birthdate },
-                    set: { birthdate in
-                        userState.birthdate = birthdate
-                    }))
+            BirthdateQuestionView(birthDate: $viewModel.birthdate)
             
         case .race:
             
             StringPickerView(
-                value: .init(
-                    get: { userState.race },
-                    set: { race in
-                        userState.race = race
-                    }),
+                value: $viewModel.race,
                 demographicQuestion: step
             )
             
             
         case .gender:
             StringPickerView(
-                value: .init(
-                    get: { userState.gender },
-                    set: { gender in
-                        userState.gender = gender
-                    }),
+                value: $viewModel.gender,
                 demographicQuestion: step
             )
             
             
         case .profession:
             StringPickerView(
-                value: .init(
-                    get: { userState.profession },
-                    set: { profession in
-                        userState.profession = profession
-                    }),
+                value: $viewModel.profession,
                 demographicQuestion: step
             )
             
         case .educationBackground:
             StringPickerView(
-                value: .init(
-                    get: { userState.education },
-                    set: { education in userState.education = education }
-                ),
+                value: $viewModel.education,
                 demographicQuestion: step
             )
         case .mmock:
@@ -188,7 +135,7 @@ struct DemographicsWrapperView: View {
 
 #Preview {
     NavigationStack {
-        DemographicsWrapperView()
+        DemographicsWrapperView(viewModel: .init())
             .environmentObject(AppCoordinator())
     }
 }

@@ -57,6 +57,7 @@
 		8DD8CD9F2D53F71A0058CF4B /* Birthdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD9E2D53F71A0058CF4B /* Birthdate.swift */; };
 		8DD8CDA12D53F7420058CF4B /* DemographicQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CDA02D53F7420058CF4B /* DemographicQuestion.swift */; };
 		8DD8CDA32D53F7FA0058CF4B /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CDA22D53F7FA0058CF4B /* Race.swift */; };
+		8DD8CDA52D593EF60058CF4B /* DemographicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CDA42D593EF60058CF4B /* DemographicsViewModel.swift */; };
 		F9A10FB22D2F12D800962DFF /* TestInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB12D2F12D300962DFF /* TestInformationView.swift */; };
 		F9A10FB42D2F12EB00962DFF /* TestQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB32D2F12E600962DFF /* TestQuestionView.swift */; };
 		F9A10FB62D2F12F800962DFF /* TestTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB52D2F12F300962DFF /* TestTableView.swift */; };
@@ -115,6 +116,7 @@
 		8DD8CD9E2D53F71A0058CF4B /* Birthdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Birthdate.swift; sourceTree = "<group>"; };
 		8DD8CDA02D53F7420058CF4B /* DemographicQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicQuestion.swift; sourceTree = "<group>"; };
 		8DD8CDA22D53F7FA0058CF4B /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
+		8DD8CDA42D593EF60058CF4B /* DemographicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicsViewModel.swift; sourceTree = "<group>"; };
 		F9A10FB12D2F12D300962DFF /* TestInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInformationView.swift; sourceTree = "<group>"; };
 		F9A10FB32D2F12E600962DFF /* TestQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionView.swift; sourceTree = "<group>"; };
 		F9A10FB52D2F12F300962DFF /* TestTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableView.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				31FA10E02D3A8BFE00BA9C61 /* OnboardingView.swift */,
 				3196FE342D43D5620039775F /* DemographicsFinalView.swift */,
 				8DD8CD942D4FE8C30058CF4B /* DemographicsWrapperView.swift */,
+				8DD8CDA42D593EF60058CF4B /* DemographicsViewModel.swift */,
 			);
 			path = Demographics;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				8DD8CD162CFD0B010058CF4B /* IDP_lets_goApp.swift in Sources */,
 				8DD8CD882D3ABC840058CF4B /* Date.swift in Sources */,
 				31F571C62D10550A005A0579 /* MeditationStrings.swift in Sources */,
+				8DD8CDA52D593EF60058CF4B /* DemographicsViewModel.swift in Sources */,
 				3171604C2D3EB26900AA8E0E /* WelcomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

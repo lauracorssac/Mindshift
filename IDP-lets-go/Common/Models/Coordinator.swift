@@ -140,7 +140,7 @@ class AppCoordinator: ObservableObject {
             ConsentView(consentText: Consent().text)
         
         case .demographics:
-            DemographicsWrapperView()
+            DemographicsWrapperView(viewModel: .init())
             
         case .demographicsFinal:
             DemographicsFinalView()
