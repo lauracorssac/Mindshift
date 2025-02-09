@@ -24,6 +24,7 @@ struct GuidanceIcons: View {
         case 1: return "step2"
         case 2: return "step3"
         default: return ""
+            
         }
     }
     
