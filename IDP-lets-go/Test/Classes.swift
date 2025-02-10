@@ -25,6 +25,10 @@ struct Step: Hashable {
     let questions: [Question]
     var startTime: Date?
     var endTime: Date?
+    
+    var isFirst: Bool {
+        return stepNumber == 1
+    }
 
     static let mockStep1: Step = .init(
         stepNumber: 1,
@@ -35,10 +39,6 @@ struct Step: Hashable {
             .init(title: "emilia", answer: .right),
             .init(title: "nino", answer: .left),
             .init(title: "umay", answer: .right),
-            .init(title: "laura", answer: .right),
-            .init(title: "alara", answer: .right),
-            .init(title: "krusche", answer: .left),
-            .init(title: "belemir", answer: .right),
         ]
     )
 
@@ -50,10 +50,6 @@ struct Step: Hashable {
         questions: [
             .init(title: "harry", answer: .left),
             .init(title: "rony", answer: .left),
-            .init(title: "hermine", answer: .right),
-            .init(title: "dumbledore", answer: .left),
-            .init(title: "luna", answer: .right),
-            .init(title: "ginny", answer: .right),
         ]
     )
 }

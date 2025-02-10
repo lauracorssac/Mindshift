@@ -7,55 +7,7 @@
 
 import SwiftUI
 
-enum Screen: Hashable {
-    
-    case welcome, onboarding, consent, race, gender, birthdate, profession, education, demographicsFinal, overview,
-         meditationStart, meditation, meditationEnd, testStart, testStepIntro(step: Step),
-         testQuestion(step: Step), final, clouds, testTableView
-    
-    func nextScreen() -> Screen? {
-        
-        switch self {
-        case .welcome:
-                .onboarding
-        case .onboarding:
-                .consent
-        case .consent:
-                .gender
-        case .gender:
-            .birthdate
-        case .birthdate:
-            .profession
-        case .profession:
-            .education
-        case .education:
-            .race
-        case .race:
-                .demographicsFinal
-        case .demographicsFinal:
-                .overview
-        case .overview:
-            .meditationStart
-        case .meditationStart:
-            .clouds
-        case .clouds:
-            .meditation
-        case .meditation:
-            .meditationEnd
-        case .meditationEnd:
-            .testStart
-        case .testStart:
-            .testTableView
-        
-        case .final, .testTableView, .testQuestion(step: _), .testStepIntro(step: _):
-            nil
-        }
-    }
-}
-
 class GameCoordinator {
-    
-    //private var steps: [Step] = [Step.mockStep1, Step.mockStep2]
     
     private var model: TestModel
     private var currentStep = 0
@@ -105,13 +57,23 @@ class AppCoordinator: ObservableObject {
     var gameCoordinator: GameCoordinator?
     var isFirstTest = true
     let model: TestModel
+    let statusManager = UserStatusManager.shared
     
-    init(path: NavigationPath = NavigationPath(), gameCoordinator: GameCoordinator? = nil, isFirstTest: Bool = true, model: TestModel = SequecedModel()) {
+    init(
+        path: NavigationPath = NavigationPath(),
+        gameCoordinator: GameCoordinator? = nil,
+        model: TestModel = SequecedModel()
+    ) {
         self.path = path
         self.gameCoordinator = gameCoordinator
-        self.isFirstTest = isFirstTest
         self.model = model
+        self.isFirstTest = statusManager.isFirstTest()
     }
+    
+    func getInitialScreen() -> Screen {
+        return statusManager.currentStatus.getScreen()
+    }
+    
     
     func push(_ screen: Screen) {
         path.append(screen)
@@ -128,12 +90,15 @@ class AppCoordinator: ObservableObject {
             if let nextStep = gameCoordinator?.getNextStep() {
                 self.push(nextStep)
             } else {
-               // if isFirstTest {
-                  //  self.push(.meditationStart)
-               // } else {
-                self.push(.final)
-                gameCoordinator?.debugAnalysisPrint()
-               // }
+                
+                if isFirstTest {
+                    self.push(.meditationStart)
+                    statusManager.completeStep(screen: .meditationStart)
+                } else {
+                    self.push(.final)
+                    gameCoordinator?.debugAnalysisPrint()
+                    statusManager.completeStep(screen: .final)
+                }
             }
             
         case .testStepIntro(step: _):
@@ -141,14 +106,25 @@ class AppCoordinator: ObservableObject {
             self.push(screen)
             
         default:
-            if let next = screen.nextScreen() {
+            if let next = screen.nextScreen(userStatusManager: statusManager) {
                 self.push(next)
+                statusManager.completeStep(screen: next)
             }
         }
     }
     
     @ViewBuilder
-    func build(_ screen: Screen) -> some View {
+    func build(screen: Screen) -> some View {
+        
+        build(screen)
+            .navigationBarBackButtonHidden(
+                screen.shouldHideBackButton()
+            )
+    }
+    
+    
+    @ViewBuilder
+    private func build(_ screen: Screen) -> some View {
         switch screen {
         case .welcome:
             WelcomeView()
@@ -157,7 +133,6 @@ class AppCoordinator: ObservableObject {
             OnboardingView()
             
         case .consent:
-            // TODO: change to real text
             ConsentView(consentText: Consent().text)
             
         case .race:
@@ -206,7 +181,7 @@ class AppCoordinator: ObservableObject {
             TestQuestionView(stepVM: .init(step: step))
             
         case .final:
-            FinalView().navigationBarBackButtonHidden()
+            FinalView()
         }
     }
 }

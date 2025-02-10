@@ -50,10 +50,6 @@ struct ConsentView: View {
                 coordinator.pushNext(to: .consent)
             }
             
-            Button("I do not consent") {
-               // TODO: what to do?
-            }
-            .padding(.bottom, 30)
         }
         .buttonStyle(RoundedButtonStyle(fixedWidth: 230))
     }
