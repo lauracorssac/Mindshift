@@ -56,7 +56,6 @@
 		F9A10FB42D2F12EB00962DFF /* TestQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB32D2F12E600962DFF /* TestQuestionView.swift */; };
 		F9A10FB62D2F12F800962DFF /* TestTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB52D2F12F300962DFF /* TestTableView.swift */; };
 		F9A10FB82D2F131A00962DFF /* TestPartIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB72D2F131300962DFF /* TestPartIndicatorView.swift */; };
-		F9B79D332D5A8F21003F8F4F /* GuidanceIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B79D322D5A8F21003F8F4F /* GuidanceIcons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,7 +109,6 @@
 		F9A10FB32D2F12E600962DFF /* TestQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionView.swift; sourceTree = "<group>"; };
 		F9A10FB52D2F12F300962DFF /* TestTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableView.swift; sourceTree = "<group>"; };
 		F9A10FB72D2F131300962DFF /* TestPartIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPartIndicatorView.swift; sourceTree = "<group>"; };
-		F9B79D322D5A8F21003F8F4F /* GuidanceIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceIcons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,7 +219,6 @@
 		8DD8CD2B2D101D030058CF4B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F9B79D322D5A8F21003F8F4F /* GuidanceIcons.swift */,
 				8DD8CD2C2D101D300058CF4B /* RoundedButtonStyle.swift */,
 			);
 			path = Views;
@@ -410,7 +407,6 @@
 				8DD8CD7F2D35AB270058CF4B /* FinalView.swift in Sources */,
 				8DD8CD8F2D442A9A0058CF4B /* UserDefaultsManager.swift in Sources */,
 				8DD8CD2D2D101D300058CF4B /* RoundedButtonStyle.swift in Sources */,
-				F9B79D332D5A8F21003F8F4F /* GuidanceIcons.swift in Sources */,
 				F9A10FB22D2F12D800962DFF /* TestInformationView.swift in Sources */,
 				8DD8CD5B2D1D9A6D0058CF4B /* String.swift in Sources */,
 				8DD8CD8D2D4429BE0058CF4B /* UserStatus.swift in Sources */,
