@@ -23,6 +23,8 @@ struct MeditationStartView: View {
             }.buttonStyle(RoundedButtonStyle())
             
             Spacer()
+            GuidanceBar(highlightedIndex: 1)
+                           .padding(.bottom, 30)
         }
         
     }
