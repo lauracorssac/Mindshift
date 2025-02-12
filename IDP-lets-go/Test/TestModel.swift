@@ -10,20 +10,22 @@ import Foundation
 protocol TestModel {
     
     var steps: [Step] { get set }
+    var totalNumberOfSteps: Int { get set }
 }
 
 class SequecedModel: TestModel {
     
+    var totalNumberOfSteps = 2
     var steps: [Step] = [Step.mockStep1, Step.mockStep2]
+    
 }
 
 class RandomModel: TestModel {
     
     var steps: [Step]
+    var totalNumberOfSteps: Int
     
-    let numberOfQuestionPerStep = 5
-    
-    init() {
+    init(numberOfQuestionPerStep: Int = 5, numberOfSteps: Int = 0) {
         
         var steps: [Step] = []
         for (ind, category) in TestFields.categories.enumerated() {
@@ -49,7 +51,14 @@ class RandomModel: TestModel {
             steps.append(step)
         }
         
-        self.steps = steps
+        if numberOfSteps != 0 {
+            totalNumberOfSteps = numberOfSteps
+            self.steps = Array(steps.prefix(through: numberOfSteps - 1))
+        } else {
+            self.steps = steps
+            totalNumberOfSteps = self.steps.count
+        }
+        
         
     }
 }

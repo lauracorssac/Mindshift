@@ -8,35 +8,14 @@ import SwiftUI
 
 struct TestPartIndicatorView: View {
     let step: Step
+    let totalNumberOfSteps: Int
     @EnvironmentObject private var coordinator: AppCoordinator
-    
-//    private func categoriesForPart(_ part: Int) -> (String, String) {
-//            switch part {
-//            case 1:
-//                return (TestFields.partOneCategories[0], TestFields.partOneCategories[1])
-//            case 2:
-//                return (TestFields.partTwoCategories[0], TestFields.partTwoCategories[1])
-//            case 3:
-//                return (TestFields.partThreeCategories[0], TestFields.partThreeCategories[1])
-//            case 4:
-//                return (TestFields.partFourCategories[0], TestFields.partFourCategories[1])
-//            case 5:
-//                return (TestFields.partFiveCategories[0], TestFields.partFiveCategories[1])
-//            case 6:
-//                return (TestFields.partSixCategories[0], TestFields.partSixCategories[1])
-//            case 7:
-//                return (TestFields.partSevenCategories[0], TestFields.partSevenCategories[1])
-//            default:
-//                return ("", "")
-//            }
-//        }
-        
     
     var body: some View {
         
         
         VStack(alignment: .center, spacing: 20) {
-            Text("Part \(step.stepNumber)/7")
+            Text("Part \(step.stepNumber)/\(totalNumberOfSteps)")
                             .font(.headline)
                             .padding(.horizontal)
                             .multilineTextAlignment(.center)
@@ -53,7 +32,7 @@ struct TestPartIndicatorView: View {
                            .padding(.horizontal)
         
             Button("Continue") {
-                coordinator.pushNext(to: .testStepIntro(step: step))
+                coordinator.pushNext(to: .testStepIntro(step: step, total: totalNumberOfSteps))
             }.buttonStyle(RoundedButtonStyle())
            
         }.padding()
@@ -61,7 +40,7 @@ struct TestPartIndicatorView: View {
 }
 
 #Preview {
-    TestPartIndicatorView(step: Step.mockStep1)
+    TestPartIndicatorView(step: Step.mockStep1, totalNumberOfSteps: 7)
         .environmentObject(AppCoordinator())
 }
 
