@@ -76,7 +76,9 @@ class AppCoordinator: ObservableObject {
     
     
     func push(_ screen: Screen) {
-        path.append(screen)
+        withTransaction(Transaction(animation: nil)) {
+            path.append(screen)
+        }
     }
     
     func pushNext(to screen: Screen) {
@@ -107,7 +109,9 @@ class AppCoordinator: ObservableObject {
             
         default:
             if let next = screen.nextScreen(userStatusManager: statusManager) {
+                
                 self.push(next)
+                
                 statusManager.completeStep(screen: next)
             }
         }
@@ -134,21 +138,9 @@ class AppCoordinator: ObservableObject {
             
         case .consent:
             ConsentView(consentText: Consent().text)
-            
-        case .race:
-            RaceQuestionView()
-            
-        case .gender:
-            GenderQuestionView()
-            
-        case .birthdate:
-            BirthdateQuestionView()
-            
-        case .education:
-            EducationQuestionView()
         
-        case .profession:
-            ProfessionQuestionView()
+        case .demographics:
+            DemographicsWrapperView(viewModel: .init())
             
         case .demographicsFinal:
             DemographicsFinalView()

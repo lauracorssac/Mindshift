@@ -9,7 +9,7 @@ import Foundation
 
 enum Screen: Hashable {
     
-    case welcome, onboarding, consent, race, gender, birthdate, profession, education, demographicsFinal, overview,
+    case welcome, onboarding, consent, demographics, demographicsFinal, overview,
          meditationStart, meditation, meditationEnd, testStart, testStepIntro(step: Step),
          testQuestion(step: Step), final, clouds, testTableView
     
@@ -20,22 +20,14 @@ enum Screen: Hashable {
             return .onboarding
         case .onboarding:
             if userStatusManager.hasAlreadyConsent {
-                return .gender
+                return .demographics
             } else {
                 return .consent
             }
                 
         case .consent:
-            return .gender
-        case .gender:
-            return .birthdate
-        case .birthdate:
-            return .profession
-        case .profession:
-            return .education
-        case .education:
-            return .race
-        case .race:
+            return .demographics
+        case .demographics:
             return .demographicsFinal
         case .demographicsFinal:
             return .overview
@@ -62,7 +54,7 @@ extension Screen {
     
     func shouldHideBackButton() -> Bool {
         switch self {
-        case .consent, .demographicsFinal, .overview, .meditationStart, .final,
+        case .consent, .demographics, .demographicsFinal, .overview, .meditationStart, .final,
                 .testQuestion(step: _):
             return true
         case let .testStepIntro(step: step):
@@ -74,7 +66,7 @@ extension Screen {
     
     func getUpdatedStatus(isFirstTest: Bool) -> UserStatus? {
         switch self {
-        case .gender:
+        case .demographics:
             return .demographics
         case .demographicsFinal:
             return .firstTest

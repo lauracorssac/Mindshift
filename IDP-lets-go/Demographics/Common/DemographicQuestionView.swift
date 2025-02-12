@@ -7,55 +7,33 @@
 
 import SwiftUI
 
-struct DemographicQuestion {
-    let title: String
-    
-    static let race = DemographicQuestion
-        .init(title: "With which race do you identify yourself?")
-    
-    static let birthdate = DemographicQuestion
-        .init(title: "What's your birthdate?")
-    
-    static let gender = DemographicQuestion
-        .init(title: "What's your gender?")
-    
-    static let educationBackground = DemographicQuestion
-        .init(title: "What's your highest education background?")
-    
-    static let profession = DemographicQuestion
-        .init(title: "What's your profession?")
-    
-    static let mock = DemographicQuestion
-        .init(title: "What's your name?")
-}
-
 struct DemographicQuestionView<Content: View>: View {
     
     let demographicQuestion: DemographicQuestion
-    let buttonPressed: () -> ()
     let content: () -> Content
     
     var body: some View {
         
-        VStack(alignment: .center, spacing: 20) {
-            Text(demographicQuestion.title)
+        VStack(alignment: .center, spacing: 30) {
+            
+            Spacer()
+            Text(demographicQuestion.title())
                 .font(Font.system24)
                 .multilineTextAlignment(.center)
             
             content()
             
-            Button("Submit") {
-                buttonPressed()
-            }.buttonStyle(RoundedButtonStyle())
+            Spacer()
+            
         }
+        .padding(.vertical, 14)
         .padding(.horizontal, 16)
     }
 }
 
 #Preview {
     DemographicQuestionView(
-        demographicQuestion: .educationBackground,
-        buttonPressed: {}
+        demographicQuestion: .educationBackground
     ) {
         TextField("", text: .constant("hello"))
     }

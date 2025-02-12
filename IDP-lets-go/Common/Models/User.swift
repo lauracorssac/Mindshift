@@ -9,21 +9,22 @@ import Foundation
 
 struct User: Codable {
     let id: UUID
-    var gender: Gender
-    var birthdate: String
+    var gender: String
+    var birthdate: Birthdate
     var race: String
-    var education: EducationBackground?
+    var education: String
     var profession: String
+
 }
 
 class UserModel {
     
     static var user = User(
         id: UUID(),
-        gender: .none,
-        birthdate: "",
+        gender: "",
+        birthdate: .init(),
         race: "",
-        education: nil,
+        education: "",
         profession: ""
     )
 }
