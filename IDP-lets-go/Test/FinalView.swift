@@ -10,31 +10,30 @@ struct FinalView: View {
 
     var body: some View {
         VStack {
-            Text("Thank You for Your Participation!")
-                .font(.title)
-                .fontWeight(.bold)
+            Text("Thank you for your participation!")
                 .multilineTextAlignment(.center)
+                .font(.headline)
+                .padding(.horizontal, 25)
                 .padding(.top, 30)
             
-            Image(systemName: "party.popper.fill")
-                .font(.system(size: 100))
-                .foregroundColor(Color.mainBlue)
-                .padding(.vertical, 50)
-            
-            Text("You’ve successfully completed both tests!")
+            Text("You’ve completed both tests!")
                 .font(.body)
+                .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 25)
-                .padding(.bottom, 5)
+                .padding(.top, 10)
             
             Text("Your responses are valuable in helping reduce bias.")
                 .font(.body)
+                .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 25)
-                .padding(.bottom, 30)
 
+            Image(systemName: "party.popper")
+                .font(.system(size: 150))
+                .foregroundColor(Color.mainBlue).padding(.vertical, 40)
+                .padding(.bottom, 30)
         }
-        .padding(.horizontal)
     }
 }
 

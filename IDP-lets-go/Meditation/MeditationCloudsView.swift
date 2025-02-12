@@ -75,25 +75,25 @@ struct MeditationCloudsView: View {
         textOpacity = 1.0
         
         // Breathe In
-        withAnimation(.easeInOut(duration: 10)) {
+        withAnimation(.easeInOut(duration: 4)) {
             rectangleWidth = 300
         }
         
         // Hold
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             self.changeText(to: MeditationStrings.CloudsView.hold)
         }
         
         // Breathe Out
-        DispatchQueue.main.asyncAfter(deadline: .now() + 20) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 11) {
             self.changeText(to: MeditationStrings.CloudsView.breatheOut)
-            withAnimation(.easeInOut(duration: 10)) {
+            withAnimation(.easeInOut(duration: 7)) {
                 rectangleWidth = 80
             }
         }
         
         // Hide the rectangle and text, then navigate to the next view
-        DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 19) {
             showRectangle = false
             currentPhaseText = ""
             coordinator.pushNext(to: .clouds)

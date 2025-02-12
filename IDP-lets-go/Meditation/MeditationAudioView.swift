@@ -16,7 +16,7 @@ struct MeditationAudioView: View {
             Button(action: {
                 viewModel.playPause()
             }) {
-                Image(systemName: viewModel.isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                Image(systemName: viewModel.isPlaying ? "pause.circle" : "play.circle")
                     .font(.system(size: 85))
                     .foregroundColor(Color.mainBlue)
                     .padding(.vertical, 20)
