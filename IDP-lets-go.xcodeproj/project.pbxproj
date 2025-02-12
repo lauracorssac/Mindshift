@@ -58,6 +58,7 @@
 		8DD8CDA12D53F7420058CF4B /* DemographicQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CDA02D53F7420058CF4B /* DemographicQuestion.swift */; };
 		8DD8CDA32D53F7FA0058CF4B /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CDA22D53F7FA0058CF4B /* Race.swift */; };
 		8DD8CDA52D593EF60058CF4B /* DemographicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CDA42D593EF60058CF4B /* DemographicsViewModel.swift */; };
+		8DD8CDAB2D5D1F0D0058CF4B /* GuidanceBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CDAA2D5D1F0D0058CF4B /* GuidanceBar.swift */; };
 		F9A10FB22D2F12D800962DFF /* TestInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB12D2F12D300962DFF /* TestInformationView.swift */; };
 		F9A10FB42D2F12EB00962DFF /* TestQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB32D2F12E600962DFF /* TestQuestionView.swift */; };
 		F9A10FB62D2F12F800962DFF /* TestTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A10FB52D2F12F300962DFF /* TestTableView.swift */; };
@@ -117,6 +118,7 @@
 		8DD8CDA02D53F7420058CF4B /* DemographicQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicQuestion.swift; sourceTree = "<group>"; };
 		8DD8CDA22D53F7FA0058CF4B /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		8DD8CDA42D593EF60058CF4B /* DemographicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicsViewModel.swift; sourceTree = "<group>"; };
+		8DD8CDAA2D5D1F0D0058CF4B /* GuidanceBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidanceBar.swift; sourceTree = "<group>"; };
 		F9A10FB12D2F12D300962DFF /* TestInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInformationView.swift; sourceTree = "<group>"; };
 		F9A10FB32D2F12E600962DFF /* TestQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionView.swift; sourceTree = "<group>"; };
 		F9A10FB52D2F12F300962DFF /* TestTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableView.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 		8DD8CD2B2D101D030058CF4B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8DD8CDAA2D5D1F0D0058CF4B /* GuidanceBar.swift */,
 				8DD8CD2C2D101D300058CF4B /* RoundedButtonStyle.swift */,
 				8DD8CD962D4FF9EE0058CF4B /* StepProgressView.swift */,
 			);
@@ -405,6 +408,7 @@
 				8DD8CD932D496DF90058CF4B /* Screen.swift in Sources */,
 				8DD8CD412D1184230058CF4B /* Constants.swift in Sources */,
 				F9A10FB82D2F131A00962DFF /* TestPartIndicatorView.swift in Sources */,
+				8DD8CDAB2D5D1F0D0058CF4B /* GuidanceBar.swift in Sources */,
 				8DD8CD2F2D101DD30058CF4B /* Colors.swift in Sources */,
 				8DD8CD3F2D117D050058CF4B /* StringPickerView.swift in Sources */,
 				31F571C82D10568E005A0579 /* MeditationCloudsView.swift in Sources */,
