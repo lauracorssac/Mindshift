@@ -10,7 +10,7 @@ import Foundation
 enum Screen: Hashable {
     
     case welcome, onboarding, consent, demographics, demographicsFinal, overview,
-         meditationStart, meditation, meditationEnd, testStart, testStepIntro(step: Step),
+         meditationStart, meditation, meditationEnd, testStart, testStepIntro(step: Step, total: Int),
          testQuestion(step: Step), final, clouds, testTableView
     
     func nextScreen(userStatusManager: UserStatusManager) -> Screen? {
@@ -55,9 +55,9 @@ extension Screen {
     func shouldHideBackButton() -> Bool {
         switch self {
         case .consent, .demographics, .demographicsFinal, .overview, .meditationStart, .final,
-                .testQuestion(step: _):
+                .testQuestion(step: _), .clouds, .meditation, .meditationEnd:
             return true
-        case let .testStepIntro(step: step):
+        case let .testStepIntro(step, _):
             return !step.isFirst
         default:
             return false

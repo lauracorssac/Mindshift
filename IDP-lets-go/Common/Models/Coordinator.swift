@@ -18,14 +18,14 @@ class GameCoordinator {
     }
     
     func getInitialScreen() -> Screen {
-        return .testStepIntro(step: model.steps[currentStep])
+        return .testStepIntro(step: model.steps[currentStep], total: model.totalNumberOfSteps)
     }
     
     func getNextStep() -> Screen? {
         stopTimer()
         guard currentStep < model.steps.count - 1 else { return nil }
         currentStep += 1
-        return .testStepIntro(step: model.steps[currentStep])
+        return .testStepIntro(step: model.steps[currentStep], total: model.totalNumberOfSteps)
     }
     
     func getQuestions() -> Screen {
@@ -55,9 +55,12 @@ class AppCoordinator: ObservableObject {
     @Published var path = NavigationPath()
     
     var gameCoordinator: GameCoordinator?
-    var isFirstTest = true
     let model: TestModel
     let statusManager = UserStatusManager.shared
+    
+    var isFirstTest: Bool {
+        statusManager.isFirstTest()
+    }
     
     init(
         path: NavigationPath = NavigationPath(),
@@ -67,7 +70,6 @@ class AppCoordinator: ObservableObject {
         self.path = path
         self.gameCoordinator = gameCoordinator
         self.model = model
-        self.isFirstTest = statusManager.isFirstTest()
     }
     
     func getInitialScreen() -> Screen {
@@ -166,8 +168,8 @@ class AppCoordinator: ObservableObject {
         case .testTableView:
             TestTableView()
             
-        case let .testStepIntro(step):
-            TestPartIndicatorView(step: step)
+        case let .testStepIntro(step, total):
+            TestPartIndicatorView(step: step, totalNumberOfSteps: total)
             
         case let .testQuestion(step):
             TestQuestionView(stepVM: .init(step: step))
