@@ -11,7 +11,7 @@ import Foundation
 class Constants {
     
     static let initialStatus: UserStatus? = .consent
-    static let MOCK_SERVER = true
+    static let MOCK_SERVER = false
     static let DEBUG = false
     static let model = RandomModel()
 }

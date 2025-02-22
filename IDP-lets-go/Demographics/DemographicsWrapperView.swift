@@ -95,7 +95,11 @@ struct DemographicsWrapperView: View {
         switch(step) {
             
         case .birthdate:
-            BirthdateQuestionView(birthDate: $viewModel.birthdate)
+            StringPickerView(
+                value: $viewModel.birthYear,
+                demographicQuestion: .birthdate
+            )
+            .pickerStyle(WheelPickerStyle())
             
         case .race:
             

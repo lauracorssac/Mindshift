@@ -10,21 +10,10 @@ import Foundation
 struct User: Codable {
     let id: UUID
     var gender: String
-    var birthdate: Birthdate
+    var birthYear: String
     var race: String
     var education: String
     var profession: String
 
-}
 
-class UserModel {
-    
-    static var user = User(
-        id: UUID(),
-        gender: "",
-        birthdate: .init(),
-        race: "",
-        education: "",
-        profession: ""
-    )
 }

@@ -54,7 +54,6 @@
 		8DD8CD992D53F63A0058CF4B /* Occupation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD982D53F63A0058CF4B /* Occupation.swift */; };
 		8DD8CD9B2D53F6EA0058CF4B /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD9A2D53F6EA0058CF4B /* Gender.swift */; };
 		8DD8CD9D2D53F70B0058CF4B /* Education.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD9C2D53F70B0058CF4B /* Education.swift */; };
-		8DD8CD9F2D53F71A0058CF4B /* Birthdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD9E2D53F71A0058CF4B /* Birthdate.swift */; };
 		8DD8CDA12D53F7420058CF4B /* DemographicQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CDA02D53F7420058CF4B /* DemographicQuestion.swift */; };
 		8DD8CDA32D53F7FA0058CF4B /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CDA22D53F7FA0058CF4B /* Race.swift */; };
 		8DD8CDA52D593EF60058CF4B /* DemographicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CDA42D593EF60058CF4B /* DemographicsViewModel.swift */; };
@@ -114,7 +113,6 @@
 		8DD8CD982D53F63A0058CF4B /* Occupation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Occupation.swift; sourceTree = "<group>"; };
 		8DD8CD9A2D53F6EA0058CF4B /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		8DD8CD9C2D53F70B0058CF4B /* Education.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Education.swift; sourceTree = "<group>"; };
-		8DD8CD9E2D53F71A0058CF4B /* Birthdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Birthdate.swift; sourceTree = "<group>"; };
 		8DD8CDA02D53F7420058CF4B /* DemographicQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicQuestion.swift; sourceTree = "<group>"; };
 		8DD8CDA22D53F7FA0058CF4B /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		8DD8CDA42D593EF60058CF4B /* DemographicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicsViewModel.swift; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 				8DD8CD982D53F63A0058CF4B /* Occupation.swift */,
 				8DD8CD9A2D53F6EA0058CF4B /* Gender.swift */,
 				8DD8CD9C2D53F70B0058CF4B /* Education.swift */,
-				8DD8CD9E2D53F71A0058CF4B /* Birthdate.swift */,
 				8DD8CDA02D53F7420058CF4B /* DemographicQuestion.swift */,
 				8DD8CDA22D53F7FA0058CF4B /* Race.swift */,
 			);
@@ -419,7 +416,6 @@
 				31F074AE2D026F8000D0AA23 /* MeditationAudioView.swift in Sources */,
 				8DD8CD572D1D904A0058CF4B /* ConsentView.swift in Sources */,
 				3196FE352D43D5620039775F /* DemographicsFinalView.swift in Sources */,
-				8DD8CD9F2D53F71A0058CF4B /* Birthdate.swift in Sources */,
 				8DD8CD252D1019C40058CF4B /* DemographicQuestionView.swift in Sources */,
 				31F074AF2D026F8000D0AA23 /* AudioPlayerViewModel.swift in Sources */,
 				8DD8CD972D4FF9EE0058CF4B /* StepProgressView.swift in Sources */,
