@@ -37,19 +37,12 @@ class UserStatusManager {
         print("CURRENT STATUS", currentStatus)
     }
     
-    func isFirstTest() -> Bool {
-        switch currentStatus {
-        case .consent, .demographics, .firstTest: return true
-        case .firstMeditation, .meditationRepetition, .secondTest, .end: return false
-        }
-    }
     
-    
-    func completeStep(screen: Screen) {
+    func completeStep(screen: Screen, userGroup: Group) {
         
-        guard let updatedStatus = screen.getUpdatedStatus(
-            isFirstTest: self.isFirstTest()
-        ) else {
+        guard
+            let updatedStatus = screen.getUpdatedStatus(userGroup: userGroup)
+        else {
             return
         }
         

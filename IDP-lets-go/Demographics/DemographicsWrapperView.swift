@@ -29,8 +29,6 @@ struct DemographicsWrapperView: View {
             )
             .frame(height: 30)
             .padding(.top, 16)
-            .scaleEffect(ended ? 1.2 : 1.0)
-            
             
             Spacer()
             

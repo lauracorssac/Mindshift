@@ -8,8 +8,7 @@
 import Foundation
 
 enum UserStatus: String {
-    case consent, demographics, firstTest, firstMeditation, meditationRepetition, secondTest, end
-    
+    case consent, demographics, firstMeditation, meditationRepetition, test, questions, end
 }
 
 extension UserStatus {
@@ -20,14 +19,14 @@ extension UserStatus {
             return .welcome
         case .demographics:
             return .onboarding
-        case .firstTest:
-            return .testStart
+        case .test:
+            return .overview
         case .firstMeditation:
             return .meditationStart
         case .meditationRepetition:
             return .meditationEnd
-        case .secondTest:
-            return .testStart
+        case .questions:
+            return .question
         case .end:
             return .final
         }

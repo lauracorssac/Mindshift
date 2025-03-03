@@ -14,6 +14,4 @@ struct User: Codable {
     var race: String
     var education: String
     var profession: String
-
-
 }

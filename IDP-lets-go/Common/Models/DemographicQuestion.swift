@@ -15,7 +15,7 @@ enum DemographicQuestion: String {
         switch self {
             
         case .race:
-            "Which race or ethnicity do you most identify with?"
+            "Which ethnicity do you most identify with?"
         case .birthdate:
             "What's your year of birth?"
         case .gender:

@@ -7,7 +7,11 @@
 
 import Foundation
 
-class Overview {
+protocol CardsFactory {
+    func getCards(userGroup: Group) -> [Card]
+}
+
+class Cards: CardsFactory {
     
     let allCards = [
         Card(
@@ -26,4 +30,11 @@ class Overview {
             imageName: "step3"
         )
     ]
+    
+    func getCards(userGroup group: Group) -> [Card] {
+        if group == .control {
+            return Array(allCards[1...])
+        }
+        return allCards
+    }
 }

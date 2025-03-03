@@ -11,9 +11,12 @@ enum Screen: Hashable {
     
     case welcome, onboarding, consent, demographics, demographicsFinal, overview,
          meditationStart, meditation, meditationEnd, testStart, testStepIntro(step: Step, total: Int),
-         testQuestion(step: Step), final, clouds, testTableView
+         testQuestion(step: Step), final, clouds, testTableView, question
     
-    func nextScreen(userStatusManager: UserStatusManager) -> Screen? {
+    func nextScreen(
+        userStatusManager: UserStatusManager,
+        userGroup: Group
+    ) -> Screen? {
         
         switch self {
         case .welcome:
@@ -24,7 +27,6 @@ enum Screen: Hashable {
             } else {
                 return .consent
             }
-                
         case .consent:
             return .demographics
         case .demographics:
@@ -32,7 +34,11 @@ enum Screen: Hashable {
         case .demographicsFinal:
             return .overview
         case .overview:
-            return .testStart
+            if userGroup == .control {
+                return .testStart
+            } else {
+                return .meditationStart
+            }
         case .meditationStart:
             return .clouds
         case .clouds:
@@ -43,6 +49,8 @@ enum Screen: Hashable {
             return .testStart
         case .testStart:
             return .testTableView
+        case .question:
+            return .final
         
         case .final, .testTableView, .testQuestion(step: _), .testStepIntro(step: _):
             return nil
@@ -55,7 +63,7 @@ extension Screen {
     func shouldHideBackButton() -> Bool {
         switch self {
         case .consent, .demographics, .demographicsFinal, .overview, .meditationStart, .final,
-                .testQuestion(step: _), .clouds, .meditation, .meditationEnd:
+                .testQuestion(step: _), .clouds, .meditation, .meditationEnd, .question:
             return true
         case let .testStepIntro(step, _):
             return !step.isFirst
@@ -64,21 +72,20 @@ extension Screen {
         }
     }
     
-    func getUpdatedStatus(isFirstTest: Bool) -> UserStatus? {
+    func getUpdatedStatus(userGroup: Group) -> UserStatus? {
         switch self {
         case .demographics:
             return .demographics
         case .demographicsFinal:
-            return .firstTest
-        case .meditationStart:
-            return .firstMeditation
+            if userGroup == .control {
+                return .test
+            } else {
+                return .firstMeditation
+            }
+//        case .meditationStart:
+//            return .firstMeditation
         case .meditationEnd:
             return .meditationRepetition
-        case .testStart:
-            if !isFirstTest {
-                return .secondTest
-            }
-            return nil
         case .final:
             return .end
         default:

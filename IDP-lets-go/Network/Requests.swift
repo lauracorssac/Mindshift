@@ -22,7 +22,7 @@ class Requests {
         
         guard Constants.MOCK_SERVER == false else { return .success }
         
-        guard let url = URL(string: "http://127.0.0.1:4001/user") else {
+        guard let url = URL(string: Constants.userURL + "/user") else {
             return .error
         }
         

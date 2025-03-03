@@ -61,6 +61,6 @@ struct OverviewPageView: View {
 }
 
 #Preview {
-    OverviewPageView(cards: Overview().allCards)
+    OverviewPageView(cards: Cards().getCards(userGroup: .control))
         .environmentObject(AppCoordinator())
 }

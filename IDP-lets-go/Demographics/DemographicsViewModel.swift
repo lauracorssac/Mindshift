@@ -47,7 +47,7 @@ class DemographicsViewModel: ObservableObject {
     }
     
     func saveData() {
-        Task {
+        Task { @MainActor in
             isLoading = true
             let user = User(
                 id: UUID(),

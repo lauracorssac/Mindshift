@@ -57,25 +57,26 @@ class AppCoordinator: ObservableObject {
     var gameCoordinator: GameCoordinator?
     let model: TestModel
     let statusManager = UserStatusManager.shared
-    
-    var isFirstTest: Bool {
-        statusManager.isFirstTest()
-    }
+    let cardsFactory: CardsFactory
+    let group: Group
     
     init(
         path: NavigationPath = NavigationPath(),
         gameCoordinator: GameCoordinator? = nil,
-        model: TestModel = SequecedModel()
+        model: TestModel = SequecedModel(),
+        groupManager: GroupManager = GroupManagerImpl(),
+        cardsFactory: CardsFactory = Cards()
     ) {
         self.path = path
         self.gameCoordinator = gameCoordinator
         self.model = model
+        self.group = groupManager.userGroup
+        self.cardsFactory = cardsFactory
     }
     
     func getInitialScreen() -> Screen {
         return statusManager.currentStatus.getScreen()
     }
-    
     
     func push(_ screen: Screen) {
         withTransaction(Transaction(animation: nil)) {
@@ -94,15 +95,9 @@ class AppCoordinator: ObservableObject {
             if let nextStep = gameCoordinator?.getNextStep() {
                 self.push(nextStep)
             } else {
-                
-                if isFirstTest {
-                    self.push(.meditationStart)
-                    statusManager.completeStep(screen: .meditationStart)
-                } else {
-                    self.push(.final)
-                    gameCoordinator?.debugAnalysisPrint()
-                    statusManager.completeStep(screen: .final)
-                }
+                self.push(.question)
+                gameCoordinator?.debugAnalysisPrint()
+                statusManager.completeStep(screen: .question, userGroup: group)
             }
             
         case .testStepIntro(step: _):
@@ -110,11 +105,13 @@ class AppCoordinator: ObservableObject {
             self.push(screen)
             
         default:
-            if let next = screen.nextScreen(userStatusManager: statusManager) {
+            if let next = screen.nextScreen(
+                userStatusManager: statusManager,
+                userGroup: group
+            ) {
                 
                 self.push(next)
-                
-                statusManager.completeStep(screen: next)
+                statusManager.completeStep(screen: next, userGroup: group)
             }
         }
     }
@@ -148,7 +145,7 @@ class AppCoordinator: ObservableObject {
             DemographicsFinalView()
             
         case .overview:
-            OverviewPageView(cards: Overview().allCards)
+            OverviewPageView(cards: cardsFactory.getCards(userGroup: group))
             
         case .meditationStart:
             MeditationStartView()
@@ -173,6 +170,9 @@ class AppCoordinator: ObservableObject {
             
         case let .testQuestion(step):
             TestQuestionView(stepVM: .init(step: step))
+            
+        case .question:
+            PlaceHolderQuestionView()
             
         case .final:
             FinalView()
