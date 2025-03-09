@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -125,6 +125,10 @@
 		F9A10FB72D2F131300962DFF /* TestPartIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPartIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		315371582D78F5970026E940 /* Scenarios */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Scenarios; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		8DD8CD0F2CFD0B010058CF4B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -170,6 +174,7 @@
 		8DD8CD142CFD0B010058CF4B /* IDP-lets-go */ = {
 			isa = PBXGroup;
 			children = (
+				315371582D78F5970026E940 /* Scenarios */,
 				8DD8CD822D3AB5E30058CF4B /* Network */,
 				F9A10FAE2D2F129D00962DFF /* Test */,
 				8DD8CD552D1D90030058CF4B /* Consent */,
@@ -341,6 +346,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				315371582D78F5970026E940 /* Scenarios */,
 			);
 			name = "IDP-lets-go";
 			productName = "IDP-lets-go";
