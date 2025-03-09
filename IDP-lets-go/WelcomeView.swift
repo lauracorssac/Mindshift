@@ -11,26 +11,35 @@ struct WelcomeView: View {
     @EnvironmentObject private var coordinator: AppCoordinator
     
     var body: some View {
-        VStack {
-            Text("Welcome to Mindshift!")
-                .font(.largeTitle)
+        
+       
+            VStack {
+                Text("Welcome to")
+                    .font(.title)
+                    .padding(.top, 30)
+                    .padding(.bottom, 1)
+                
+                Text("Mindshift")
+                    .font(.system(size: 56).bold())
+                    
+                
+                Image("empty-cloud")
+                
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150, height: 150)
+                    .padding(.vertical, 30)
+                    .foregroundColor(.secondary)
+                
+                Button("Start") {
+                    coordinator.pushNext(to: .welcome)
+                }
+                .buttonStyle(RoundedButtonStyle(fixedWidth: 100))
                 .padding(.vertical, 30)
-
-            Image("mindshift-new-logo")
-
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 150, height: 150)
-                .padding(.vertical, 30)
-                .foregroundColor(.secondary)
-            
-            Button("Start") {
-                coordinator.pushNext(to: .welcome)
             }
-            .buttonStyle(RoundedButtonStyle(fixedWidth: 100))
-            .padding(.vertical, 30)
-        }
-        .padding()
+            .gradientBackground()
+            
+        
     }
 }
 

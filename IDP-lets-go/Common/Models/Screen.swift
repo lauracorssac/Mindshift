@@ -63,10 +63,8 @@ extension Screen {
     func shouldHideBackButton() -> Bool {
         switch self {
         case .consent, .demographics, .demographicsFinal, .overview, .meditationStart, .final,
-                .testQuestion(step: _), .clouds, .meditation, .meditationEnd, .question:
+                .testQuestion(step: _), .clouds, .meditation, .meditationEnd, .question, .testStepIntro(_, _):
             return true
-        case let .testStepIntro(step, _):
-            return !step.isFirst
         default:
             return false
         }

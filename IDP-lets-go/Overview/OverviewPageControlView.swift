@@ -10,7 +10,7 @@ import SwiftUI
 struct OverviewPageControlView: View {
     
     let numberOfCards: Int
-    @Binding var selectedIndex: Int?
+    @Binding var selectedIndex: Int
     
     var body: some View {
         HStack(spacing: 5) {

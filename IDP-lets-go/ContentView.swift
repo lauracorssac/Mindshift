@@ -11,7 +11,7 @@ struct ContentView: View {
    
     @StateObject var coordinator = AppCoordinator(
         model: Constants.model,
-        groupManager: GroupManagerImpl()
+        groupManager: Constants.groupManager
     )
     
     var body: some View {

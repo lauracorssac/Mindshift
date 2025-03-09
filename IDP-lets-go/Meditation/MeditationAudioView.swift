@@ -24,8 +24,10 @@ struct MeditationAudioView: View {
             
             
             ProgressView(value: viewModel.progress, total: 1.0)
-                .progressViewStyle(LinearGaugeProgressStyle())
-                .frame(height: 15)
+                .progressViewStyle(
+                    LinearGaugeProgressStyle()
+                )
+                .frame(height: 20)
                 .padding(.horizontal, 25)
             
             
@@ -41,7 +43,7 @@ struct MeditationAudioView: View {
             .padding(.horizontal, 25)
             
         }
-        .navigationTitle(MeditationStrings.MeditationViews.navigationTitle)
+        .gradientBackground()
         .onChange(of: viewModel.audioFinished) { _, isFinished in
             if isFinished {
                 coordinator.pushNext(to: .meditation)
