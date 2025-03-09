@@ -18,7 +18,6 @@
 		31F571C82D10568E005A0579 /* MeditationCloudsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F571C72D10568E005A0579 /* MeditationCloudsView.swift */; };
 		31FA10E12D3A8BFE00BA9C61 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FA10E02D3A8BFE00BA9C61 /* OnboardingView.swift */; };
 		8D21EA892D763F5D000753CF /* RandomGroupGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D21EA882D763F5D000753CF /* RandomGroupGenerator.swift */; };
-		8D21EA8B2D764465000753CF /* PlaceHolderQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D21EA8A2D764465000753CF /* PlaceHolderQuestionView.swift */; };
 		8D21EA8D2D76597D000753CF /* UserGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D21EA8C2D76597D000753CF /* UserGroupManager.swift */; };
 		8DBD98792D7C78D500098061 /* GradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD98782D7C78D500098061 /* GradientModifier.swift */; };
 		8DD8CD162CFD0B010058CF4B /* IDP_lets_goApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD152CFD0B010058CF4B /* IDP_lets_goApp.swift */; };
@@ -80,7 +79,6 @@
 		31F571C72D10568E005A0579 /* MeditationCloudsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationCloudsView.swift; sourceTree = "<group>"; };
 		31FA10E02D3A8BFE00BA9C61 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8D21EA882D763F5D000753CF /* RandomGroupGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGroupGenerator.swift; sourceTree = "<group>"; };
-		8D21EA8A2D764465000753CF /* PlaceHolderQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderQuestionView.swift; sourceTree = "<group>"; };
 		8D21EA8C2D76597D000753CF /* UserGroupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupManager.swift; sourceTree = "<group>"; };
 		8DBD98782D7C78D500098061 /* GradientModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientModifier.swift; sourceTree = "<group>"; };
 		8DD8CD122CFD0B010058CF4B /* IDP-lets-go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IDP-lets-go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,7 +191,6 @@
 				3171604B2D3EB26900AA8E0E /* WelcomeView.swift */,
 				8DD8CD192CFD0B030058CF4B /* Assets.xcassets */,
 				8DD8CD1B2CFD0B030058CF4B /* Preview Content */,
-				8D21EA8A2D764465000753CF /* PlaceHolderQuestionView.swift */,
 			);
 			path = "IDP-lets-go";
 			sourceTree = "<group>";
@@ -460,7 +457,6 @@
 				F9A10FB62D2F12F800962DFF /* TestTableView.swift in Sources */,
 				8DD8CD182CFD0B010058CF4B /* ContentView.swift in Sources */,
 				8DD8CD952D4FE8C30058CF4B /* DemographicsWrapperView.swift in Sources */,
-				8D21EA8B2D764465000753CF /* PlaceHolderQuestionView.swift in Sources */,
 				8DD8CD522D1C98F10058CF4B /* Card.swift in Sources */,
 				8DD8CD4C2D1C8FF30058CF4B /* OverviewCardView.swift in Sources */,
 				8DD8CD7A2D35A16A0058CF4B /* Classes.swift in Sources */,

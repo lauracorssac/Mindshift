@@ -26,7 +26,7 @@ extension UserStatus {
         case .meditationRepetition:
             return .meditationEnd
         case .questions:
-            return .question
+            return .questionsStart
         case .end:
             return .final
         }

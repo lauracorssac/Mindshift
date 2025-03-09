@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ScenarioView: View {
     @State private var currentIndex = 0
+    @EnvironmentObject private var coordinator: AppCoordinator
     let scenarios = Scenarios()
     
     var body: some View {
@@ -45,13 +46,14 @@ struct ScenarioView: View {
                 Button("Next Question") {
                     if currentIndex < scenarios.scenarios.count - 1 {
                         currentIndex += 1
+                    } else {                        
+                        coordinator.pushNext(to: .questions)
                     }
                 }
                 .buttonStyle(RoundedButtonStyle(fixedWidth: 150, fixedHeight: 20))
                 .padding(.bottom, 20)
             }
-        } else {
-            //TODO: Navigate to FinalView
+            
         }
     }
 }

@@ -11,7 +11,7 @@ enum Screen: Hashable {
     
     case welcome, onboarding, consent, demographics, demographicsFinal, overview,
          meditationStart, meditation, meditationEnd, testStart, testStepIntro(step: Step, total: Int),
-         testQuestion(step: Step), final, clouds, testTableView, question
+         testQuestion(step: Step), final, clouds, testTableView, questionsStart, questions
     
     func nextScreen(
         userStatusManager: UserStatusManager,
@@ -49,7 +49,9 @@ enum Screen: Hashable {
             return .testStart
         case .testStart:
             return .testTableView
-        case .question:
+        case .questionsStart:
+            return .questions
+        case .questions:
             return .final
         
         case .final, .testTableView, .testQuestion(step: _), .testStepIntro(step: _):
@@ -63,8 +65,10 @@ extension Screen {
     func shouldHideBackButton() -> Bool {
         switch self {
         case .consent, .demographics, .demographicsFinal, .overview, .meditationStart, .final,
-                .testQuestion(step: _), .clouds, .meditation, .meditationEnd, .question, .testStepIntro(_, _):
+                .testQuestion(step: _), .clouds, .meditation, .meditationEnd, .questionsStart, .testStart:
             return true
+        case let .testStepIntro(step, _):
+            return !step.isFirst
         default:
             return false
         }
@@ -80,10 +84,12 @@ extension Screen {
             } else {
                 return .firstMeditation
             }
-//        case .meditationStart:
-//            return .firstMeditation
         case .meditationEnd:
             return .meditationRepetition
+        case .testStart:
+            return .test
+        case .questionsStart:
+            return .questions
         case .final:
             return .end
         default:

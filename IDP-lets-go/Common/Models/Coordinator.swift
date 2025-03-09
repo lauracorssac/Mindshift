@@ -95,9 +95,9 @@ class AppCoordinator: ObservableObject {
             if let nextStep = gameCoordinator?.getNextStep() {
                 self.push(nextStep)
             } else {
-                self.push(.question)
+                self.push(.questionsStart)
                 gameCoordinator?.debugAnalysisPrint()
-                statusManager.completeStep(screen: .question, userGroup: group)
+                statusManager.completeStep(screen: .questionsStart, userGroup: group)
             }
             
         case .testStepIntro(step: _):
@@ -171,8 +171,11 @@ class AppCoordinator: ObservableObject {
         case let .testQuestion(step):
             TestQuestionView(stepVM: .init(step: step))
             
-        case .question:
-            PlaceHolderQuestionView()
+        case .questionsStart:
+            ScenariosStartView()
+            
+        case .questions:
+            ScenarioView()
             
         case .final:
             FinalView()

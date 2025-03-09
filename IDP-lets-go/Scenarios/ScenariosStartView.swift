@@ -9,8 +9,13 @@ import SwiftUI
 
 struct ScenariosStartView: View {
     
+    @EnvironmentObject private var coordinator: AppCoordinator
+    
     var body: some View {
         VStack{
+            
+            Spacer()
+            
             Text("For the following 10 questions, please read each scenario carefully and choose two responses:")
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 25)
@@ -29,13 +34,21 @@ struct ScenariosStartView: View {
             Text("Some questions may involve descriptions of situations you normally face, and some may not. Sometimes you might think of another strategy you might use. That is okay. Please choose from the responses presented.")
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 25)
-                .padding(.bottom, 20)
+                .padding(.bottom)
             
             Button("Continue") {
-                //TODO: Navigation
+                coordinator.pushNext(to: .questionsStart)
             }
             .buttonStyle(RoundedButtonStyle())
             .padding()
+            
+            Spacer()
+            
+            GuidanceBar(
+                highlightedIndex: 2,
+                group: coordinator.group
+            )
+            .padding(.bottom, 30)
         }
     }
 }
