@@ -29,7 +29,6 @@
 		8DD8CD2D2D101D300058CF4B /* RoundedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD2C2D101D300058CF4B /* RoundedButtonStyle.swift */; };
 		8DD8CD2F2D101DD30058CF4B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD2E2D101DD30058CF4B /* Colors.swift */; };
 		8DD8CD322D1023030058CF4B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD312D1023030058CF4B /* Coordinator.swift */; };
-		8DD8CD392D1027910058CF4B /* BirthdateQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD382D1027910058CF4B /* BirthdateQuestionView.swift */; };
 		8DD8CD3F2D117D050058CF4B /* StringPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD3E2D117D050058CF4B /* StringPickerView.swift */; };
 		8DD8CD412D1184230058CF4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD402D1184230058CF4B /* Constants.swift */; };
 		8DD8CD452D1187E70058CF4B /* audio_cut.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 8DD8CD442D1187E70058CF4B /* audio_cut.m4a */; };
@@ -91,7 +90,6 @@
 		8DD8CD2C2D101D300058CF4B /* RoundedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonStyle.swift; sourceTree = "<group>"; };
 		8DD8CD2E2D101DD30058CF4B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8DD8CD312D1023030058CF4B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		8DD8CD382D1027910058CF4B /* BirthdateQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdateQuestionView.swift; sourceTree = "<group>"; };
 		8DD8CD3E2D117D050058CF4B /* StringPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringPickerView.swift; sourceTree = "<group>"; };
 		8DD8CD402D1184230058CF4B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8DD8CD442D1187E70058CF4B /* audio_cut.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio_cut.m4a; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				8DD8CD332D1025E90058CF4B /* Common */,
-				8DD8CD382D1027910058CF4B /* BirthdateQuestionView.swift */,
 				8DD8CD3E2D117D050058CF4B /* StringPickerView.swift */,
 				31FA10E02D3A8BFE00BA9C61 /* OnboardingView.swift */,
 				3196FE342D43D5620039775F /* DemographicsFinalView.swift */,
@@ -442,7 +439,6 @@
 				8DD8CD862D3AB9900058CF4B /* User.swift in Sources */,
 				F9A10FB42D2F12EB00962DFF /* TestQuestionView.swift in Sources */,
 				8DD8CD322D1023030058CF4B /* Coordinator.swift in Sources */,
-				8DD8CD392D1027910058CF4B /* BirthdateQuestionView.swift in Sources */,
 				8DD8CD842D3AB6110058CF4B /* Requests.swift in Sources */,
 				8DD8CD7F2D35AB270058CF4B /* FinalView.swift in Sources */,
 				8DD8CD8F2D442A9A0058CF4B /* UserDefaultsManager.swift in Sources */,
