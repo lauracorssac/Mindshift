@@ -57,7 +57,8 @@ struct OverviewPageView: View {
                     }
                 }
             }
-            .buttonStyle(RoundedButtonStyle(fixedWidth: 100))
+            .buttonStyle(RoundedButtonStyle())
+            .padding(.bottom, 16)
             
             
         }

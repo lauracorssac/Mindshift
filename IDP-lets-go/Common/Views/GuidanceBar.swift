@@ -34,7 +34,7 @@ struct GuidanceBar: View {
                     .renderingMode(.template)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: 50)
+                    .frame(width: 50, height: 50)
                     .foregroundColor(index == highlightedIndex ? highlightColor : .black)
                     .bold()
             }

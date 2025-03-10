@@ -9,10 +9,10 @@ import SwiftUI
 
 struct GradientModifier: ViewModifier {
     
-    
     let velocity: Double = 2 // The higher, the slower is the transition
-    let opacityUpperbound: Double = 0.7
+    let opacityUpperbound: Double = 0.8
     let opacityLowerbound: Double = 0.3
+    let fixedColorOpacity: Double = 0.8
     
     func body(content: Content) -> some View {
         
@@ -28,9 +28,15 @@ struct GradientModifier: ViewModifier {
                         [0, 0.5], [0.5, 0.5], [1, 0.5],
                         [0, 1], [0.5, 1], [1, 1]
                     ], colors: [
-                        .mainBlue.opacity(opacity), .mainBlue.opacity(opacity), .mainBlue.opacity(opacity),
-                        .mint.opacity(opacity), .mint.opacity(opacity), .mint.opacity(opacity),
-                        .green.opacity(0.3), .green.opacity(0.3), .green.opacity(0.3)
+                        .green.opacity(opacity),
+                            .green.opacity(opacity),
+                            .green.opacity(opacity),
+                        .mint.opacity(opacity),
+                            .mint.opacity(opacity),
+                            .mint.opacity(opacity),
+                        .mainBlue.opacity(fixedColorOpacity),
+                            .mainBlue.opacity(fixedColorOpacity),
+                            .mainBlue.opacity(fixedColorOpacity)
                     ])
                     .ignoresSafeArea()
                     

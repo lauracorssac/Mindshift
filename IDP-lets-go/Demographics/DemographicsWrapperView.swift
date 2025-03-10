@@ -42,8 +42,6 @@ struct DemographicsWrapperView: View {
                 buttonPressed()
             }.buttonStyle(
                 RoundedButtonStyle(
-                    fixedWidth: 100,
-                    fixedHeight: nil,
                     isDisabled: viewModel.isButtonDisabled(for: currentStep)
                 )
             )

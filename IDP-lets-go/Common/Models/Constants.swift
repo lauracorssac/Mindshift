@@ -10,7 +10,7 @@ import Foundation
 
 class Constants {
     
-    static let initialStatus: UserStatus? = nil
+    static let initialStatus: UserStatus? = .consent
     static let MOCK_SERVER = true
     
     // For debugging: http://127.0.0.1:4001

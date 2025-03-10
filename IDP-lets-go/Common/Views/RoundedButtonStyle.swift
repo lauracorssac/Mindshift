@@ -16,9 +16,8 @@ struct RoundedButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         
         configuration.label
-            .frame(minWidth: 140, minHeight: 30)
-            .frame(width: fixedWidth, height: fixedHeight)
-            .padding(.horizontal, fixedWidth != nil ? 10 : 20)
+            .multilineTextAlignment(.center)
+            .frame(width: fixedWidth ?? 150, height: fixedHeight ?? 40)
             .padding(.vertical)
             .background(
                 isDisabled ?
@@ -29,7 +28,7 @@ struct RoundedButtonStyle: ButtonStyle {
                 
             )
             .foregroundColor(.white)
-            .font(Font.system16Bold)
+            .font(Font.system18Bold)
             .clipShape(RoundedRectangle(cornerRadius: 50))
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
             .animation(
@@ -43,20 +42,19 @@ struct RoundedButtonStyle: ButtonStyle {
 #Preview {
     
     VStack {
-        Button("Hello") {
+        Button("Hello\nHello") {
             
-        }.buttonStyle(RoundedButtonStyle())
+        }.buttonStyle(RoundedButtonStyle(fixedHeight: 50))
         
         Button("Hello") {
             
-        }.buttonStyle(RoundedButtonStyle(fixedWidth: 300))
+        }
+        .buttonStyle(RoundedButtonStyle(fixedWidth: 150))
+        
         
         Button("Hello") {
             
         }.buttonStyle(RoundedButtonStyle(fixedHeight: 100))
         
-        Button("Very very Long Text Button") {
-            
-        }.buttonStyle(RoundedButtonStyle())
     }
 }

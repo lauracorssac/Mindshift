@@ -34,7 +34,7 @@ struct WelcomeView: View {
                 Button("Start") {
                     coordinator.pushNext(to: .welcome)
                 }
-                .buttonStyle(RoundedButtonStyle(fixedWidth: 100))
+                .buttonStyle(RoundedButtonStyle())
                 .padding(.vertical, 30)
             }
             .gradientBackground()

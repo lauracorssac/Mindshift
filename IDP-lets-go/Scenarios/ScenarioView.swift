@@ -50,8 +50,8 @@ struct ScenarioView: View {
                         coordinator.pushNext(to: .questions)
                     }
                 }
-                .buttonStyle(RoundedButtonStyle(fixedWidth: 150, fixedHeight: 20))
-                .padding(.bottom, 20)
+                .buttonStyle(RoundedButtonStyle(fixedWidth: 160, fixedHeight: 20))
+                .padding(.bottom, 16)
             }
             
         }
@@ -73,18 +73,18 @@ struct ResponseRow: View {
                     .font(.body)
                     .padding(.trailing, 5)
                 
-                Spacer()
+                 Spacer()
                 
                 VStack {
                     Button("Most") {
                         //TODO: save the response
                     }
-                        .buttonStyle(RoundedButtonStyle(fixedWidth: 45, fixedHeight: 1))
+                        .buttonStyle(RoundedButtonStyle(fixedWidth: 65, fixedHeight: 1))
                     
                     Button("Least") {
                         //TODO: save the response
                     }
-                        .buttonStyle(RoundedButtonStyle(fixedWidth: 45, fixedHeight: 1))
+                        .buttonStyle(RoundedButtonStyle(fixedWidth: 65, fixedHeight: 1))
                 }
             }
             .padding()

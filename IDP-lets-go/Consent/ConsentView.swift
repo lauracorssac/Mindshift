@@ -52,7 +52,7 @@ struct ConsentView: View {
             }
             
         }
-        .buttonStyle(RoundedButtonStyle(fixedWidth: 230))
+        .buttonStyle(RoundedButtonStyle())
     }
 }
 
