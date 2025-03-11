@@ -16,17 +16,32 @@ class TestQuestionViewModel {
         step.questions[currentQuestionIndex]
     }
     var currentQuestionIndex: Int = 0
-
+    var questionStartTime: Date = Date()
+    var trials: [Trial] = []
+    
     init(step: Step) {
         self.step = step
+        questionStartTime = Date()
     }
 
     func processAnswer(pressedButton: Option) {
         if currentQuestion.answer == pressedButton {
+            let elapsedTime = Int(Date().timeIntervalSince(questionStartTime) * 1000)
+            let trial = Trial(step: step.stepNumber, responseTime: elapsedTime)
+            trials.append(trial)
+            
             if currentQuestionIndex == step.questions.count - 1 {
+                let currentScore = ScoreModel(trials: trials)
+                if let dScore = currentScore.score {
+                    ScoreManager.shared.addScore(for: UserModel.user, score: dScore)
+                               print("Saved D score: \(dScore)")
+                           } else {
+                               print("Test result could not be computed (invalid data).")
+                           }
                 presentNextStep = true
             } else {
                 currentQuestionIndex += 1
+                questionStartTime = Date()
             }
         }
     }
