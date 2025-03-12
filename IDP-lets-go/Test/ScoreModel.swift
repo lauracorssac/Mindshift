@@ -32,7 +32,7 @@ class ScoreModel{
         let validTrials = trials.filter { $0.responseTime <= 10000 }
         print("Valid trials count: \(validTrials.count)")
         guard !validTrials.isEmpty else { return nil }
-    
+        
         //Step 2
         let fastTrialsCount = validTrials.filter { $0.responseTime < 300 }.count
         let fastTrialsRatio = Double(fastTrialsCount) / Double(validTrials.count)
@@ -53,7 +53,7 @@ class ScoreModel{
         guard !stage3.isEmpty, !stage6.isEmpty, !stage4.isEmpty, !stage7.isEmpty else {
             return nil
         }
-
+        
         func mean(of values: [Double]) -> Double {
             return values.reduce(0, +) / Double(values.count)
         }
@@ -100,5 +100,22 @@ class ScoreModel{
         //Calculate the final D score as the average of the two ratios.
         let dScore = (ratio1 + ratio2) / 2
         return dScore
+        
+    }
+    func classifyDScore() -> String? {
+        guard let dScore = self.score else { return nil }
+        let absScore = abs(dScore)
+        switch absScore {
+        case 0..<0.15:
+            return "Little or no automatic association"
+        case 0.15..<0.35:
+            return "Slight automatic association"
+        case 0.35..<0.65:
+            return "Moderate automatic association"
+        case 0.65...:
+            return "Strong automatic association"
+        default:
+            return nil
+        }
     }
 }

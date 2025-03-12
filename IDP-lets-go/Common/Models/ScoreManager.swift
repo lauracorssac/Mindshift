@@ -26,10 +26,12 @@ class ScoreManager {
     }
     func computeAndAssignScore(for user: User) {
         let scoreModel = ScoreModel(trials: allTrials)
-        if let computedScore = scoreModel.score {
+        if let computedScore = scoreModel.score,
+           let classification = scoreModel.classifyDScore() {
             if let index = users.firstIndex(where: { $0.id == user.id }) {
                 users[index].score = computedScore
-                print("Assigned final score \(computedScore) for user with id \(user.id)")
+                users[index].classification = classification
+                print("Assigned final score \(computedScore)  and classification \(classification) for user with id \(user.id)")
             } else {
                 print("User not found. Consider adding the user before assigning a score.")
             }

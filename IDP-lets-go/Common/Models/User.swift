@@ -15,7 +15,7 @@ struct User: Codable {
     var education: String
     var profession: String
     var score: Double?
-
+    var classification: String?
 }
 
 class UserModel {

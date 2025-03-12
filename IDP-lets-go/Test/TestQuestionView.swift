@@ -35,11 +35,8 @@ class TestQuestionViewModel {
             trials.append(trial)
             
             if currentQuestionIndex == step.questions.count - 1 {
-                //let currentScore = ScoreModel(trials: trials)
-                //if let currentScore = currentScore.score {
                 ScoreManager.shared.addTrials(trials)
                 trials.removeAll()
-                //}
                 if currentStageIndex == totalStages {
                     ScoreManager.shared.computeAndAssignScore(for: UserModel.user)
                     print ("All stages completed")
