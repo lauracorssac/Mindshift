@@ -9,7 +9,7 @@ import SwiftUI
 
 @Observable
 class TestQuestionViewModel {
-
+    
     let step: Step
     var presentNextStep = false
     var currentQuestion: Question {
@@ -18,26 +18,32 @@ class TestQuestionViewModel {
     var currentQuestionIndex: Int = 0
     var questionStartTime: Date = Date()
     var trials: [Trial] = []
+    var currentStageIndex: Int
+    let totalStages: Int = 6
     
-    init(step: Step) {
+    init(step: Step, currentStageIndex: Int) {
         self.step = step
+        self.currentStageIndex = currentStageIndex
         questionStartTime = Date()
     }
-
+    
     func processAnswer(pressedButton: Option) {
         if currentQuestion.answer == pressedButton {
             let elapsedTime = Int(Date().timeIntervalSince(questionStartTime) * 1000)
             let trial = Trial(step: step.stepNumber, responseTime: elapsedTime)
+            print("Recoded trial: step= \(trial.step), responseTime=\(trial.responseTime)")
             trials.append(trial)
             
             if currentQuestionIndex == step.questions.count - 1 {
-                let currentScore = ScoreModel(trials: trials)
-                if let dScore = currentScore.score {
-                    ScoreManager.shared.addScore(for: UserModel.user, score: dScore)
-                               print("Saved D score: \(dScore)")
-                           } else {
-                               print("Test result could not be computed (invalid data).")
-                           }
+                //let currentScore = ScoreModel(trials: trials)
+                //if let currentScore = currentScore.score {
+                ScoreManager.shared.addTrials(trials)
+                trials.removeAll()
+                //}
+                if currentStageIndex == totalStages {
+                    ScoreManager.shared.computeAndAssignScore(for: UserModel.user)
+                    print ("All stages completed")
+                }
                 presentNextStep = true
             } else {
                 currentQuestionIndex += 1
@@ -48,7 +54,7 @@ class TestQuestionViewModel {
 }
 
 struct TestQuestionView: View {
-   
+    
     let stepVM: TestQuestionViewModel
     @EnvironmentObject private var coordinator: AppCoordinator
     
@@ -71,7 +77,7 @@ struct TestQuestionView: View {
                     stepVM.processAnswer(pressedButton: .right)
                 }
                 .buttonStyle(RoundedButtonStyle(fixedWidth: 150))
-            
+                
                 Spacer()
                 
             }
@@ -85,18 +91,18 @@ struct TestQuestionView: View {
             }
         }
     }
-
+    
 }
 
 #Preview {
-    TestQuestionView(stepVM: .init(step: .mockStep2))
+    TestQuestionView(stepVM: .init(step: .mockStep2, currentStageIndex: 0))
         .environmentObject(AppCoordinator())
     
 }
 
 #Preview {
     
-    TestQuestionView(stepVM: .init(step: .mockStep1))
+    TestQuestionView(stepVM: .init(step: .mockStep1, currentStageIndex: 0))
         .environmentObject(AppCoordinator())
 }
 

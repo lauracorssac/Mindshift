@@ -24,12 +24,19 @@ class ScoreModel{
     private func computeScore() -> Double? {
         // Steps from table
         //Step 1
-        let validTrials = trials.filter { $0.responseTime <= 10000 }
-        guard !validTrials.isEmpty else { return nil }
+        print("All recorded trials:")
+        for trial in ScoreManager.shared.allTrials {
+            print("Step: \(trial.step), Response time: \(trial.responseTime) ms")
+        }
         
+        let validTrials = trials.filter { $0.responseTime <= 10000 }
+        print("Valid trials count: \(validTrials.count)")
+        guard !validTrials.isEmpty else { return nil }
+    
         //Step 2
         let fastTrialsCount = validTrials.filter { $0.responseTime < 300 }.count
         let fastTrialsRatio = Double(fastTrialsCount) / Double(validTrials.count)
+        print("Fast trials ratio: \(fastTrialsRatio)")
         if fastTrialsRatio > 0.10 {
             return nil
         }
@@ -39,6 +46,9 @@ class ScoreModel{
         let stage6 = validTrials.filter { $0.step == 6 }.map { Double($0.responseTime) }
         let stage4 = validTrials.filter { $0.step == 4 }.map { Double($0.responseTime) }
         let stage7 = validTrials.filter { $0.step == 7 }.map { Double($0.responseTime) }
+        
+        print("Stage3 count: \(stage3.count), Stage6 count: \(stage6.count)")
+        print("Stage4 count: \(stage4.count), Stage7 count: \(stage7.count)")
         
         guard !stage3.isEmpty, !stage6.isEmpty, !stage4.isEmpty, !stage7.isEmpty else {
             return nil
