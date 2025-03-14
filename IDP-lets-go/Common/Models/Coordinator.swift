@@ -89,7 +89,7 @@ class AppCoordinator: ObservableObject {
         case .testTableView:
             gameCoordinator = GameCoordinator(model: model)
             self.push(gameCoordinator!.getInitialScreen())
-           
+            
         case .testQuestion(step: _):
             if let nextStep = gameCoordinator?.getNextStep() {
                 self.push(nextStep)
@@ -134,13 +134,13 @@ class AppCoordinator: ObservableObject {
         switch screen {
         case .welcome:
             WelcomeView()
-        
+            
         case .onboarding:
             OnboardingView()
             
         case .consent:
             ConsentView(consentText: Consent().text)
-        
+            
         case .demographics:
             DemographicsWrapperView(viewModel: .init())
             
@@ -158,13 +158,15 @@ class AppCoordinator: ObservableObject {
             
         case .meditation:
             MeditationAudioView()
-        
+            
         case .meditationEnd:
             MeditationEndView()
-        
+            
         case .testStart:
             TestInformationView()
-            
+                .onAppear {
+                    ScoreManager.shared.addUser(UserModel.user)
+                }
         case .testTableView:
             TestTableView()
             
@@ -172,7 +174,7 @@ class AppCoordinator: ObservableObject {
             TestPartIndicatorView(step: step, totalNumberOfSteps: total)
             
         case let .testQuestion(step):
-            TestQuestionView(stepVM: .init(step: step))
+            TestQuestionView(stepVM: .init(step: step, currentStageIndex: step.stepNumber - 1))
             
         case .final:
             FinalView()

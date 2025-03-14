@@ -14,7 +14,8 @@ struct User: Codable {
     var race: String
     var education: String
     var profession: String
-
+    var score: Double?
+    var classification: String?
 }
 
 class UserModel {
@@ -25,6 +26,7 @@ class UserModel {
         birthdate: .init(),
         race: "",
         education: "",
-        profession: ""
+        profession: "",
+        score: nil
     )
 }
