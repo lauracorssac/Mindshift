@@ -5,6 +5,12 @@
 //  Created by Alara Özdenler on 06.03.25.
 //
 
+//
+//  ScenarioView.swift
+//  IDP-lets-go
+//
+//  Created by Alara Özdenler on 06.03.25.
+//
 
 import SwiftUI
 
@@ -13,45 +19,44 @@ struct ScenarioView: View {
     let scenarios = Scenarios()
     
     var body: some View {
-        if currentIndex < scenarios.scenarios.count {
-            VStack {
-                Text("Question \(currentIndex + 1)")
-                    .multilineTextAlignment(.center)
-                    .font(.headline)
-                    .padding(.horizontal, 25)
-                    .padding(.top, 30)
-                
-                VStack(alignment: .leading, spacing: 20) {
-                    Text(scenarios.scenarios[currentIndex])
-                        .padding()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.mainBlue, lineWidth: 3)
-                        )
-                        .padding(.horizontal)
-                    
-                    ScrollView {
-                        VStack(spacing: 10) {
-                            ForEach(0..<scenarios.responses[currentIndex].count, id: \.self) { index in
-                                ResponseRow(text: scenarios.responses[currentIndex][index])
+        NavigationStack {
+            if currentIndex < scenarios.scenarios.count {
+                VStack {
+                    VStack(alignment: .leading, spacing: 20) {
+                        Text(scenarios.scenarios[currentIndex])
+                            .padding()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.mainBlue, lineWidth: 3)
+                            )
+                            .padding(.horizontal)
+                        
+                        ScrollView {
+                            VStack(spacing: 10) {
+                                ForEach(0..<scenarios.responses[currentIndex].count, id: \.self) { index in
+                                    ResponseRow(text: scenarios.responses[currentIndex][index])
+                                }
                             }
                         }
                     }
+                    Spacer()
                 }
-                
-                Spacer()
-                
-                Button("Next Question") {
-                    if currentIndex < scenarios.scenarios.count - 1 {
-                        currentIndex += 1
+                .navigationTitle("Question \(currentIndex + 1)")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .bottomBar) {
+                        Button("Next Question") {
+                            if currentIndex < scenarios.scenarios.count - 1 {
+                                currentIndex += 1
+                            }
+                        }
+                        .buttonStyle(RoundedButtonStyle(fixedWidth: 150, fixedHeight: 20))
                     }
                 }
-                .buttonStyle(RoundedButtonStyle(fixedWidth: 150, fixedHeight: 20))
-                .padding(.bottom, 20)
+            } else {
+                FinalView()
             }
-        } else {
-            //TODO: Navigate to FinalView
         }
     }
 }
