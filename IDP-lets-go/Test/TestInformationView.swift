@@ -24,9 +24,10 @@ struct TestInformationView: View {
                 .padding()
             Spacer()
             
-            GuidanceBar(highlightedIndex: coordinator.isFirstTest ? 0: 2)
+            GuidanceBar(highlightedIndex: 1,
+                        group: coordinator.group)
+            .padding(.bottom, 30)
         }
-        .padding(10)
     }
 }
 #Preview {

@@ -8,11 +8,8 @@
 import Foundation
 struct MeditationStrings {
     struct StartView {
-        static let startMessage = "You’ve completed the diagnostic phase and are now ready to begin the mindfulness exercises."
+        static let startMessage = "Let's start with your mindfulness exercises! First, you will perform a guided breathing exercise and then you will listen to a guided meditation audio!"
         static let buttonText = "Begin Exercise"
-    }
-    struct MeditationViews {
-        static let navigationTitle = "Guided Meditation"
     }
     struct EndView {
         static let sessionCompleteTitle = "Session complete!"

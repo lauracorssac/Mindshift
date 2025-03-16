@@ -18,101 +18,102 @@ struct ScenarioView: View {
     @State private var selectedMost: Int? = nil
     @State private var selectedLeast: Int? = nil
     
+    @EnvironmentObject private var coordinator: AppCoordinator
     let scenarios = Scenarios()
     
     var body: some View {
-            if currentIndex < scenarios.scenarios.count {
-                VStack {
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text(scenarios.scenarios[currentIndex])
-                            .padding()
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.mainBlue, lineWidth: 3)
-                            )
-                            .padding(.horizontal)
-                        
-                        ScrollView {
-                            VStack(spacing: 10) {
-                                ForEach(0..<scenarios.responses[currentIndex].count, id: \.self) { index in
-                                    ResponseRow(
-                                        text: scenarios.responses[currentIndex][index],
-                                        index: index,
-                                        selectedMost: $selectedMost,
-                                        selectedLeast: $selectedLeast
-                                    )
-                                }
+        if currentIndex < scenarios.scenarios.count {
+            VStack {
+                VStack(alignment: .leading, spacing: 20) {
+                    Text(scenarios.scenarios[currentIndex])
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.mainBlue, lineWidth: 3)
+                        )
+                        .padding(.horizontal)
+                    
+                    ScrollView {
+                        VStack(spacing: 10) {
+                            ForEach(0..<scenarios.responses[currentIndex].count, id: \.self) { index in
+                                ResponseRow(
+                                    text: scenarios.responses[currentIndex][index],
+                                    index: index,
+                                    selectedMost: $selectedMost,
+                                    selectedLeast: $selectedLeast
+                                )
                             }
                         }
                     }
-                    Spacer()
                 }
-                .navigationTitle("Question \(currentIndex + 1)")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .bottomBar) {
-                        Button("Next") {
-                            if selectedMost != nil && selectedLeast != nil {
-                                selectedMost = nil
-                                selectedLeast = nil
-                                currentIndex += 1
-                            }
+                Spacer()
+            }
+            .navigationTitle("Question \(currentIndex + 1)")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Button("Next") {
+                        if selectedMost != nil && selectedLeast != nil && currentIndex < scenarios.scenarios.count - 1  {
+                            selectedMost = nil
+                            selectedLeast = nil
+                            currentIndex += 1
+                        } else {
+                            coordinator.pushNext(to: .questions)
                         }
-                        .buttonStyle(RoundedButtonStyle(fixedWidth: 150, fixedHeight: 20))
-                        .disabled(selectedMost == nil || selectedLeast == nil)
                     }
+                    .buttonStyle(RoundedButtonStyle(fixedWidth: 150, fixedHeight: 20))
+                    .disabled(selectedMost == nil || selectedLeast == nil)
                 }
-            } else {
             }
         }
     }
-
-struct ResponseRow: View {
-    let text: String
-    let index: Int
-    @Binding var selectedMost: Int?
-    @Binding var selectedLeast: Int?
     
-    var body: some View {
-        HStack(spacing: 0) {
-            Rectangle()
-                .fill(Color.mainBlue)
-                .frame(width: 8)
-                .padding(.leading, 6)
-            
-            HStack {
-                Text(text)
-                    .font(.body)
-                    .padding(.trailing, 5)
+    struct ResponseRow: View {
+        let text: String
+        let index: Int
+        @Binding var selectedMost: Int?
+        @Binding var selectedLeast: Int?
+        
+        var body: some View {
+            HStack(spacing: 0) {
+                Rectangle()
+                    .fill(Color.mainBlue)
+                    .frame(width: 8)
+                    .padding(.leading, 6)
                 
-                Spacer()
-                
-                VStack {
-                    Button("Most") {
-                        if selectedLeast == index {
-                            selectedLeast = nil
-                        }
-                        selectedMost = index
-                    }
-                    .buttonStyle(SelectableButtonStyle(isSelected: selectedMost == index))
+                HStack {
+                    Text(text)
+                        .font(.body)
+                        .padding(.trailing, 5)
                     
-                    Button("Least") {
-                        if selectedMost == index {
-                            selectedMost = nil
+                    Spacer()
+                    
+                    VStack {
+                        Button("Most") {
+                            if selectedLeast == index {
+                                selectedLeast = nil
+                            }
+                            selectedMost = index
                         }
-                        selectedLeast = index
+                        .buttonStyle(SelectableButtonStyle(isSelected: selectedMost == index))
+                        Button("Least") {
+                            if selectedMost == index {
+                                selectedMost = nil
+                            }
+                            selectedLeast = index
+                        }
+                        .buttonStyle(SelectableButtonStyle(isSelected: selectedLeast == index))
                     }
-                    .buttonStyle(SelectableButtonStyle(isSelected: selectedLeast == index))
                 }
+                .padding()
             }
-            .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.mainBlue, lineWidth: 3)
+            )
+            .padding(.horizontal)
         }
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.mainBlue, lineWidth: 3)
-        )
-        .padding(.horizontal)
     }
 }
 
@@ -130,6 +131,7 @@ struct SelectableButtonStyle: ButtonStyle {
             .foregroundColor(.primary)
     }
 }
+    
 
 #Preview {
     ScenarioView()

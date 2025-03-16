@@ -16,15 +16,19 @@ struct MeditationStartView: View {
             Text(MeditationStrings.StartView.startMessage)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 25)
-                .padding(.vertical, 20)
+                .padding()
             
             Button(MeditationStrings.StartView.buttonText) {
                 coordinator.pushNext(to: .meditationStart)
             }.buttonStyle(RoundedButtonStyle())
+                .padding()
             
             Spacer()
-            GuidanceBar(highlightedIndex: 1)
-                           .padding(.bottom, 30)
+            GuidanceBar(
+                highlightedIndex: 0,
+                group: coordinator.group
+            )
+            .padding(.bottom, 30)
         }
         
     }

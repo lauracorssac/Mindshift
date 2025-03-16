@@ -15,13 +15,33 @@ struct OverviewCardView: View {
         
         VStack(spacing: 0) {
             
-            Image(card.imageName)
-            Text(card.title)
-                .padding(.top, 50)
-                .font(Font.system24)
-            Text(card.subtitle)
-                .padding(.top, 15)
-                .font(Font.system18)
+            VStack {
+                Spacer()
+                if !card.systemImageName.isEmpty {
+                    Image(systemName: card.systemImageName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 80)
+                        .bold()
+                } else {
+                    Image(card.imageName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 80)
+                }
+            }
+            .padding(.bottom, 40)
+            
+            VStack(spacing: 0) {
+                Text(card.title)
+                    .font(Font.system18Bold)
+                Text(card.subtitle)
+                    .padding(.top, 15)
+                    .font(Font.system16)
+                Spacer()
+            }
+            .padding(.top, 0)
+            
         }
         .padding(.horizontal, 16)
         .multilineTextAlignment(.center)
@@ -39,5 +59,13 @@ struct OverviewCardView: View {
 }
 
 #Preview {
-    OverviewCardView(card: Card.mock)
+    OverviewCardView(card: Card.step1Mock)
+}
+
+#Preview {
+    OverviewCardView(card: Card.step2Mock)
+}
+
+#Preview {
+    OverviewCardView(card: Card.step3Mock)
 }

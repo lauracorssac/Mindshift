@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
    
-    @StateObject var coordinator = AppCoordinator(model: Constants.model)
+    @StateObject var coordinator = AppCoordinator(
+        model: Constants.model,
+        groupManager: Constants.groupManager
+    )
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {

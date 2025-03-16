@@ -16,6 +16,7 @@ struct JustifiedText: UIViewRepresentable {
         label.text = text
         label.textAlignment = .justified
         label.font = font
+        label.isEditable = false
         return label
     }
     
@@ -51,7 +52,7 @@ struct ConsentView: View {
             }
             
         }
-        .buttonStyle(RoundedButtonStyle(fixedWidth: 230))
+        .buttonStyle(RoundedButtonStyle())
     }
 }
 

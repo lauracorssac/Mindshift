@@ -15,11 +15,11 @@ struct TestFields {
     static let categories: [[String]] = [
         ["Family", "Career"],
         ["Male", "Female"],
-        ["Male or Family", "Female or Career"],
-        ["Male or Family", "Female or Career"],
+        ["Male or\nFamily", "Female or\nCareer"],
+        ["Male or\nFamily", "Female or\nCareer"],
         ["Career", "Family"],
-        ["Career or Male", "Family or Female"],
-        ["Career or Male", "Family or Female"]
+        ["Career or\nMale", "Family or\nFemale"],
+        ["Career or\nMale", "Family or\nFemale"]
     ]
     
     
@@ -57,7 +57,6 @@ struct TestFields {
             
             
             if let selectedQuestion = matchingQuestions.randomElement() {
-                let randomQuestion = selectedQuestion
                 return (randomCategory, selectedQuestion)
             }
             
