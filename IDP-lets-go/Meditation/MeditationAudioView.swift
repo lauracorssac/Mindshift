@@ -19,13 +19,20 @@ struct MeditationAudioView: View {
                 Image(systemName: viewModel.isPlaying ? "pause.circle" : "play.circle")
                     .font(.system(size: 85))
                     .foregroundColor(Color.mainBlue)
+//                    .background(
+//                        Color.white.opacity(0.3)
+//                            .cornerRadius(50)
+//                            .blur(radius: 10)
+//                    )
                     .padding(.vertical, 20)
             }
             
             
             ProgressView(value: viewModel.progress, total: 1.0)
-                .progressViewStyle(LinearGaugeProgressStyle())
-                .frame(height: 15)
+                .progressViewStyle(
+                    LinearGaugeProgressStyle()
+                )
+                .frame(height: 20)
                 .padding(.horizontal, 25)
             
             
@@ -41,7 +48,7 @@ struct MeditationAudioView: View {
             .padding(.horizontal, 25)
             
         }
-        .navigationTitle(MeditationStrings.MeditationViews.navigationTitle)
+        .gradientBackground()
         .onChange(of: viewModel.audioFinished) { _, isFinished in
             if isFinished {
                 coordinator.pushNext(to: .meditation)

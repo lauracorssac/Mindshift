@@ -2,7 +2,7 @@
 from flask import Flask, request, jsonify
 from pydantic import ValidationError
 from models import User
-from databaseManager import DatabaseManager
+from DatabaseManager import DatabaseManager
 
 app = Flask(__name__)
 
@@ -14,7 +14,7 @@ def receive_user():
         user_data = request.get_json()
         user = User(**user_data)
 
-        print(str(user.id), user.gender.value, user.education.value, user.race, user.profession, user.birthdate)
+        print(str(user.id), user.gender, user.education, user.race, user.profession, user.birthdate)
 
         database_manager.save_user(user)
 

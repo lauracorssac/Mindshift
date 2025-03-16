@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ScenarioView: View {
     @State private var currentIndex = 0
+    @EnvironmentObject private var coordinator: AppCoordinator
     let scenarios = Scenarios()
     
     var body: some View {
@@ -45,13 +46,14 @@ struct ScenarioView: View {
                 Button("Next Question") {
                     if currentIndex < scenarios.scenarios.count - 1 {
                         currentIndex += 1
+                    } else {                        
+                        coordinator.pushNext(to: .questions)
                     }
                 }
-                .buttonStyle(RoundedButtonStyle(fixedWidth: 150, fixedHeight: 20))
-                .padding(.bottom, 20)
+                .buttonStyle(RoundedButtonStyle(fixedWidth: 160, fixedHeight: 20))
+                .padding(.bottom, 16)
             }
-        } else {
-            //TODO: Navigate to FinalView
+            
         }
     }
 }
@@ -71,18 +73,18 @@ struct ResponseRow: View {
                     .font(.body)
                     .padding(.trailing, 5)
                 
-                Spacer()
+                 Spacer()
                 
                 VStack {
                     Button("Most") {
                         //TODO: save the response
                     }
-                        .buttonStyle(RoundedButtonStyle(fixedWidth: 45, fixedHeight: 1))
+                        .buttonStyle(RoundedButtonStyle(fixedWidth: 65, fixedHeight: 1))
                     
                     Button("Least") {
                         //TODO: save the response
                     }
-                        .buttonStyle(RoundedButtonStyle(fixedWidth: 45, fixedHeight: 1))
+                        .buttonStyle(RoundedButtonStyle(fixedWidth: 65, fixedHeight: 1))
                 }
             }
             .padding()

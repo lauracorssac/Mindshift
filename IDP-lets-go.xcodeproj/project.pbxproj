@@ -17,6 +17,9 @@
 		31F571C62D10550A005A0579 /* MeditationStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F571C52D10550A005A0579 /* MeditationStrings.swift */; };
 		31F571C82D10568E005A0579 /* MeditationCloudsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F571C72D10568E005A0579 /* MeditationCloudsView.swift */; };
 		31FA10E12D3A8BFE00BA9C61 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FA10E02D3A8BFE00BA9C61 /* OnboardingView.swift */; };
+		8D21EA892D763F5D000753CF /* RandomGroupGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D21EA882D763F5D000753CF /* RandomGroupGenerator.swift */; };
+		8D21EA8D2D76597D000753CF /* UserGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D21EA8C2D76597D000753CF /* UserGroupManager.swift */; };
+		8DBD98792D7C78D500098061 /* GradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD98782D7C78D500098061 /* GradientModifier.swift */; };
 		8DD8CD162CFD0B010058CF4B /* IDP_lets_goApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD152CFD0B010058CF4B /* IDP_lets_goApp.swift */; };
 		8DD8CD182CFD0B010058CF4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD172CFD0B010058CF4B /* ContentView.swift */; };
 		8DD8CD1A2CFD0B030058CF4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DD8CD192CFD0B030058CF4B /* Assets.xcassets */; };
@@ -26,7 +29,6 @@
 		8DD8CD2D2D101D300058CF4B /* RoundedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD2C2D101D300058CF4B /* RoundedButtonStyle.swift */; };
 		8DD8CD2F2D101DD30058CF4B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD2E2D101DD30058CF4B /* Colors.swift */; };
 		8DD8CD322D1023030058CF4B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD312D1023030058CF4B /* Coordinator.swift */; };
-		8DD8CD392D1027910058CF4B /* BirthdateQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD382D1027910058CF4B /* BirthdateQuestionView.swift */; };
 		8DD8CD3F2D117D050058CF4B /* StringPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD3E2D117D050058CF4B /* StringPickerView.swift */; };
 		8DD8CD412D1184230058CF4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD402D1184230058CF4B /* Constants.swift */; };
 		8DD8CD452D1187E70058CF4B /* audio_cut.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 8DD8CD442D1187E70058CF4B /* audio_cut.m4a */; };
@@ -54,7 +56,6 @@
 		8DD8CD992D53F63A0058CF4B /* Occupation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD982D53F63A0058CF4B /* Occupation.swift */; };
 		8DD8CD9B2D53F6EA0058CF4B /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD9A2D53F6EA0058CF4B /* Gender.swift */; };
 		8DD8CD9D2D53F70B0058CF4B /* Education.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD9C2D53F70B0058CF4B /* Education.swift */; };
-		8DD8CD9F2D53F71A0058CF4B /* Birthdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD9E2D53F71A0058CF4B /* Birthdate.swift */; };
 		8DD8CDA12D53F7420058CF4B /* DemographicQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CDA02D53F7420058CF4B /* DemographicQuestion.swift */; };
 		8DD8CDA32D53F7FA0058CF4B /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CDA22D53F7FA0058CF4B /* Race.swift */; };
 		8DD8CDA52D593EF60058CF4B /* DemographicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CDA42D593EF60058CF4B /* DemographicsViewModel.swift */; };
@@ -78,6 +79,9 @@
 		31F571C52D10550A005A0579 /* MeditationStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationStrings.swift; sourceTree = "<group>"; };
 		31F571C72D10568E005A0579 /* MeditationCloudsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationCloudsView.swift; sourceTree = "<group>"; };
 		31FA10E02D3A8BFE00BA9C61 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		8D21EA882D763F5D000753CF /* RandomGroupGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGroupGenerator.swift; sourceTree = "<group>"; };
+		8D21EA8C2D76597D000753CF /* UserGroupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupManager.swift; sourceTree = "<group>"; };
+		8DBD98782D7C78D500098061 /* GradientModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientModifier.swift; sourceTree = "<group>"; };
 		8DD8CD122CFD0B010058CF4B /* IDP-lets-go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IDP-lets-go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD8CD152CFD0B010058CF4B /* IDP_lets_goApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDP_lets_goApp.swift; sourceTree = "<group>"; };
 		8DD8CD172CFD0B010058CF4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,7 +92,6 @@
 		8DD8CD2C2D101D300058CF4B /* RoundedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonStyle.swift; sourceTree = "<group>"; };
 		8DD8CD2E2D101DD30058CF4B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8DD8CD312D1023030058CF4B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		8DD8CD382D1027910058CF4B /* BirthdateQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdateQuestionView.swift; sourceTree = "<group>"; };
 		8DD8CD3E2D117D050058CF4B /* StringPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringPickerView.swift; sourceTree = "<group>"; };
 		8DD8CD402D1184230058CF4B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8DD8CD442D1187E70058CF4B /* audio_cut.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio_cut.m4a; sourceTree = "<group>"; };
@@ -116,7 +119,6 @@
 		8DD8CD982D53F63A0058CF4B /* Occupation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Occupation.swift; sourceTree = "<group>"; };
 		8DD8CD9A2D53F6EA0058CF4B /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		8DD8CD9C2D53F70B0058CF4B /* Education.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Education.swift; sourceTree = "<group>"; };
-		8DD8CD9E2D53F71A0058CF4B /* Birthdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Birthdate.swift; sourceTree = "<group>"; };
 		8DD8CDA02D53F7420058CF4B /* DemographicQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicQuestion.swift; sourceTree = "<group>"; };
 		8DD8CDA22D53F7FA0058CF4B /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		8DD8CDA42D593EF60058CF4B /* DemographicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemographicsViewModel.swift; sourceTree = "<group>"; };
@@ -207,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				8DD8CD332D1025E90058CF4B /* Common */,
-				8DD8CD382D1027910058CF4B /* BirthdateQuestionView.swift */,
 				8DD8CD3E2D117D050058CF4B /* StringPickerView.swift */,
 				31FA10E02D3A8BFE00BA9C61 /* OnboardingView.swift */,
 				3196FE342D43D5620039775F /* DemographicsFinalView.swift */,
@@ -234,6 +235,7 @@
 				8DD8CD2E2D101DD30058CF4B /* Colors.swift */,
 				8DD8CD5A2D1D9A6D0058CF4B /* String.swift */,
 				8DD8CD872D3ABC840058CF4B /* Date.swift */,
+				8DBD98782D7C78D500098061 /* GradientModifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -262,9 +264,10 @@
 				8DD8CD982D53F63A0058CF4B /* Occupation.swift */,
 				8DD8CD9A2D53F6EA0058CF4B /* Gender.swift */,
 				8DD8CD9C2D53F70B0058CF4B /* Education.swift */,
-				8DD8CD9E2D53F71A0058CF4B /* Birthdate.swift */,
 				8DD8CDA02D53F7420058CF4B /* DemographicQuestion.swift */,
 				8DD8CDA22D53F7FA0058CF4B /* Race.swift */,
+				8D21EA882D763F5D000753CF /* RandomGroupGenerator.swift */,
+				8D21EA8C2D76597D000753CF /* UserGroupManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -427,13 +430,14 @@
 				8DD8CD3F2D117D050058CF4B /* StringPickerView.swift in Sources */,
 				31F571C82D10568E005A0579 /* MeditationCloudsView.swift in Sources */,
 				8DD8CD4E2D1C91620058CF4B /* OverviewPageControlView.swift in Sources */,
+				8D21EA892D763F5D000753CF /* RandomGroupGenerator.swift in Sources */,
 				8DD8CD9B2D53F6EA0058CF4B /* Gender.swift in Sources */,
+				8DBD98792D7C78D500098061 /* GradientModifier.swift in Sources */,
 				31F074AD2D026F8000D0AA23 /* MeditationStartView.swift in Sources */,
 				8DD8CDA12D53F7420058CF4B /* DemographicQuestion.swift in Sources */,
 				31F074AE2D026F8000D0AA23 /* MeditationAudioView.swift in Sources */,
 				8DD8CD572D1D904A0058CF4B /* ConsentView.swift in Sources */,
 				3196FE352D43D5620039775F /* DemographicsFinalView.swift in Sources */,
-				8DD8CD9F2D53F71A0058CF4B /* Birthdate.swift in Sources */,
 				8DD8CD252D1019C40058CF4B /* DemographicQuestionView.swift in Sources */,
 				31F074AF2D026F8000D0AA23 /* AudioPlayerViewModel.swift in Sources */,
 				8DD8CD972D4FF9EE0058CF4B /* StepProgressView.swift in Sources */,
@@ -442,12 +446,12 @@
 				8DD8CD862D3AB9900058CF4B /* User.swift in Sources */,
 				F9A10FB42D2F12EB00962DFF /* TestQuestionView.swift in Sources */,
 				8DD8CD322D1023030058CF4B /* Coordinator.swift in Sources */,
-				8DD8CD392D1027910058CF4B /* BirthdateQuestionView.swift in Sources */,
 				8DD8CD842D3AB6110058CF4B /* Requests.swift in Sources */,
 				8DD8CD7F2D35AB270058CF4B /* FinalView.swift in Sources */,
 				8DD8CD8F2D442A9A0058CF4B /* UserDefaultsManager.swift in Sources */,
 				8DD8CD2D2D101D300058CF4B /* RoundedButtonStyle.swift in Sources */,
 				F9A10FB22D2F12D800962DFF /* TestInformationView.swift in Sources */,
+				8D21EA8D2D76597D000753CF /* UserGroupManager.swift in Sources */,
 				8DD8CD5B2D1D9A6D0058CF4B /* String.swift in Sources */,
 				F962263C2D808CE000E63B9F /* ScoreManager.swift in Sources */,
 				8DD8CD8D2D4429BE0058CF4B /* UserStatus.swift in Sources */,
@@ -600,6 +604,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IDP-lets-go/Preview Content\"";
+				DEVELOPMENT_TEAM = HXG58UK739;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -628,6 +633,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IDP-lets-go/Preview Content\"";
+				DEVELOPMENT_TEAM = HXG58UK739;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -9,39 +9,44 @@ import SwiftUI
 struct GuidanceBar: View {
     var highlightedIndex: Int?
     var highlightColor: Color = .cyan
-    private func frameSize(for index: Int) -> CGSize {
-        switch index {
-        case 0: return CGSize(width: 41, height: 41)
-        case 1: return CGSize(width: 50, height: 50)
-        case 2: return CGSize(width: 45, height: 45)
-        default: return CGSize(width: 50, height: 50)
+    let group: Group
+    
+    private var steps: [Int] {
+        if group == .control {
+            return [1,2]
         }
+        return [0,1,2]
     }
-    private func iconName(for index: Int) -> String {
+    
+    private func icon(for index: Int) -> Image {
         switch index {
-        case 0: return "step1"
-        case 1: return "step2"
-        case 2: return "step3"
-        default: return ""
+        case 0: return Image("step1")
+        case 1: return Image(systemName: "stopwatch")
+        case 2: return Image("step3")
+        default: return Image("")
         }
     }
     
     var body: some View {
         HStack(spacing: 40) {
-            ForEach(0..<3, id: \.self) { index in
-                Image(iconName(for: index))
+            ForEach(steps, id: \.self) { index in
+                icon(for: index)
                     .renderingMode(.template)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: frameSize(for: index).width, height: frameSize(for: index).height)
+                    .frame(width: 50, height: 50)
                     .foregroundColor(index == highlightedIndex ? highlightColor : .black)
+                    .bold()
             }
         }
-        .padding(.bottom, 30)
     }
 }
 
 #Preview {
-    GuidanceBar(highlightedIndex: 1)
+    GuidanceBar(highlightedIndex: 1, group: .control)
+    GuidanceBar(highlightedIndex: 2, group: .control)
+    GuidanceBar(highlightedIndex: 0, group: .target)
+    GuidanceBar(highlightedIndex: 1, group: .target)
+    GuidanceBar(highlightedIndex: 2, group: .target)
 }
 
