@@ -123,14 +123,18 @@ struct SelectableButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(width: 50, height: 30)
-            .background(Color.clear)
+            .background(
+                RoundedRectangle(cornerRadius: 50)
+                    .fill(isSelected ? Color.mainBlue : Color.clear)
+            )
             .overlay(
                 RoundedRectangle(cornerRadius: 50)
                     .stroke(isSelected ? Color.mainBlue : Color.gray.opacity(0.5), lineWidth: 2)
             )
-            .foregroundColor(.primary)
+            .foregroundColor(isSelected ? .white : .primary)
     }
 }
+
     
 
 #Preview {
