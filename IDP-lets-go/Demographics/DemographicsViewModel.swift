@@ -12,9 +12,9 @@ class DemographicsViewModel: ObservableObject {
     @Published var shouldPresentNextView = false
     @Published var birthdate: Birthdate = .init()
     @Published var education = ""
-    @Published var profession = ""
+    @Published var professions: Set<String> = []
     @Published var gender = ""
-    @Published var race = ""
+    @Published var races: Set<String> = []
     
     let questions: [DemographicQuestion] = [
         .gender, .birthdate, .race, .educationBackground, .profession
@@ -28,7 +28,7 @@ class DemographicsViewModel: ObservableObject {
         switch step {
             
         case .race:
-            return race.isEmpty
+            return races.isEmpty
         case .birthdate:
             return birthdate.isEmpty
         case .gender:
@@ -38,7 +38,7 @@ class DemographicsViewModel: ObservableObject {
         case .mmock:
             return true
         case .profession:
-            return profession.isEmpty
+            return professions.isEmpty
         }
         
     }

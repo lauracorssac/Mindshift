@@ -99,9 +99,9 @@ struct DemographicsWrapperView: View {
             
         case .race:
             
-            StringPickerView(
-                value: $viewModel.race,
-                demographicQuestion: step
+            ProfessionPickerView(
+                values: $viewModel.races,
+                demographicQuestion: .race
             )
             
             
@@ -113,9 +113,9 @@ struct DemographicsWrapperView: View {
             
             
         case .profession:
-            StringPickerView(
-                value: $viewModel.profession,
-                demographicQuestion: step
+            ProfessionPickerView(
+                values: $viewModel.professions,
+                demographicQuestion: .profession
             )
             
         case .educationBackground:
