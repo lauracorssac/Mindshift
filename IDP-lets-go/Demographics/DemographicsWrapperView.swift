@@ -21,35 +21,46 @@ struct DemographicsWrapperView: View {
     
     var body: some View {
         
-        VStack(spacing: 0) {
+        
             
-            StepProgressView(
-                currentStep: currentProgress,
-                totalSteps: totalSteps + 1
-            )
-            .frame(height: 30)
-            .padding(.top, 16)
-            
-            Spacer()
-            
-            buildMiddleView(for: viewModel.questions[currentStep])
-                .transition(.asymmetric(
-                    insertion: .move(edge: .trailing),
-                    removal: .move(edge: .leading)
-                ))
-            
-            Button("Submit") {
-                buttonPressed()
-            }.buttonStyle(
-                RoundedButtonStyle(
-                    isDisabled: viewModel.isButtonDisabled(for: currentStep)
+            VStack(spacing: 0) {
+                
+                StepProgressView(
+                    currentStep: currentProgress,
+                    totalSteps: totalSteps + 1
                 )
-            )
-            .padding(.bottom, 16)
-            .disabled(viewModel.isButtonDisabled(for: currentStep))
+                .frame(height: 30)
+                .padding(.vertical, 16)
+                
+                Spacer()
+                
+                
+                buildMiddleView(for: viewModel.questions[currentStep])
+                    .transition(.asymmetric(
+                        insertion: .move(edge: .trailing),
+                        removal: .move(edge: .leading)
+                    ))
+                    .padding(.vertical, 16)
+                    .padding(.horizontal, 16)
+                
+                
+                Spacer()
+                
             
-            
-        }.toolbar {
+                Button("Submit") {
+                    buttonPressed()
+                }.buttonStyle(
+                    RoundedButtonStyle(
+                        isDisabled: viewModel.isButtonDisabled(for: currentStep)
+                    )
+                )
+                .padding(.bottom, 16)
+                .disabled(viewModel.isButtonDisabled(for: currentStep))
+        }
+        
+        
+        
+        .toolbar {
             ToolbarItem(placement: .topBarLeading, content: {
                 Button(action: {
                     currentStep -= 1
@@ -99,7 +110,7 @@ struct DemographicsWrapperView: View {
             
         case .race:
             
-            ProfessionPickerView(
+            SelectionView(
                 values: $viewModel.races,
                 demographicQuestion: .race
             )
@@ -111,9 +122,8 @@ struct DemographicsWrapperView: View {
                 demographicQuestion: step
             )
             
-            
         case .profession:
-            ProfessionPickerView(
+            SelectionView(
                 values: $viewModel.professions,
                 demographicQuestion: .profession
             )
