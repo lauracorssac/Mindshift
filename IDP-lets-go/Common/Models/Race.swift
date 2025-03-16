@@ -17,7 +17,7 @@ enum Race: String, CaseIterable, Identifiable {
     case hispanicOrLatino = "hispanic"
     case black = "black"
     case indigenous = "indigenous"
-    case asianPacificIslander = "asian"
+    case asian = "asian"
     case middleEasternNorthAfrican = "middleEastern"
     case other = "other"
     
@@ -26,13 +26,13 @@ enum Race: String, CaseIterable, Identifiable {
         case .white:
             return "White"
         case .hispanicOrLatino:
-            return "Hispanic or Latino"
+            return "Hispanic / Latino"
         case .black:
             return "Black"
         case .indigenous:
-            return "Native American or American Indian"
-        case .asianPacificIslander:
-            return "Asian / Pacific Islander"
+            return "Indigenous"
+        case .asian:
+            return "Asian"
         case .middleEasternNorthAfrican:
             return "Middle Eastern / North African"
         case .other:
