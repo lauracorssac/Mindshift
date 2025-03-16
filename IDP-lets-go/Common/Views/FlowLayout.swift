@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-struct FlowLayout<Data: Collection, Content: View>: View where Data.Element: Hashable {
-    let items: Data
+struct FlowLayout<Content: View>: View {
+    let items: [String]
     let spacing: CGFloat
-    let content: (Data.Element) -> Content
-    
-    @State private var totalWidth: CGFloat = 0
+    let itemHorizontalPadding: CGFloat
+    let content: (String) -> Content
     
     var body: some View {
        
@@ -32,12 +31,12 @@ struct FlowLayout<Data: Collection, Content: View>: View where Data.Element: Has
         .clipped()
     }
     
-    private func createRows(in availableWidth: CGFloat) -> [[Data.Element]] {
+    private func createRows(in availableWidth: CGFloat) -> [[String]] {
         var width: CGFloat = 0
-        var rows: [[Data.Element]] = [[]]
+        var rows: [[String]] = [[]]
 
         for item in items {
-            let itemWidth = textSize(item as! String).width + 30
+            let itemWidth = textSize(item).width + itemHorizontalPadding*2
             if width + itemWidth > availableWidth {
                 rows.append([])
                 width = 0

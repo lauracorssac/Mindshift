@@ -19,7 +19,9 @@ struct SelectionView: View {
         ) {
             FlowLayout(
                 items: demographicQuestion.items().map { $0.0 },
-                spacing: 10
+                
+                spacing: 10,
+                itemHorizontalPadding: buttonHorizontalPadding
             ) { interest in
                 
                 SelectableButton(
