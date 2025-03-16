@@ -16,7 +16,7 @@ class DatabaseManager():
                 education TEXT NOT NULL,
                 race TEXT NOT NULL,
                 profession TEXT NOT NULL,
-                birthdate TEXT NOT NULL
+                birthYear TEXT NOT NULL
             )
         ''')
         conn.commit()
@@ -25,8 +25,8 @@ class DatabaseManager():
     def save_user(self, user):
         conn = sqlite3.connect('users.db')
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO users (id, gender, education, race, profession, birthdate) VALUES (?, ?, ?, ?, ?, ?)', 
-                       (str(user.id), user.gender.value, user.education.value, user.race, user.profession, user.birthdate))
+        cursor.execute('INSERT INTO users (id, gender, education, race, profession, birthYear) VALUES (?, ?, ?, ?, ?, ?)', 
+                       (str(user.id), user.gender, user.education, user.race, user.profession, user.birthdate))
         conn.commit()
         conn.close()
 

@@ -10,4 +10,5 @@ import SwiftUI
 extension Color {
     
     static let mainBlue = Color.cyan
+    static let secondBlue = Color.mint
 }

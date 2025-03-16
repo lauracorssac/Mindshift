@@ -18,11 +18,11 @@ class Requests {
     
     private init() {}
     
-    func saveUser() async -> Result {
+    func saveUser(user: User) async -> Result {
         
         guard Constants.MOCK_SERVER == false else { return .success }
         
-        guard let url = URL(string: "http://127.0.0.1:4001/user") else {
+        guard let url = URL(string: Constants.userURL + "/user") else {
             return .error
         }
         
@@ -31,8 +31,7 @@ class Requests {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         do {
-            let postData = UserModel.user
-            let jsonData = try JSONEncoder().encode(postData)
+            let jsonData = try JSONEncoder().encode(user)
             request.httpBody = jsonData
             
             let (_, response) = try await URLSession.shared.data(for: request)

@@ -29,8 +29,6 @@ struct DemographicsWrapperView: View {
             )
             .frame(height: 30)
             .padding(.top, 16)
-            .scaleEffect(ended ? 1.2 : 1.0)
-            
             
             Spacer()
             
@@ -44,8 +42,6 @@ struct DemographicsWrapperView: View {
                 buttonPressed()
             }.buttonStyle(
                 RoundedButtonStyle(
-                    fixedWidth: 100,
-                    fixedHeight: nil,
                     isDisabled: viewModel.isButtonDisabled(for: currentStep)
                 )
             )
@@ -95,7 +91,11 @@ struct DemographicsWrapperView: View {
         switch(step) {
             
         case .birthdate:
-            BirthdateQuestionView(birthDate: $viewModel.birthdate)
+            StringPickerView(
+                value: $viewModel.birthYear,
+                demographicQuestion: .birthdate
+            )
+            .pickerStyle(WheelPickerStyle())
             
         case .race:
             

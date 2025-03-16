@@ -10,7 +10,10 @@ import Foundation
 class DemographicsViewModel: ObservableObject {
     
     @Published var shouldPresentNextView = false
-    @Published var birthdate: Birthdate = .init()
+    @Published var shouldPresentError = false
+    @Published var isLoading = false
+    
+    @Published var birthYear = ""
     @Published var education = ""
     @Published var professions: Set<String> = []
     @Published var gender = ""
@@ -30,7 +33,7 @@ class DemographicsViewModel: ObservableObject {
         case .race:
             return races.isEmpty
         case .birthdate:
-            return birthdate.isEmpty
+            return birthYear.isEmpty
         case .gender:
             return gender.isEmpty
         case .educationBackground:
@@ -44,17 +47,24 @@ class DemographicsViewModel: ObservableObject {
     }
     
     func saveData() {
-        
-        Task {
-            // TODO: build new user based on the published properties
-            let result = await Requests.shared.saveUser()
+        Task { @MainActor in
+            isLoading = true
+            let user = User(
+                id: UUID(),
+                gender: gender,
+                birthYear: birthYear,
+                races: races,
+                education: education,
+                professions: professions
+            )
+            let result = await Requests.shared.saveUser(user: user)
             switch result {
             case .success:
                 shouldPresentNextView = true
-               
+                isLoading = false
             case .error:
-                // TODO: treat
-                print("error saving data")
+                isLoading = false
+                shouldPresentError = true
             }
         }
     }

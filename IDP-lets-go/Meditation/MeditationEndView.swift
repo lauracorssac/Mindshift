@@ -28,23 +28,23 @@ struct MeditationEndView: View {
             Image(systemName: "checkmark.circle")
                 .font(.system(size: 150))
                 .foregroundColor(Color.mainBlue)
-                .padding(.vertical, 40)
-                .padding(.bottom, 30)
-            
-            HStack {
-                Button("Proceed to test") {
-                    coordinator.pushNext(to: .meditationEnd)
-                }
-                .buttonStyle(RoundedButtonStyle(fixedWidth: 158))
-                Button("Restart meditation") {
-                    coordinator.pushNext(to: .clouds)
-                }
-                .buttonStyle(RoundedButtonStyle(fixedWidth: 158))
+                .padding(.top, 40)
+                .padding(.bottom)
+                
+            Button("Proceed to test") {
+                coordinator.pushNext(to: .meditationEnd)
             }
-            .padding(.bottom, 30)
-            .padding(.leading, 25)
-            .padding(.trailing, 25)
+            .buttonStyle(RoundedButtonStyle(fixedWidth: 180))
+            .padding(.top)
+            
+            Button("Restart meditation") {
+                coordinator.pushNext(to: .clouds)
+            }
+            .buttonStyle(RoundedButtonStyle(fixedWidth: 180))
+            .padding(.top, 5)
+            
         }
+        
     }
 }
 

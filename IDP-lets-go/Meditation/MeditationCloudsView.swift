@@ -65,7 +65,8 @@ struct MeditationCloudsView: View {
                 Spacer()
             }
         }
-        .navigationTitle(MeditationStrings.MeditationViews.navigationTitle)
+        .gradientBackground()
+       
     }
     
     private func animateBreathingCycle() {

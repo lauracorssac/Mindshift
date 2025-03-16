@@ -15,9 +15,9 @@ enum DemographicQuestion: String {
         switch self {
             
         case .race:
-            "Which race or ethnicity do you most identify with?"
+            "Which ethnicity do you most identify with?"
         case .birthdate:
-            "What's your birthdate?"
+            "What's your year of birth?"
         case .gender:
             "Which gender do you most identify with?"
         case .educationBackground:
@@ -36,7 +36,9 @@ enum DemographicQuestion: String {
         case .race:
             return Race.allCases.map { ($0.displayName(), $0.rawValue) }
         case .birthdate:
-            return [("", "")]
+            let currentYear = Calendar.current.component(.year, from: Date())
+            let years = Array((currentYear - 100)...(currentYear - 18)).reversed()
+            return years.map { ("\($0)","\($0)") }
         case .gender:
             return Gender.allCases.map { ($0.displayName(), $0.rawValue) }
         case .educationBackground:
