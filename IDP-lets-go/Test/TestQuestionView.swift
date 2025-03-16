@@ -18,18 +18,38 @@ class TestQuestionViewModel {
     }
     var currentQuestionIndex: Int = 0
     
-    init(step: Step, presentWrongMark: Bool = false) {
+    var questionStartTime: Date = Date()
+    var trials: [Trial] = []
+    var currentStageIndex: Int
+    let totalStages: Int = 6
+
+    
+    init(step: Step, presentWrongMark: Bool = false, currentStageIndex: Int) {
         self.step = step
         self.presentWrongMark = presentWrongMark
+        self.currentStageIndex = currentStageIndex
+        questionStartTime = Date()
     }
     
     func processAnswer(pressedButton: Option) {
         if currentQuestion.answer == pressedButton {
             presentWrongMark = false
+            let elapsedTime = Int(Date().timeIntervalSince(questionStartTime) * 1000)
+            let trial = Trial(step: step.stepNumber, responseTime: elapsedTime)
+            print("Recoded trial: step= \(trial.step), responseTime=\(trial.responseTime)")
+            trials.append(trial)
+            
             if currentQuestionIndex == step.questions.count - 1 {
+                ScoreManager.shared.addTrials(trials)
+                trials.removeAll()
+                if currentStageIndex == totalStages {
+                    ScoreManager.shared.computeAndAssignScore(for: UserModel.user)
+                    print ("All stages completed")
+                }
                 presentNextStep = true
             } else {
                 currentQuestionIndex += 1
+                questionStartTime = Date()
             }
         } else {
             presentWrongMark = true
@@ -105,15 +125,16 @@ struct TestQuestionView: View {
 }
 
 #Preview {
-    TestQuestionView(stepVM: .init(step: .mockStep2))
+    TestQuestionView(stepVM: .init(step: .mockStep2, currentStageIndex: 0))
         .environmentObject(AppCoordinator())
     
 }
 
 #Preview {
-    
-    TestQuestionView(stepVM: .init(step: .mockStep1, presentWrongMark: true))
-        .environmentObject(AppCoordinator())
+    TestQuestionView(stepVM: .init(
+        step: .mockStep1,
+        presentWrongMark: true,
+        currentStageIndex: 0)
+    )
+    .environmentObject(AppCoordinator())
 }
-
-

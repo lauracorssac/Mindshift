@@ -14,4 +14,19 @@ struct User: Codable {
     var race: String
     var education: String
     var profession: String
+    var score: Double?
+    var classification: String?
+}
+
+class UserModel {
+    
+    static var user = User(
+        id: UUID(),
+        gender: "",
+        birthYear: "",
+        race: "",
+        education: "",
+        profession: "",
+        score: nil
+    )
 }
