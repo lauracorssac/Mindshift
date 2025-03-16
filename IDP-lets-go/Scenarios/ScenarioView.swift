@@ -21,7 +21,6 @@ struct ScenarioView: View {
     let scenarios = Scenarios()
     
     var body: some View {
-        NavigationStack {
             if currentIndex < scenarios.scenarios.count {
                 VStack {
                     VStack(alignment: .leading, spacing: 20) {
@@ -53,7 +52,7 @@ struct ScenarioView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
-                        Button("Next Question") {
+                        Button("Next") {
                             if selectedMost != nil && selectedLeast != nil {
                                 selectedMost = nil
                                 selectedLeast = nil
@@ -65,11 +64,9 @@ struct ScenarioView: View {
                     }
                 }
             } else {
-                FinalView()
             }
         }
     }
-}
 
 struct ResponseRow: View {
     let text: String
