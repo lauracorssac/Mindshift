@@ -16,17 +16,17 @@ class Cards: CardsFactory {
     let targetCards = [
         Card(
             title: "Meditation phase",
-            subtitle: "You will begin by engaging in a mindfulness exercise in the form of a meditation, designed to enhance awareness and reduce unconscious biases.",
+            subtitle: "You will begin by engaging in a mindfulness exercise in the form of a meditation, designed to enhance awareness, helping you approach the next steps with a clear mind..",
             imageName: "step1"
         ),
         Card(
             title: "Test phase",
-            subtitle: "Next, you will take a small game called implicit association test to measure your unconscious biases. Detailed information about how it works will be provided.",
+            subtitle: "Next, you will complete a quick interactive task that explores how you associate different concepts. Detailed information about how it works will be provided.",
             systemImageName: "stopwatch"
         ),
         Card(
             title: "Questions phase",
-            subtitle: "Finally, you will answer to a questionary to evaluate that measures your unconscious biases in a different way.",
+            subtitle: "Finally, you will answer a set of questions designed to encourage self-reflection and provide insights into your decision-making processes.",
             imageName: "step3"
         )
     ]
@@ -34,12 +34,12 @@ class Cards: CardsFactory {
     let controlCards = [
         Card(
             title: "Test phase",
-            subtitle: "You will begin taking a small game called implicit association test to measure your unconscious biases. Detailed information about how the test works will be provided.",
+            subtitle: "You will begin by completing a quick interactive task that explores how you associate different concepts. Detailed information about how it works will be provided.",
             systemImageName: "stopwatch"
         ),
         Card(
             title: "Questions phase",
-            subtitle: "Next, you will answer to a questionary to evaluate that measures your unconscious biases in a different way.",
+            subtitle: "Next, you will answer a set of questions designed to encourage self-reflection and provide insights into your decision-making processes.",
             imageName: "step3"
         )
     ]

@@ -23,7 +23,7 @@ struct FinalView: View {
                 .padding(.horizontal, 25)
                 .padding(.top, 10)
             
-            Text("Your responses are valuable in helping reduce bias.")
+            Text("Your responses are valuable in improving decision-making.")
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
