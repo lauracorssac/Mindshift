@@ -4,13 +4,6 @@
 //
 //  Created by Alara Özdenler on 06.03.25.
 //
-
-//
-//  ScenarioView.swift
-//  IDP-lets-go
-//
-//  Created by Alara Özdenler on 06.03.25.
-//
 import SwiftUI
 
 struct ScenarioView: View {
@@ -52,7 +45,7 @@ struct ScenarioView: View {
             .navigationTitle("Question \(currentIndex + 1)")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .bottomBar) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button("Next") {
                         if selectedMost != nil && selectedLeast != nil && currentIndex < scenarios.scenarios.count - 1  {
                             selectedMost = nil
@@ -62,7 +55,6 @@ struct ScenarioView: View {
                             coordinator.pushNext(to: .questions)
                         }
                     }
-                    .buttonStyle(RoundedButtonStyle(fixedWidth: 150, fixedHeight: 20))
                     .disabled(selectedMost == nil || selectedLeast == nil)
                 }
             }
