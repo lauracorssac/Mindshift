@@ -9,10 +9,18 @@ import SwiftUI
 import Firebase
 import FirebaseFirestore
 
+protocol FinalViewModel {
+    var isLoading: Bool { get }
+}
+
+class MockFinalViewModel: FinalViewModel {
+    var isLoading = true
+}
+
 @Observable
-class FinalViewModel {
+class FinalViewModelImpl: FinalViewModel {
     
-    @MainActor var isLoading = false
+    @MainActor var isLoading = true
     
     init() {
         
@@ -51,7 +59,6 @@ class FinalViewModel {
     
 }
 
-
 struct FinalView: View {
     
     let viewModel: FinalViewModel
@@ -60,10 +67,15 @@ struct FinalView: View {
         
         if viewModel.isLoading {
             
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle())
-                .scaleEffect(2)
-                .tint(Color.mainBlue)
+            VStack {
+                
+                
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .scaleEffect(2)
+                    .tint(Color.mainBlue)
+                
+            }
             
         } else {
             
@@ -97,5 +109,5 @@ struct FinalView: View {
 }
 
 #Preview {
-    FinalView(viewModel: FinalViewModel())
+    FinalView(viewModel: MockFinalViewModel())
 }

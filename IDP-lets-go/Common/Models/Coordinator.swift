@@ -178,7 +178,7 @@ class AppCoordinator: ObservableObject {
             ScenarioView()
             
         case .final:
-            FinalView(viewModel: FinalViewModel())
+            FinalView(viewModel: FinalViewModelImpl())
         }
     }
 }
