@@ -161,9 +161,7 @@ class AppCoordinator: ObservableObject {
             
         case .testStart:
             TestInformationView()
-                .onAppear {
-                    ScoreManager.shared.addUser(UserModel.user)
-                }
+               
         case .testTableView:
             TestTableView()
             
@@ -180,7 +178,7 @@ class AppCoordinator: ObservableObject {
             ScenarioView()
             
         case .final:
-            FinalView()
+            FinalView(viewModel: FinalViewModel())
         }
     }
 }

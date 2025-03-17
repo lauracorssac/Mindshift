@@ -23,6 +23,9 @@ struct ContentView: View {
         }
         .environmentObject(coordinator)
         .tint(Color.mainBlue)
+        .task {
+            UserModel.user.group = Constants.groupManager.userGroup
+        }
     }
 }
 

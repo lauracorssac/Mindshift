@@ -47,9 +47,14 @@ struct ScenarioView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Next") {
-                        if selectedMost != nil && selectedLeast != nil && currentIndex < scenarios.scenarios.count - 1  {
-                            selectedMost = nil
-                            selectedLeast = nil
+                        guard let selectedMost, let selectedLeast else { return }
+                        
+                        let answer = Answer(mostIndex: selectedMost, leastIndex: selectedLeast)
+                        UserModel.user.answers.append(answer)
+                            
+                        if currentIndex < scenarios.scenarios.count - 1  {
+                            self.selectedMost = nil
+                            self.selectedLeast = nil
                             currentIndex += 1
                         } else {
                             coordinator.pushNext(to: .questions)

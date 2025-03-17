@@ -51,6 +51,7 @@ struct MeditationAudioView: View {
         .gradientBackground()
         .onChange(of: viewModel.audioFinished) { _, isFinished in
             if isFinished {
+                UserModel.user.meditationSessions += 1
                 coordinator.pushNext(to: .meditation)
             }
         }

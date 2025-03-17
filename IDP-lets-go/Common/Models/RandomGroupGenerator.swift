@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Group: String, CaseIterable {
+enum Group: String, Encodable, CaseIterable {
     case control, target
 }
 
