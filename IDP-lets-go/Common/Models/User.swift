@@ -11,9 +11,9 @@ struct User: Codable {
     let id: UUID
     var gender: String
     var birthYear: String
-    var race: String
+    var races: Set<String>
     var education: String
-    var profession: String
+    var professions: Set<String>
     var score: Double?
     var classification: String?
 }
@@ -24,9 +24,9 @@ class UserModel {
         id: UUID(),
         gender: "",
         birthYear: "",
-        race: "",
+        races: [""],
         education: "",
-        profession: "",
+        professions: [""],
         score: nil
     )
 }

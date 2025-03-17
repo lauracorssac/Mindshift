@@ -16,18 +16,15 @@ struct DemographicQuestionView<Content: View>: View {
         
         VStack(alignment: .center, spacing: 30) {
             
-            Spacer()
             Text(demographicQuestion.title())
                 .font(Font.system24)
                 .multilineTextAlignment(.center)
             
             content()
-            
-            Spacer()
+        
             
         }
-        .padding(.vertical, 14)
-        .padding(.horizontal, 16)
+        
     }
 }
 

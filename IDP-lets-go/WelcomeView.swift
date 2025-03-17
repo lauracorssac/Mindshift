@@ -23,7 +23,7 @@ struct WelcomeView: View {
                     .font(.system(size: 56).bold())
                     
                 
-                Image("empty-cloud")
+                Image("filled-cloud")
                 
                     .resizable()
                     .aspectRatio(contentMode: .fit)

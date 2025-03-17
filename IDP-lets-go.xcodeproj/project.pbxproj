@@ -20,6 +20,9 @@
 		8D21EA892D763F5D000753CF /* RandomGroupGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D21EA882D763F5D000753CF /* RandomGroupGenerator.swift */; };
 		8D21EA8D2D76597D000753CF /* UserGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D21EA8C2D76597D000753CF /* UserGroupManager.swift */; };
 		8DBD98792D7C78D500098061 /* GradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD98782D7C78D500098061 /* GradientModifier.swift */; };
+		8DC7A4FA2D872BD500E60128 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7A4F92D872BD500E60128 /* SelectionView.swift */; };
+		8DC7A5222D87440C00E60128 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7A5212D87440C00E60128 /* SelectableButton.swift */; };
+		8DC7A5242D87443B00E60128 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7A5232D87443B00E60128 /* FlowLayout.swift */; };
 		8DD8CD162CFD0B010058CF4B /* IDP_lets_goApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD152CFD0B010058CF4B /* IDP_lets_goApp.swift */; };
 		8DD8CD182CFD0B010058CF4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD172CFD0B010058CF4B /* ContentView.swift */; };
 		8DD8CD1A2CFD0B030058CF4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DD8CD192CFD0B030058CF4B /* Assets.xcassets */; };
@@ -82,6 +85,9 @@
 		8D21EA882D763F5D000753CF /* RandomGroupGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGroupGenerator.swift; sourceTree = "<group>"; };
 		8D21EA8C2D76597D000753CF /* UserGroupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupManager.swift; sourceTree = "<group>"; };
 		8DBD98782D7C78D500098061 /* GradientModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientModifier.swift; sourceTree = "<group>"; };
+		8DC7A4F92D872BD500E60128 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		8DC7A5212D87440C00E60128 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
+		8DC7A5232D87443B00E60128 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		8DD8CD122CFD0B010058CF4B /* IDP-lets-go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IDP-lets-go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD8CD152CFD0B010058CF4B /* IDP_lets_goApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDP_lets_goApp.swift; sourceTree = "<group>"; };
 		8DD8CD172CFD0B010058CF4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -214,6 +220,7 @@
 				3196FE342D43D5620039775F /* DemographicsFinalView.swift */,
 				8DD8CD942D4FE8C30058CF4B /* DemographicsWrapperView.swift */,
 				8DD8CDA42D593EF60058CF4B /* DemographicsViewModel.swift */,
+				8DC7A4F92D872BD500E60128 /* SelectionView.swift */,
 			);
 			path = Demographics;
 			sourceTree = "<group>";
@@ -246,6 +253,8 @@
 				8DD8CDAA2D5D1F0D0058CF4B /* GuidanceBar.swift */,
 				8DD8CD2C2D101D300058CF4B /* RoundedButtonStyle.swift */,
 				8DD8CD962D4FF9EE0058CF4B /* StepProgressView.swift */,
+				8DC7A5212D87440C00E60128 /* SelectableButton.swift */,
+				8DC7A5232D87443B00E60128 /* FlowLayout.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -426,6 +435,7 @@
 				8DD8CD412D1184230058CF4B /* Constants.swift in Sources */,
 				F9A10FB82D2F131A00962DFF /* TestPartIndicatorView.swift in Sources */,
 				8DD8CDAB2D5D1F0D0058CF4B /* GuidanceBar.swift in Sources */,
+				8DC7A5242D87443B00E60128 /* FlowLayout.swift in Sources */,
 				8DD8CD2F2D101DD30058CF4B /* Colors.swift in Sources */,
 				8DD8CD3F2D117D050058CF4B /* StringPickerView.swift in Sources */,
 				31F571C82D10568E005A0579 /* MeditationCloudsView.swift in Sources */,
@@ -439,9 +449,11 @@
 				8DD8CD572D1D904A0058CF4B /* ConsentView.swift in Sources */,
 				3196FE352D43D5620039775F /* DemographicsFinalView.swift in Sources */,
 				8DD8CD252D1019C40058CF4B /* DemographicQuestionView.swift in Sources */,
+				8DC7A5222D87440C00E60128 /* SelectableButton.swift in Sources */,
 				31F074AF2D026F8000D0AA23 /* AudioPlayerViewModel.swift in Sources */,
 				8DD8CD972D4FF9EE0058CF4B /* StepProgressView.swift in Sources */,
 				F962263A2D8088A800E63B9F /* ScoreModel.swift in Sources */,
+				8DC7A4FA2D872BD500E60128 /* SelectionView.swift in Sources */,
 				8DD8CD7D2D35A2D60058CF4B /* TestFields.swift in Sources */,
 				8DD8CD862D3AB9900058CF4B /* User.swift in Sources */,
 				F9A10FB42D2F12EB00962DFF /* TestQuestionView.swift in Sources */,

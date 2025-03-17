@@ -15,9 +15,9 @@ class DemographicsViewModel: ObservableObject {
     
     @Published var birthYear = ""
     @Published var education = ""
-    @Published var profession = ""
+    @Published var professions: Set<String> = []
     @Published var gender = ""
-    @Published var race = ""
+    @Published var races: Set<String> = []
     
     let questions: [DemographicQuestion] = [
         .gender, .birthdate, .race, .educationBackground, .profession
@@ -31,7 +31,7 @@ class DemographicsViewModel: ObservableObject {
         switch step {
             
         case .race:
-            return race.isEmpty
+            return races.isEmpty
         case .birthdate:
             return birthYear.isEmpty
         case .gender:
@@ -41,7 +41,7 @@ class DemographicsViewModel: ObservableObject {
         case .mmock:
             return true
         case .profession:
-            return profession.isEmpty
+            return professions.isEmpty
         }
         
     }
@@ -53,9 +53,9 @@ class DemographicsViewModel: ObservableObject {
                 id: UUID(),
                 gender: gender,
                 birthYear: birthYear,
-                race: race,
+                races: races,
                 education: education,
-                profession: profession
+                professions: professions
             )
             let result = await Requests.shared.saveUser(user: user)
             switch result {
