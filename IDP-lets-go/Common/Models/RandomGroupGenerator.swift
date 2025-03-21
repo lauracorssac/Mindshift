@@ -22,3 +22,24 @@ class RandomGroupGenerator: GroupGenerator {
     }
 
 }
+
+//class FirebaseGroupGenerator: GroupGenerator {
+//    
+//    func fetchFromFireBase() async -> Group {
+//        return await withCheckedContinuation { continuation in
+//            RemoteConfig.remoteConfig().fetch { status, error in
+//                if status == .success {
+//                    let group = RemoteConfig.remoteConfig().configValue(forKey: "group_name").boolValue
+//                    continuation.resume(returning: group ? .control : .target)
+//                } else {
+//                    print("Error fetching Remote Config: \(error?.localizedDescription ?? "Unknown error")")
+//                    continuation.resume(returning: .target)
+//                }
+//            }
+//        }
+//    }
+//    
+//    func getGroupGenerator() async -> Group {
+//        return await fetchFromFireBase()
+//    }
+//}
