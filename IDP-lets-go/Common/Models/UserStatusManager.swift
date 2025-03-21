@@ -21,18 +21,23 @@ class UserStatusManager {
     
     private init() {
         
-        if let mockedStatus = Constants.initialStatus {
-            currentStatus = mockedStatus
-            defaults.setValue(key: key, value: mockedStatus.rawValue)
-            print("CURRENT STATUS MOCKED", currentStatus)
+        if Constants.shouldPersistData {
+            
+            if let mockedStatus = Constants.initialStatus {
+                currentStatus = mockedStatus
+                defaults.setValue(key: key, value: mockedStatus.rawValue)
+                print("CURRENT STATUS MOCKED", currentStatus)
+            }
+            
+            let currentStatusString = defaults.getValue(
+                key: key,
+                defaultValue: initialStep.rawValue
+            )
+            
+            currentStatus = UserStatus(rawValue: currentStatusString) ?? initialStep
+        } else {
+            currentStatus = initialStep
         }
-        
-        let currentStatusString = defaults.getValue(
-            key: key,
-            defaultValue: initialStep.rawValue
-        )
-        
-        currentStatus = UserStatus(rawValue: currentStatusString) ?? initialStep
         
         print("CURRENT STATUS", currentStatus)
     }

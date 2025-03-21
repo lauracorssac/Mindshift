@@ -15,7 +15,8 @@ class Constants {
     
     // For debugging: http://127.0.0.1:4001
     static let userURL = "https://ipd-lets-go.azurewebsites.net"
-    static let DEBUG = false
+    static let meditationDebug = false
+    static let shouldPersistData = false
     static let model = RandomModel()
     static let groupManager = GroupManagerImpl()
 }
