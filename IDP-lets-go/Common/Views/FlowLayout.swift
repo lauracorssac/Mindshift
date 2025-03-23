@@ -17,7 +17,7 @@ struct FlowLayout<Content: View>: View {
        
         let rows = self.createRows(in: UIScreen.main.bounds.width - 10)
         ScrollView {
-            VStack(alignment: .center, spacing: 10) {
+            VStack(alignment: .center, spacing: 5) {
                 ForEach(rows, id: \.self) { row in
                     HStack(spacing: 10) {
                         ForEach(row, id: \.self) { item in
@@ -36,7 +36,7 @@ struct FlowLayout<Content: View>: View {
         var rows: [[String]] = [[]]
 
         for item in items {
-            let itemWidth = textSize(item).width + itemHorizontalPadding*2
+            let itemWidth = textSize(item).width + itemHorizontalPadding*2 + 5
             if width + itemWidth > availableWidth {
                 rows.append([])
                 width = 0

@@ -99,6 +99,10 @@ struct TestQuestionView: View {
             Spacer()
                
         }
+        .animation(
+            .easeInOut(duration: 0.3),
+            value: stepVM.currentQuestionIndex
+        )
         .overlay {
             VStack {
                 Spacer()
