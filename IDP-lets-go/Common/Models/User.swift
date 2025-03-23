@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct User: Codable {
+struct Answer: Encodable {
+    let mostIndex: Int
+    let leastIndex: Int
+}
+
+struct User: Encodable {
     let id: UUID
     var gender: String
     var birthYear: String
@@ -15,7 +20,10 @@ struct User: Codable {
     var education: String
     var professions: Set<String>
     var score: Double?
-    var classification: String?
+    var trials: Set<Trial>
+    var answers: [Answer]
+    var group: Group
+    var meditationSessions: Int
 }
 
 class UserModel {
@@ -24,9 +32,13 @@ class UserModel {
         id: UUID(),
         gender: "",
         birthYear: "",
-        races: [""],
+        races: [],
         education: "",
-        professions: [""],
-        score: nil
+        professions: [],
+        score: nil,
+        trials: [],
+        answers: [],
+        group: .control,
+        meditationSessions: 0
     )
 }

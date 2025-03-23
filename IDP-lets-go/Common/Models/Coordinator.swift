@@ -22,31 +22,13 @@ class GameCoordinator {
     }
     
     func getNextStep() -> Screen? {
-        stopTimer()
         guard currentStep < model.steps.count - 1 else { return nil }
         currentStep += 1
         return .testStepIntro(step: model.steps[currentStep], total: model.totalNumberOfSteps)
     }
     
     func getQuestions() -> Screen {
-        startTimer()
         return .testQuestion(step: model.steps[currentStep])
-    }
-    
-    private func startTimer() {
-        model.steps[currentStep].startTime = Date()
-    }
-    
-    private func stopTimer() {
-        model.steps[currentStep].endTime = Date()
-    }
-    
-    func debugAnalysisPrint() {
-        for (ind, step) in model.steps.enumerated() {
-            guard let startTime = step.startTime,
-                  let endTime = step.endTime else { continue }
-            print("step \(ind): ", endTime.timeIntervalSince(startTime))
-        }
     }
     
 }
@@ -54,24 +36,21 @@ class GameCoordinator {
 class AppCoordinator: ObservableObject {
     @Published var path = NavigationPath()
     
-    var gameCoordinator: GameCoordinator?
-    let model: TestModel
-    let statusManager = UserStatusManager.shared
+    var gameCoordinator: GameCoordinator
+    let statusManager: UserStatusManager
     let cardsFactory: CardsFactory
     let group: Group
     
     init(
-        path: NavigationPath = NavigationPath(),
-        gameCoordinator: GameCoordinator? = nil,
-        model: TestModel = SequecedModel(),
-        groupManager: GroupManager = GroupManagerImpl(),
+        gameCoordinator: GameCoordinator = GameCoordinator(model: Constants.model),
+        groupManager: GroupManager = Constants.groupManager,
+        statusManager: UserStatusManager = Constants.statusManager,
         cardsFactory: CardsFactory = Cards()
     ) {
-        self.path = path
         self.gameCoordinator = gameCoordinator
-        self.model = model
         self.group = groupManager.userGroup
         self.cardsFactory = cardsFactory
+        self.statusManager = statusManager
     }
     
     func getInitialScreen() -> Screen {
@@ -88,20 +67,18 @@ class AppCoordinator: ObservableObject {
         
         switch screen {
         case .testTableView:
-            gameCoordinator = GameCoordinator(model: model)
-            self.push(gameCoordinator!.getInitialScreen())
+            self.push(gameCoordinator.getInitialScreen())
             
         case .testQuestion(step: _):
-            if let nextStep = gameCoordinator?.getNextStep() {
+            if let nextStep = gameCoordinator.getNextStep() {
                 self.push(nextStep)
             } else {
                 self.push(.questionsStart)
-                gameCoordinator?.debugAnalysisPrint()
                 statusManager.completeStep(screen: .questionsStart, userGroup: group)
             }
             
         case .testStepIntro(step: _):
-            guard let screen = gameCoordinator?.getQuestions() else { return }
+            let screen = gameCoordinator.getQuestions()
             self.push(screen)
             
         default:
@@ -161,9 +138,7 @@ class AppCoordinator: ObservableObject {
             
         case .testStart:
             TestInformationView()
-                .onAppear {
-                    ScoreManager.shared.addUser(UserModel.user)
-                }
+               
         case .testTableView:
             TestTableView()
             
@@ -180,7 +155,7 @@ class AppCoordinator: ObservableObject {
             ScenarioView()
             
         case .final:
-            FinalView()
+            FinalView(viewModel: FinalViewModelImpl())
         }
     }
 }

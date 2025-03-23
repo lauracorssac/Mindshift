@@ -43,7 +43,7 @@ class TestQuestionViewModel {
                 ScoreManager.shared.addTrials(trials)
                 trials.removeAll()
                 if currentStageIndex == totalStages {
-                    ScoreManager.shared.computeAndAssignScore(for: UserModel.user)
+                    ScoreManager.shared.computeAndAssignScore()
                     print ("All stages completed")
                 }
                 presentNextStep = true
@@ -99,6 +99,10 @@ struct TestQuestionView: View {
             Spacer()
                
         }
+        .animation(
+            .easeInOut(duration: 0.3),
+            value: stepVM.currentQuestionIndex
+        )
         .overlay {
             VStack {
                 Spacer()

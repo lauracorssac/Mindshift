@@ -47,26 +47,35 @@ class DemographicsViewModel: ObservableObject {
     }
     
     func saveData() {
-        Task { @MainActor in
-            isLoading = true
-            let user = User(
-                id: UUID(),
-                gender: gender,
-                birthYear: birthYear,
-                races: races,
-                education: education,
-                professions: professions
-            )
-            let result = await Requests.shared.saveUser(user: user)
-            switch result {
-            case .success:
-                shouldPresentNextView = true
-                isLoading = false
-            case .error:
-                isLoading = false
-                shouldPresentError = true
-            }
+//        Task { @MainActor in
+//            isLoading = true
+            
+            UserModel.user.gender = gender
+            UserModel.user.birthYear = birthYear
+            UserModel.user.professions = professions
+            UserModel.user.races = races
+            UserModel.user.education = education
+        
+        shouldPresentNextView = true
+        
+        
+//            let user = User(
+//                id: UUID(),
+//                gender: gender,
+//                birthYear: birthYear,
+//                races: races,
+//                education: education,
+//                professions: professions
+//            )
+//            let result = await Requests.shared.saveUser(user: user)
+//            switch result {
+//            case .success:
+//                shouldPresentNextView = true
+//                isLoading = false
+//            case .error:
+//                isLoading = false
+//                shouldPresentError = true
+//            }
         }
-    }
     
 }

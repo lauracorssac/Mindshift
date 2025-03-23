@@ -34,11 +34,16 @@ class GroupManagerImpl: GroupManager {
         
         let userGroupRawValue = defaults.getValue(key: key, defaultValue: "")
         
-        userGroup = Group(
-            rawValue: userGroupRawValue
-        ) ?? randomGroupGenerator.getGroupGenerator()
-        
-        defaults.setValue(key: key, value: userGroup.rawValue)
+        if Constants.shouldPersistData {
+            userGroup = Group(
+                rawValue: userGroupRawValue
+            ) ?? randomGroupGenerator.getGroupGenerator()
+            
+            
+            defaults.setValue(key: key, value: userGroup.rawValue)
+        } else {
+            userGroup = randomGroupGenerator.getGroupGenerator()
+        }
         
     }
     

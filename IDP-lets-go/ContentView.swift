@@ -9,10 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
    
-    @StateObject var coordinator = AppCoordinator(
-        model: Constants.model,
-        groupManager: Constants.groupManager
-    )
+    @StateObject var coordinator = AppCoordinator()
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {
@@ -23,6 +20,9 @@ struct ContentView: View {
         }
         .environmentObject(coordinator)
         .tint(Color.mainBlue)
+        .task {
+            UserModel.user.group = Constants.groupManager.userGroup
+        }
     }
 }
 

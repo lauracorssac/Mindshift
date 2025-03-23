@@ -7,8 +7,15 @@
 
 import Foundation
 
-class UserStatusManager {
-    static let shared = UserStatusManager()
+protocol UserStatusManager {
+    var currentStatus: UserStatus { get }
+    var hasAlreadyConsent: Bool { get }
+    func completeStep(screen: Screen, userGroup: Group)
+}
+
+
+
+class UserStatusManagerImp: UserStatusManager {
     private let defaults = UserDefaultsManager.shared
     private let key = "userStatus"
     private let initialStep = UserStatus.consent
@@ -19,20 +26,25 @@ class UserStatusManager {
         return currentStatus != .consent
     }
     
-    private init() {
+    init() {
         
-        if let mockedStatus = Constants.initialStatus {
-            currentStatus = mockedStatus
-            defaults.setValue(key: key, value: mockedStatus.rawValue)
-            print("CURRENT STATUS MOCKED", currentStatus)
+        if Constants.shouldPersistData {
+            
+            if let mockedStatus = Constants.initialStatus {
+                currentStatus = mockedStatus
+                defaults.setValue(key: key, value: mockedStatus.rawValue)
+                print("CURRENT STATUS MOCKED", currentStatus)
+            }
+            
+            let currentStatusString = defaults.getValue(
+                key: key,
+                defaultValue: initialStep.rawValue
+            )
+            
+            currentStatus = UserStatus(rawValue: currentStatusString) ?? initialStep
+        } else {
+            currentStatus = initialStep
         }
-        
-        let currentStatusString = defaults.getValue(
-            key: key,
-            defaultValue: initialStep.rawValue
-        )
-        
-        currentStatus = UserStatus(rawValue: currentStatusString) ?? initialStep
         
         print("CURRENT STATUS", currentStatus)
     }

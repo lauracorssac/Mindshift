@@ -6,7 +6,7 @@
 //
 import Foundation
 
-struct Trial {
+struct Trial: Encodable, Hashable {
     let step: Int
     let responseTime: Int
 }
