@@ -19,4 +19,5 @@ class Constants {
     static let shouldPersistData = false
     static let model = RandomModel()
     static let groupManager = GroupManagerImpl()
+    static let statusManager = UserStatusManagerImp()
 }
