@@ -33,6 +33,7 @@ class AudioPlayerViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
     
     func setupPlayer() {
+        UIApplication.shared.isIdleTimerDisabled = true
         guard let url = Bundle.main.url(
             forResource: Constants.meditationDebug ? "audio_cut": "meditation_audio",
             withExtension: Constants.meditationDebug ? "m4a" : "mp3"

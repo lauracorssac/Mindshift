@@ -19,11 +19,6 @@ struct MeditationAudioView: View {
                 Image(systemName: viewModel.isPlaying ? "pause.circle" : "play.circle")
                     .font(.system(size: 85))
                     .foregroundColor(Color.mainBlue)
-//                    .background(
-//                        Color.white.opacity(0.3)
-//                            .cornerRadius(50)
-//                            .blur(radius: 10)
-//                    )
                     .padding(.vertical, 20)
             }
             
@@ -53,6 +48,7 @@ struct MeditationAudioView: View {
             if isFinished {
                 UserModel.user.meditationSessions += 1
                 coordinator.pushNext(to: .meditation)
+                UIApplication.shared.isIdleTimerDisabled = false
             }
         }
         .onAppear {
