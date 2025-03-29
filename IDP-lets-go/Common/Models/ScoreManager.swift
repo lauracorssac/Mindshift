@@ -19,8 +19,8 @@ class ScoreManager {
     func computeAndAssignScore() {
         let scoreModel = ScoreModel(trials: allTrials)
         let computedScore = scoreModel.score
-        UserModel.user.score = computedScore
-        UserModel.user.trials = Set(allTrials)
+        UserModel.shared.user.score = computedScore
+        UserModel.shared.user.trials = Set(allTrials)
         
         print("Assigned final score \(computedScore ?? 0) for user")
             

@@ -50,11 +50,11 @@ class DemographicsViewModel: ObservableObject {
 //        Task { @MainActor in
 //            isLoading = true
             
-            UserModel.user.gender = gender
-            UserModel.user.birthYear = birthYear
-            UserModel.user.professions = professions
-            UserModel.user.races = races
-            UserModel.user.education = education
+        UserModel.shared.user.gender = gender
+        UserModel.shared.user.birthYear = birthYear
+        UserModel.shared.user.professions = professions
+        UserModel.shared.user.races = races
+        UserModel.shared.user.education = education
         
         shouldPresentNextView = true
         
