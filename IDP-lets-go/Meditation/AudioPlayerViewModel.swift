@@ -44,6 +44,7 @@ class AudioPlayerViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
         
         do {
             player = try AVAudioPlayer(contentsOf: url)
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
             player?.delegate = self
             player?.prepareToPlay()
         } catch {

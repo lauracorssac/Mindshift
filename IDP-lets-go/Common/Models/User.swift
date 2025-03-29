@@ -42,7 +42,7 @@ class UserModel {
         professions: [],
         score: nil,
         trials: [],
-        answers: [],
+        answers: Array(repeating: Answer(mostIndex: -1, leastIndex: -1), count: 10),
         group: .control,
         meditationSessions: 0
     )

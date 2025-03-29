@@ -69,6 +69,7 @@ struct TestQuestionView: View {
             
             Spacer()
             Text(stepVM.currentQuestion.title)
+                .id(stepVM.currentQuestionIndex)
                 .font(.title)
                 .padding( .bottom, 50)
             HStack {
