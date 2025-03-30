@@ -151,5 +151,8 @@ struct SelectableButtonStyle: ButtonStyle {
     
 
 #Preview {
-    ScenarioView()
+    NavigationStack {
+        ScenarioView()
+            .environmentObject(AppCoordinator())
+    }
 }

@@ -69,7 +69,11 @@ struct TestQuestionView: View {
             
             Spacer()
             Text(stepVM.currentQuestion.title)
-                .id(stepVM.currentQuestionIndex)
+                .id(stepVM.currentQuestion.id)
+                .transition(.asymmetric(
+                    insertion: .scale,
+                    removal: .scale
+                ))
                 .font(.title)
                 .padding( .bottom, 50)
             HStack {
@@ -102,7 +106,7 @@ struct TestQuestionView: View {
         }
         .animation(
             .easeInOut(duration: 0.3),
-            value: stepVM.currentQuestionIndex
+            value: stepVM.currentQuestion
         )
         .overlay {
             VStack {

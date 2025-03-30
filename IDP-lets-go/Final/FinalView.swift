@@ -10,13 +10,12 @@ import SwiftUI
 struct FinalView: View {
     
     let viewModel: FinalViewModel
-
+    
     var body: some View {
         
         if viewModel.isLoading {
             
             VStack {
-                
                 
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
