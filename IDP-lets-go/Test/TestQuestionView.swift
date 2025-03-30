@@ -105,7 +105,7 @@ struct TestQuestionView: View {
                
         }
         .animation(
-            .easeInOut(duration: 0.3),
+            .easeInOut(duration: 0.05),
             value: stepVM.currentQuestion
         )
         .overlay {
