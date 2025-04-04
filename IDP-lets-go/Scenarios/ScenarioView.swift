@@ -50,7 +50,8 @@ struct ScenarioView: View {
                         guard let selectedMost, let selectedLeast else { return }
                         
                         let answer = Answer(mostIndex: selectedMost, leastIndex: selectedLeast)
-                        UserModel.user.answers.append(answer)
+                        
+                        UserModel.shared.user.answers[currentIndex] = answer
                             
                         if currentIndex < scenarios.scenarios.count - 1  {
                             self.selectedMost = nil
@@ -61,6 +62,21 @@ struct ScenarioView: View {
                         }
                     }
                     .disabled(selectedMost == nil || selectedLeast == nil)
+                }
+                
+                if (currentIndex > 0) {
+                    
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            self.currentIndex -= 1
+                            self.selectedMost = UserModel.shared.user.answers[currentIndex].mostIndex
+                            self.selectedLeast = UserModel.shared.user.answers[currentIndex].leastIndex
+                            
+                        } label: {
+                            Image(systemName: "chevron.backward")
+                        }
+                        
+                    }
                 }
             }
         }
@@ -135,5 +151,8 @@ struct SelectableButtonStyle: ButtonStyle {
     
 
 #Preview {
-    ScenarioView()
+    NavigationStack {
+        ScenarioView()
+            .environmentObject(AppCoordinator())
+    }
 }

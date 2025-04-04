@@ -54,5 +54,8 @@ struct ScenariosStartView: View {
 }
 
 #Preview {
-    ScenariosStartView()
+    NavigationStack {
+        ScenariosStartView()
+            .environmentObject(AppCoordinator())
+    }
 }

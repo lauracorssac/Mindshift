@@ -12,6 +12,7 @@ enum Option {
 }
 
 struct Question: Hashable {
+    let id = UUID()
     let title: String
     let answer: Option
 }
@@ -36,9 +37,9 @@ struct Step: Hashable {
         rightTitle: "fam",
         introText: "step 1",
         questions: [
-            .init(title: "emilia", answer: .right),
-            .init(title: "nino", answer: .left),
-            .init(title: "umay", answer: .right),
+            .init(title: "nino", answer: .right),
+            .init(title: "nino", answer: .right),
+            .init(title: "nino", answer: .right),
         ]
     )
 

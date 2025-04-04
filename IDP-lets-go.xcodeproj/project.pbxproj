@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,11 @@
 		8DC7A54D2D88B0F800E60128 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 8DC7A54C2D88B0F800E60128 /* FirebaseAppCheck */; };
 		8DC7A54F2D88B0F800E60128 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 8DC7A54E2D88B0F800E60128 /* FirebaseAppDistribution-Beta */; };
 		8DC7A5522D88C34C00E60128 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8DC7A5512D88C34C00E60128 /* FirebaseFirestore */; };
+		8DC7A5812D98425F00E60128 /* FinalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7A5802D98425F00E60128 /* FinalViewModel.swift */; };
+		8DC7A5832D98427700E60128 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7A5822D98427700E60128 /* Result.swift */; };
+		8DC7A58F2D98450E00E60128 /* ScenarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7A58D2D98450E00E60128 /* ScenarioView.swift */; };
+		8DC7A5902D98450E00E60128 /* Scenarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7A58B2D98450E00E60128 /* Scenarios.swift */; };
+		8DC7A5912D98450E00E60128 /* ScenariosStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7A58C2D98450E00E60128 /* ScenariosStartView.swift */; };
 		8DD8CD162CFD0B010058CF4B /* IDP_lets_goApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD152CFD0B010058CF4B /* IDP_lets_goApp.swift */; };
 		8DD8CD182CFD0B010058CF4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD172CFD0B010058CF4B /* ContentView.swift */; };
 		8DD8CD1A2CFD0B030058CF4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DD8CD192CFD0B030058CF4B /* Assets.xcassets */; };
@@ -54,7 +59,6 @@
 		8DD8CD7D2D35A2D60058CF4B /* TestFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD7B2D35A2D60058CF4B /* TestFields.swift */; };
 		8DD8CD7F2D35AB270058CF4B /* FinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD7E2D35AB270058CF4B /* FinalView.swift */; };
 		8DD8CD812D380B480058CF4B /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD802D380B480058CF4B /* TestModel.swift */; };
-		8DD8CD842D3AB6110058CF4B /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD832D3AB6110058CF4B /* Requests.swift */; };
 		8DD8CD862D3AB9900058CF4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD852D3AB9900058CF4B /* User.swift */; };
 		8DD8CD882D3ABC840058CF4B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD872D3ABC840058CF4B /* Date.swift */; };
 		8DD8CD8D2D4429BE0058CF4B /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD8CD8C2D4429BE0058CF4B /* UserStatus.swift */; };
@@ -96,6 +100,11 @@
 		8DC7A5212D87440C00E60128 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
 		8DC7A5232D87443B00E60128 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		8DC7A5432D88AF5200E60128 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8DC7A5802D98425F00E60128 /* FinalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewModel.swift; sourceTree = "<group>"; };
+		8DC7A5822D98427700E60128 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		8DC7A58B2D98450E00E60128 /* Scenarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenarios.swift; sourceTree = "<group>"; };
+		8DC7A58C2D98450E00E60128 /* ScenariosStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenariosStartView.swift; sourceTree = "<group>"; };
+		8DC7A58D2D98450E00E60128 /* ScenarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioView.swift; sourceTree = "<group>"; };
 		8DD8CD122CFD0B010058CF4B /* IDP-lets-go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IDP-lets-go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD8CD152CFD0B010058CF4B /* IDP_lets_goApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDP_lets_goApp.swift; sourceTree = "<group>"; };
 		8DD8CD172CFD0B010058CF4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,7 +130,6 @@
 		8DD8CD7B2D35A2D60058CF4B /* TestFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFields.swift; sourceTree = "<group>"; };
 		8DD8CD7E2D35AB270058CF4B /* FinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalView.swift; sourceTree = "<group>"; };
 		8DD8CD802D380B480058CF4B /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
-		8DD8CD832D3AB6110058CF4B /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		8DD8CD852D3AB9900058CF4B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8DD8CD872D3ABC840058CF4B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		8DD8CD8C2D4429BE0058CF4B /* UserStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatus.swift; sourceTree = "<group>"; };
@@ -144,10 +152,6 @@
 		F9A10FB52D2F12F300962DFF /* TestTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableView.swift; sourceTree = "<group>"; };
 		F9A10FB72D2F131300962DFF /* TestPartIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPartIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		315371582D78F5970026E940 /* Scenarios */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Scenarios; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8DD8CD0F2CFD0B010058CF4B /* Frameworks */ = {
@@ -188,6 +192,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8DC7A57F2D98424D00E60128 /* Final */ = {
+			isa = PBXGroup;
+			children = (
+				8DD8CD7E2D35AB270058CF4B /* FinalView.swift */,
+				8DC7A5802D98425F00E60128 /* FinalViewModel.swift */,
+			);
+			path = Final;
+			sourceTree = "<group>";
+		};
+		8DC7A58E2D98450E00E60128 /* Scenarios */ = {
+			isa = PBXGroup;
+			children = (
+				8DC7A58B2D98450E00E60128 /* Scenarios.swift */,
+				8DC7A58C2D98450E00E60128 /* ScenariosStartView.swift */,
+				8DC7A58D2D98450E00E60128 /* ScenarioView.swift */,
+			);
+			path = Scenarios;
+			sourceTree = "<group>";
+		};
 		8DD8CD092CFD0B010058CF4B = {
 			isa = PBXGroup;
 			children = (
@@ -208,8 +231,8 @@
 		8DD8CD142CFD0B010058CF4B /* IDP-lets-go */ = {
 			isa = PBXGroup;
 			children = (
-				315371582D78F5970026E940 /* Scenarios */,
-				8DD8CD822D3AB5E30058CF4B /* Network */,
+				8DC7A58E2D98450E00E60128 /* Scenarios */,
+				8DC7A57F2D98424D00E60128 /* Final */,
 				F9A10FAE2D2F129D00962DFF /* Test */,
 				8DD8CD552D1D90030058CF4B /* Consent */,
 				8DD8CD482D1C836E0058CF4B /* Overview */,
@@ -300,6 +323,7 @@
 				8DD8CDA22D53F7FA0058CF4B /* Race.swift */,
 				8D21EA882D763F5D000753CF /* RandomGroupGenerator.swift */,
 				8D21EA8C2D76597D000753CF /* UserGroupManager.swift */,
+				8DC7A5822D98427700E60128 /* Result.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -349,14 +373,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		8DD8CD822D3AB5E30058CF4B /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				8DD8CD832D3AB6110058CF4B /* Requests.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		F9A10FAE2D2F129D00962DFF /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,7 +383,6 @@
 				F9A10FB32D2F12E600962DFF /* TestQuestionView.swift */,
 				F9A10FB12D2F12D300962DFF /* TestInformationView.swift */,
 				8DD8CD792D35A16A0058CF4B /* Classes.swift */,
-				8DD8CD7E2D35AB270058CF4B /* FinalView.swift */,
 				8DD8CD802D380B480058CF4B /* TestModel.swift */,
 			);
 			path = Test;
@@ -387,9 +402,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				315371582D78F5970026E940 /* Scenarios */,
 			);
 			name = "IDP-lets-go";
 			productName = "IDP-lets-go";
@@ -480,12 +492,12 @@
 				31F074AF2D026F8000D0AA23 /* AudioPlayerViewModel.swift in Sources */,
 				8DD8CD972D4FF9EE0058CF4B /* StepProgressView.swift in Sources */,
 				F962263A2D8088A800E63B9F /* ScoreModel.swift in Sources */,
+				8DC7A5812D98425F00E60128 /* FinalViewModel.swift in Sources */,
 				8DC7A4FA2D872BD500E60128 /* SelectionView.swift in Sources */,
 				8DD8CD7D2D35A2D60058CF4B /* TestFields.swift in Sources */,
 				8DD8CD862D3AB9900058CF4B /* User.swift in Sources */,
 				F9A10FB42D2F12EB00962DFF /* TestQuestionView.swift in Sources */,
 				8DD8CD322D1023030058CF4B /* Coordinator.swift in Sources */,
-				8DD8CD842D3AB6110058CF4B /* Requests.swift in Sources */,
 				8DD8CD7F2D35AB270058CF4B /* FinalView.swift in Sources */,
 				8DD8CD8F2D442A9A0058CF4B /* UserDefaultsManager.swift in Sources */,
 				8DD8CD2D2D101D300058CF4B /* RoundedButtonStyle.swift in Sources */,
@@ -496,6 +508,9 @@
 				8DD8CD8D2D4429BE0058CF4B /* UserStatus.swift in Sources */,
 				31FA10E12D3A8BFE00BA9C61 /* OnboardingView.swift in Sources */,
 				8DD8CD4A2D1C837F0058CF4B /* OverviewPageView.swift in Sources */,
+				8DC7A58F2D98450E00E60128 /* ScenarioView.swift in Sources */,
+				8DC7A5902D98450E00E60128 /* Scenarios.swift in Sources */,
+				8DC7A5912D98450E00E60128 /* ScenariosStartView.swift in Sources */,
 				8DD8CD992D53F63A0058CF4B /* Occupation.swift in Sources */,
 				F9A10FB62D2F12F800962DFF /* TestTableView.swift in Sources */,
 				8DD8CD182CFD0B010058CF4B /* ContentView.swift in Sources */,
@@ -503,6 +518,7 @@
 				8DD8CD522D1C98F10058CF4B /* Card.swift in Sources */,
 				8DD8CD4C2D1C8FF30058CF4B /* OverviewCardView.swift in Sources */,
 				8DD8CD7A2D35A16A0058CF4B /* Classes.swift in Sources */,
+				8DC7A5832D98427700E60128 /* Result.swift in Sources */,
 				8DD8CD9D2D53F70B0058CF4B /* Education.swift in Sources */,
 				31F074B22D02758C00D0AA23 /* MeditationEndView.swift in Sources */,
 				8DD8CD162CFD0B010058CF4B /* IDP_lets_goApp.swift in Sources */,
@@ -643,7 +659,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IDP-lets-go/Preview Content\"";
-				DEVELOPMENT_TEAM = HXG58UK739;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -656,7 +672,6 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "lauracorssac.IDP-lets-go";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -672,7 +687,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IDP-lets-go/Preview Content\"";
-				DEVELOPMENT_TEAM = HXG58UK739;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -685,7 +700,6 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "lauracorssac.IDP-lets-go";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

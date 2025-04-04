@@ -6,69 +6,16 @@
 //
 
 import SwiftUI
-import Firebase
-import FirebaseFirestore
-
-protocol FinalViewModel {
-    var isLoading: Bool { get }
-}
-
-class MockFinalViewModel: FinalViewModel {
-    var isLoading = true
-}
-
-@Observable
-class FinalViewModelImpl: FinalViewModel {
-    
-    @MainActor var isLoading = true
-    
-    init() {
-        
-        addUser(completion: handleResult)
-    }
-    
-    func handleResult(result: Result) {
-        Task { @MainActor in
-            isLoading = false
-        }
-    }
-
-    func addUser(completion: @escaping (Result) -> ()) {
-        let db = Firestore.firestore()
-        
-        guard
-            let jsonData = try? JSONEncoder().encode(UserModel.user),
-            let jsonDict = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any]
-        else {
-            completion(.error)
-            return
-        }
-
-        db.collection("users")
-            .document(UserModel.user.id.uuidString)
-            .setData(jsonDict) { error in
-            if let error = error {
-                completion(.error)
-                print("Error adding user: \(error)")
-            } else {
-                completion(.success)
-                print("User added successfully!")
-            }
-        }
-    }
-    
-}
 
 struct FinalView: View {
     
     let viewModel: FinalViewModel
-
+    
     var body: some View {
         
         if viewModel.isLoading {
             
             VStack {
-                
                 
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())

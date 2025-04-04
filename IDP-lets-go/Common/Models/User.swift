@@ -26,9 +26,14 @@ struct User: Encodable {
     var meditationSessions: Int
 }
 
+
 class UserModel {
     
-    static var user = User(
+    private init() {}
+    
+    static let shared = UserModel()
+    
+    var user = User(
         id: UUID(),
         gender: "",
         birthYear: "",
@@ -37,7 +42,7 @@ class UserModel {
         professions: [],
         score: nil,
         trials: [],
-        answers: [],
+        answers: Array(repeating: Answer(mostIndex: -1, leastIndex: -1), count: 10),
         group: .control,
         meditationSessions: 0
     )

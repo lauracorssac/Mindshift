@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "undefined/subscriptions/9adde56a-a8d6-48c1-a7ff-187418bf2a56/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/ipd-lets-go",
-    "appService.deploySubpath": "."
-}
