@@ -12,7 +12,6 @@ struct DemographicsWrapperView: View {
     @EnvironmentObject private var coordinator: AppCoordinator
     @State private var currentStep: Int = 0
     @State private var currentProgress: Int = 1
-    @State private var ended = false
     @ObservedObject var viewModel: DemographicsViewModel
     
     var totalSteps: Int {
@@ -88,7 +87,6 @@ struct DemographicsWrapperView: View {
         } else {
             withAnimation(Animation.spring(dampingFraction: 0.1), {
                 currentProgress += 1
-                ended = true
             })
             
             viewModel.saveData()
